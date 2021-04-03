@@ -1,0 +1,286 @@
+@mixin radius($value){
+    border-radius: $value;
+    -webkit-border-radius: $value;
+    -moz-border-radius: $value;
+}
+
+
+// $color: #E80C5C;
+$color: #19504B;
+$colorHover: #123936;
+
+body{
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+// Overrides
+h1, h2, h3, h4, h5, h6, ol, ul{
+    margin: 0;
+    padding: 0;
+}
+
+// Text colors
+.text-accent{
+    color: $color;
+}
+
+// Background colors
+.bg-accent{
+    background-color: $color;
+}
+
+.navbar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+    height: 4.5em;
+
+    .navbar-brand{
+        .logo{
+            height: 2em;
+          }
+    }
+
+    .search-box{
+        width: 350px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        .form-control{
+            height: 2.5em;
+            border-radius: 0.75em 0 0 0.75em;
+        }
+        .btn{
+            display: flex;
+            align-items: center;
+            height: 2.5em;
+            border-radius: 0 0.75em 0.75em 0;
+            color: #fff;
+            background-color: $color;
+
+            &:hover{
+                background-color: $colorHover;
+            }
+        }
+    }
+
+    .navbar-nav{
+        .nav-item{
+            .nav-link{
+                color: $color;
+            }
+        }
+    }
+}
+
+.menubar{
+    display: flex;
+    align-items: center;
+    padding: 0;
+    height: 2.5em;
+
+    .menubar-nav{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+
+        .nav-list{
+            list-style: none;
+            line-height: auto;
+
+            .nav-link{
+                height: 2.5em;
+                line-height: 2.5em;
+                color: #fff;
+                padding: 0;
+                padding-left: 1em;
+                padding-right: 1em;
+                transition: .150s;
+
+                &:hover{
+                    background-color: $colorHover;
+                }
+            }
+        }
+    }
+}
+
+// Home - Hero
+.hero{
+    background-color: #ededed;
+    
+    .container-xl{
+        .carousel{
+            .carousel-inner{
+                .carousel-item{
+                    height: 20em;
+                    
+                    img{
+                        height: 100%;
+                    }
+                    .carousel-caption{
+                        position: absolute;
+                        left: 5%;
+                        top: 50%;
+                        bottom: auto;
+                        padding: 0;
+                        transform: translateY(-50%);
+                        color: #000;
+                        text-align: left;
+            
+                        @media only screen and (min-width: 768px){
+                            right: 50%;
+                        }
+            
+                        .title{
+                            color: #333;
+                            font-size: 1.5em;
+                            margin-bottom: 0;
+                            
+                            @media only screen and (min-width: 768px){
+                                font-size: 50px;
+                            }
+                        }
+                        .text{
+                            color: #444;
+                            font-size: 1em;
+                        }
+                    }
+                }
+            }
+            
+            .carousel-indicators{
+                position: absolute;
+                bottom: 0;
+                li{
+                    background-color: #ffed4a;
+                    border: 5px solid $color;
+                    height: 1em;
+                    width: 1em;
+                    @include radius(50%);
+                }
+                .active{
+                    background-color: #ffed4a;
+                }
+            }
+            .carousel-control-next, .carousel-control-prev {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                z-index: 1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 3em;
+                width: 3em;
+                border-radius: 0 50% 50% 0;
+                background-color: #000;
+                color: #000;
+                text-align: center;
+                opacity: 0;
+                transition: .125s;
+
+                .carousel-control-prev-icon, .carousel-control-next-icon{
+                    filter: none;
+                }
+
+                &:hover{
+                    opacity: .75;
+                }
+            }
+            &:hover{
+                .carousel-control-next, .carousel-control-prev{
+                    opacity: .5;
+                }
+            }
+            .carousel-control-next {
+                border-radius: 50% 0 0 50%;
+            }
+        }
+    }
+}
+
+// Home - Featured Categories
+.featured-categories{
+    .sec-head{
+      .label{
+        color: #888;
+      }
+      .title{
+        color: #333;
+        text-transform: uppercase;
+      }
+      .description{
+        color: #666;
+      }
+    }
+    .sCard{
+      background-color: #fff;
+      position: relative;
+      overflow: hidden;
+      display: block;
+      box-shadow: 1px 2px 2px #ededed;
+  
+      .image-wrapper{
+        height: 283px;
+        width: auto;
+  
+        @media only screen and (max-width: 767px){
+          height: 150px;
+        }
+  
+        .image{
+          height: 100%;
+          transition: .5s;
+          background-position: center center;
+          background-repeat: no-repeat;
+          background-size: cover;
+        }
+      }
+      &:hover{
+        .image-wrapper{
+          .image{
+            transform: scale(1.15);
+          }
+        }
+        .info{
+          bottom: 0;
+          .label{
+            margin-bottom: 0;
+          }
+          .qty{
+            opacity: 1;
+          }
+        }
+      }
+  
+      .info{
+        position: absolute;
+        bottom: -15%;
+        left: 0;
+        z-index: 1;
+        padding: 1em;
+        transition: .3s;
+        
+        .label{
+          color: #3f3f3f;
+          text-transform: uppercase;
+          font-size: 1.25em;
+          font-weight: bold;
+          display: block;
+          margin-bottom: .5em;
+          transition: .3s;
+        }
+        .qty{
+          color: #2d2a2a;
+          opacity: 0;
+          transition: .3s;
+        }
+      }
+    }
+  }

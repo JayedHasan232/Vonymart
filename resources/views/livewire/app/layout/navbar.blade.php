@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md shadow-sm">
+<nav class="navbar navbar-expand-md shadow-sm py-5">
     <div class="container-xl">
         <a class="navbar-brand text-accent" href="{{ url('/') }}">
             <img class="logo" src="{{ asset('media/logo/tools.svg') }}" alt="{{ config('app.name', 'Laravel') }}">
@@ -19,15 +19,15 @@
         <ul class="navbar-nav">
             <!-- Authentication Links -->
             @guest
-                @if (Route::has('login'))
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                    </li>
-                @endif
-                
                 @if (Route::has('register'))
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                        <a class="nav-link bg-accent text-white rounded-pill px-5" href="{{ route('register') }}">{{ __('Register') }}</a>
+                    </li>
+                @endif
+
+                @if (Route::has('login'))
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="{{ route('login') }}">{{ __('Login') }}</a>
                     </li>
                 @endif
             @else

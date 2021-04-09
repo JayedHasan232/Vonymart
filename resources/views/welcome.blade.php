@@ -23,4 +23,5 @@
 @section('content')
     @livewire('app.page.home.hero')
     @livewire('app.page.home.categories')
+    @livewire('app.page.home.trending')
 @endsection

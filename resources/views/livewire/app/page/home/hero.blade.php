@@ -1,5 +1,10 @@
 <section class="hero">
     <div class="container-xl">
+        <ul class="categories">
+            @for($i=1; $i< 20; $i++)
+            <li class="item"><a href="#" class="link text-capitalize">{{ Str::random(15) }}</a></li>
+            @endfor
+        </ul>
         <div class="carousel">
             <div id="hphcarousel" class="carousel carousel-dark slide" data-bs-ride="carousel">
                 
@@ -11,21 +16,21 @@
 
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="{{ asset('media/hero/slider-main-demo.jpg') }}" class="d-block w-100" alt="...">
+                        <img src="{{ asset('media/hero/slider-main-demo.jpg') }}" class="d-block w-100" alt="Slider">
                         <div class="carousel-caption">
                             <h5 class="title">First slide label</h5>
                             <p class="text">Some representative placeholder content for the first slide.</p>
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <img src="{{ asset('media/hero/slider-main-demo.jpg') }}" class="d-block w-100" alt="...">
+                        <img src="{{ asset('media/hero/slider-main-demo.jpg') }}" class="d-block w-100" alt="Slider">
                         <div class="carousel-caption">
                             <h5 class="title">Second slide label</h5>
                             <p class="text">Some representative placeholder content for the second slide.</p>
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <img src="{{ asset('media/hero/slider-main-demo.jpg') }}" class="d-block w-100" alt="...">
+                        <img src="{{ asset('media/hero/slider-main-demo.jpg') }}" class="d-block w-100" alt="Slider">
                         <div class="carousel-caption">
                             <h5 class="title">Third slide label</h5>
                             <p class="text">Some representative placeholder content for the third slide.</p>

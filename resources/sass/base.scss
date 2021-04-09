@@ -5,9 +5,9 @@
 }
 
 
-// $color: #E80C5C;
-$color: #19504B;
-$colorHover: #123936;
+$color: #C9151B;
+$colorHover: #af0a0f;
+$transition: .125s;
 
 body{
     font-family: 'Roboto Condensed', sans-serif;
@@ -17,6 +17,9 @@ body{
 h1, h2, h3, h4, h5, h6, ol, ul{
     margin: 0;
     padding: 0;
+}
+a{
+    text-decoration: none;
 }
 
 // Text colors
@@ -82,6 +85,7 @@ h1, h2, h3, h4, h5, h6, ol, ul{
     align-items: center;
     padding: 0;
     height: 2.5em;
+    background-color: #1A202C;
 
     .menubar-nav{
         display: flex;
@@ -100,7 +104,7 @@ h1, h2, h3, h4, h5, h6, ol, ul{
                 padding: 0;
                 padding-left: 1em;
                 padding-right: 1em;
-                transition: .150s;
+                transition: $transition;
 
                 &:hover{
                     background-color: $colorHover;
@@ -115,7 +119,42 @@ h1, h2, h3, h4, h5, h6, ol, ul{
     background-color: #ededed;
     
     .container-xl{
+        display: flex;
+        align-items: flex-start;
+
+        .categories{
+            height: 20em;
+            width: 300px;
+            overflow-x: hidden;
+            overflow-y: scroll;
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+
+            .item{
+                list-style: none;
+
+                .link{
+                    font-size: 15px;
+                    padding: 0.5em 1em;
+                    display: block;
+                    background-color: #fff;
+                    color: #666;
+                    border-bottom: 1px solid #f9f9f9;
+                    transition: $transition;
+              
+                    &:hover{
+                        color: #fff;
+                        background-color: $colorHover;
+                    }
+                }
+            }
+        }
         .carousel{
+            width: 100%;
             .carousel-inner{
                 .carousel-item{
                     height: 20em;
@@ -158,14 +197,14 @@ h1, h2, h3, h4, h5, h6, ol, ul{
                 position: absolute;
                 bottom: 0;
                 li{
-                    background-color: #ffed4a;
+                    background-color:transparent;
                     border: 5px solid $color;
                     height: 1em;
                     width: 1em;
-                    @include radius(50%);
+                    @include radius(.5em);
                 }
                 .active{
-                    background-color: #ffed4a;
+                    background-color:transparent;
                 }
             }
             .carousel-control-next, .carousel-control-prev {
@@ -183,7 +222,7 @@ h1, h2, h3, h4, h5, h6, ol, ul{
                 color: #000;
                 text-align: center;
                 opacity: 0;
-                transition: .125s;
+                transition: $transition;
 
                 .carousel-control-prev-icon, .carousel-control-next-icon{
                     filter: none;
@@ -196,6 +235,10 @@ h1, h2, h3, h4, h5, h6, ol, ul{
             &:hover{
                 .carousel-control-next, .carousel-control-prev{
                     opacity: .5;
+                    &:hover{
+                        opacity: 1;
+                        background-color: $color;
+                    }
                 }
             }
             .carousel-control-next {
@@ -208,9 +251,6 @@ h1, h2, h3, h4, h5, h6, ol, ul{
 // Home - Featured Categories
 .featured-categories{
     .sec-head{
-      .label{
-        color: #888;
-      }
       .title{
         color: #333;
         text-transform: uppercase;
@@ -219,68 +259,165 @@ h1, h2, h3, h4, h5, h6, ol, ul{
         color: #666;
       }
     }
-    .sCard{
-      background-color: #fff;
-      position: relative;
-      overflow: hidden;
-      display: block;
-      box-shadow: 1px 2px 2px #ededed;
-  
+}
+
+// Category
+.category{
+    background-color: #fff;
+    position: relative;
+    overflow: hidden;
+    display: block;
+    box-shadow: 3px 3px 3px #ededed;
+    border-radius: 1em;
+    overflow: hidden;
+
+    .image-wrapper{
+      height: 283px;
+      width: auto;
+
+      @media only screen and (max-width: 767px){
+        height: 150px;
+      }
+
+      .image{
+        height: 100%;
+        transition: $transition;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+    }
+    &:hover{
       .image-wrapper{
-        height: 283px;
-        width: auto;
-  
-        @media only screen and (max-width: 767px){
-          height: 150px;
-        }
-  
         .image{
-          height: 100%;
-          transition: .5s;
-          background-position: center center;
-          background-repeat: no-repeat;
-          background-size: cover;
+          transform: scale(1.15);
         }
       }
-      &:hover{
-        .image-wrapper{
-          .image{
-            transform: scale(1.15);
-          }
-        }
-        .info{
-          bottom: 0;
-          .label{
-            margin-bottom: 0;
-          }
-          .qty{
-            opacity: 1;
-          }
-        }
-      }
-  
       .info{
-        position: absolute;
-        bottom: -15%;
-        left: 0;
-        z-index: 1;
-        padding: 1em;
-        transition: .3s;
-        
+        bottom: 0;
         .label{
-          color: #3f3f3f;
-          text-transform: uppercase;
-          font-size: 1.25em;
-          font-weight: bold;
-          display: block;
-          margin-bottom: .5em;
-          transition: .3s;
+          margin-bottom: 0;
         }
         .qty{
-          color: #2d2a2a;
-          opacity: 0;
-          transition: .3s;
+          opacity: 1;
         }
       }
     }
-  }
+
+    .info{
+      position: absolute;
+      bottom: -15%;
+      left: 0;
+      z-index: 1;
+      padding: 1em;
+      transition: $transition;
+      
+      .label{
+        color: #3f3f3f;
+        text-transform: uppercase;
+        font-size: 1.25em;
+        font-weight: bold;
+        display: block;
+        margin-bottom: .5em;
+        transition: $transition;
+      }
+      .qty{
+        color: #2d2a2a;
+        opacity: 0;
+        transition: $transition;
+      }
+    }
+}
+
+// Products
+.com_product{
+    height: 100%;
+    padding: 1em;
+    display: block;
+    position: relative;
+    border: 1px solid #ededed;
+    border-radius: 1em;
+    overflow: hidden;
+  
+    .pro_actions{
+        position: absolute;
+        text-align: center;
+        background-color: #fff;
+        box-shadow: 1px 1px 1px 0 rgba(0,0,0,.25);
+        border-radius: 1em;
+        right: 0;
+        bottom: 10px;
+        transform: translateX(100%);
+        opacity: 0;
+        transition: $transition;
+        z-index: 1;
+    
+        .pro_icon{
+            color: #333;
+            padding: 15px;
+            transition: $transition;
+    
+            &:hover{
+                color: #FF7346;
+            }
+        }
+    }
+    &:hover{
+        .pro_actions{
+            right: 10px;
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+  
+    .pro_title{
+        color: #333;
+        font-weight: bold;
+        text-transform: capitalize;
+        text-overflow: ellipsis;
+        word-wrap: break-word;
+        overflow: hidden;
+        max-height: 1.25em;
+        line-height: 1.25em;
+        transition: $transition;
+    
+        &:hover{
+            color: #888;
+            max-height: 2.5em;
+        }
+    }
+    &:hover {
+        .pro_title{
+            max-height: 2.5em;
+        }
+    }
+    .pro_category{
+        color: #9E9E9E;
+        &:hover{
+            color: #818181;
+        }
+    }
+    .pro_image{
+        margin: 1em 0;
+        border: 1px solid #ededed;
+        border-radius: 1em;
+        overflow: hidden;
+        transition: $transition;
+        img{
+            width: 100%;
+            transition: $transition;
+        }
+    }
+    .pro_price{
+        color: $color;
+        font-weight: bold;
+    }
+  
+    &:hover{
+        .pro_image{
+            img{
+                transform: scale(1.125);
+            }
+        }
+    }
+}

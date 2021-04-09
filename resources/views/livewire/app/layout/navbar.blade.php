@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-md shadow-sm py-5">
     <div class="container-xl">
         <a class="navbar-brand text-accent" href="{{ url('/') }}">
-            <img class="logo" src="{{ asset('media/logo/tools.svg') }}" alt="{{ config('app.name', 'Laravel') }}">
+            <img class="logo" src="https://evaly.com.bd/static/images/logo_b&w.svg" alt="{{ config('app.name', 'Laravel') }}">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse">
             <span class="navbar-toggler-icon"></span>

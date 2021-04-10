@@ -1,11 +1,9 @@
-<section class="featured-categories bg-white py-5">
+<section class="section hp-trending">
   <div class="container-xl">
 
-    <div class="sec-head text-center mb-5">
-      <h2 class="title">Trending Products</h2>
-      <p class="description">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis aspernatur obcaecati aliquam, nam alias soluta ea dolorum recusandae magni est deleniti velit maiores ut natus beatae eum exercitationem. Dolorem, dolor.
-      </p>
+    <div class="sec-head">
+      <h2 class="sec-title">Trending Products</h2>
+      <a href="#" class="sec-link">See More</a>
     </div>
 
     <div class="row g-4">

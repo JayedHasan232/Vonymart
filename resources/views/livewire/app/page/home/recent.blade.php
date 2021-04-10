@@ -2,7 +2,7 @@
   <div class="container-xl">
 
     <div class="sec-head">
-      <h2 class="sec-title">Featured Categories</h2>
+      <h2 class="sec-title">New Products</h2>
       <a href="#" class="sec-link">See More</a>
     </div>
 
@@ -11,7 +11,7 @@
       @for($i=1; $i <= 4; $i++)
       
       <div class="col-6 col-md-3">
-        @livewire('app.component.products.category')
+        @livewire('app.component.products.product')
       </div>
       
       @endfor

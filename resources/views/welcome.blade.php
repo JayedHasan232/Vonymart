@@ -24,4 +24,5 @@
     @livewire('app.page.home.hero')
     @livewire('app.page.home.categories')
     @livewire('app.page.home.trending')
+    @livewire('app.page.home.recent')
 @endsection

@@ -1,4 +1,4 @@
-<a class="com_product" href="#" title="{{ Str::random(15) }}">
+<a class="com_product" href="#" title="{{ __( $product->title ) }}">
     <div class="pro_actions" wire:click.prevent="addToCart">
         <div class="pro_icon">
             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cart3" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -11,10 +11,10 @@
             </svg>
         </div>
     </div>
-    <div class="pro_title">Fluke 700G Pressure Gauge Calibrator</div>
-    <div class="pro_category">Calibration</div>
+    <div class="pro_title">{{ __( $product->title ) }}</div>
+    <div class="pro_category">{{ __( $product->category->title ) }}</div>
     <div class="pro_image">
         <img src="http://demo.tools.com.bd/media/dummy/products/product-accessories-8-1-430x490.jpg" alt="">
     </div>
-    <div class="pro_price">৳420</div>
+    <div class="pro_price">{{ __( '৳' . $product->price ) }}</div>
 </a>

@@ -8,13 +8,13 @@
 
     <div class="row g-4">
 
-      @for($i=1; $i <= 4; $i++)
+      @foreach($products as $product)
       
       <div class="col-6 col-md-3">
-        @livewire('app.component.products.product')
+        @livewire('app.component.products.product', ['product' => $product])
       </div>
       
-      @endfor
+      @endforeach
 
     </div>
   </div>

@@ -278,8 +278,7 @@ a {
 }
 
 .section {
-  padding-top: 5em;
-  padding-bottom: 2.5em;
+  padding: 5em 0;
 }
 
 .section .sec-head {
@@ -500,5 +499,20 @@ a {
 
 .com_product:hover .pro_image img {
   transform: scale(1.125);
+}
+
+.footer {
+  height: 400px;
+  color: #9CA9BE;
+  background-color: #1A202C;
+}
+
+.copyright {
+  display: flex;
+  align-items: center;
+  height: 100px;
+  color: #9CA9BE;
+  background-color: #1A202C;
+  border-top: 1px solid #2C3542;
 }
 /*# sourceMappingURL=base.css.map */

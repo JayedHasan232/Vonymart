@@ -1,3 +1,17 @@
-<div>
-    Footer
-</div>
+<section>
+    <div class="footer">
+        <div class="container-xl">
+            <div class="row align-items-center">
+                <div class="col-md-4">Menu</div>
+                <div class="col-md-4">Contact Us</div>
+                <div class="col-md-4">Get In Touch</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="copyright">
+        <div class="container-xl">
+            &copy; {{ date('Y') }} Venmart. All rights reserved
+        </div>
+    </div>
+</section>

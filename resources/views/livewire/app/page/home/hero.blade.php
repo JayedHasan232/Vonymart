@@ -1,9 +1,9 @@
 <section class="hero">
     <div class="container-xl">
         <ul class="categories">
-            @for($i=1; $i< 20; $i++)
-            <li class="item"><a href="#" class="link text-capitalize">{{ Str::random(15) }}</a></li>
-            @endfor
+            @foreach($categories as $category)
+            <li class="item"><a href="#" class="link text-capitalize">{{ $category->title }}</a></li>
+            @endforeach
         </ul>
         <div class="carousel">
             <div id="hphcarousel" class="carousel carousel-dark slide" data-bs-ride="carousel">

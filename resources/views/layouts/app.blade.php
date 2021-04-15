@@ -42,7 +42,7 @@
         @livewire('app.layout.navbar')
         @livewire('app.layout.menubar')
         
-        <main class="pb-5">
+        <main>
             @yield('content')
         </main>
 

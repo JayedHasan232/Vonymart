@@ -292,8 +292,7 @@ a{
 
 // Section
 .section{
-    padding-top: 5em;
-    padding-bottom: 2.5em;
+    padding: 5em 0;
     .sec-head{
         display: flex;
         justify-content: space-between;
@@ -512,4 +511,22 @@ a{
             }
         }
     }
+}
+
+// Footer
+.footer{
+    height: 400px;
+    color: #9CA9BE;
+    background-color: $colorDark;
+    
+    
+}
+
+.copyright{
+    display: flex;
+    align-items: center;
+    height: 100px;
+    color: #9CA9BE;
+    background-color: $colorDark;
+    border-top: 1px solid #2C3542;
 }

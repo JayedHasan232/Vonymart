@@ -8,15 +8,19 @@ use App\Models\Product;
 
 class Recent extends Component
 {
+    public $qty;
+    public $link;
     public $products;
 
-    public function mount()
+    public function mount($qty, $link = '')
     {
+        $this->qty = $qty;
+        $this->link = $link == 'visible' ? 1 : 0;
         $this->products = Product::where('privacy', 1)
-                                    ->select('id', 'title', 'url', 'price', 'category_id')
-                                    ->latest()
-                                    ->get()
-                                    ->take(4);
+                                ->select('id', 'title', 'url', 'price', 'category_id')
+                                ->latest()
+                                ->get()
+                                ->take($this->qty);
     }
     
     public function render()

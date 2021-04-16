@@ -11,13 +11,13 @@ class ProductCategory extends Model
     
     protected $guarded = [];
 
-    public function products()
-    {
-        return $this->hasMany(\App\Models\Product::class, 'category_id');
-    }
-
     public function sub_categories()
     {
         return $this->hasMany(\App\Models\ProductSubCategory::class, 'category_id');
+    }
+
+    public function products()
+    {
+        return $this->hasMany(\App\Models\Product::class, 'category_id');
     }
 }

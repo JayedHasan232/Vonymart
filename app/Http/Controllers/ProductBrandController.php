@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ProductBrand;
 use Illuminate\Http\Request;
-use App\Models\ProductSubCategory as SubCategory;
 
-class ProductSubCategoryController extends Controller
+class ProductBrandController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class ProductSubCategoryController extends Controller
      */
     public function index()
     {
-        return view('app.sub_category.index');
+        //
     }
 
     /**
@@ -24,7 +24,7 @@ class ProductSubCategoryController extends Controller
      */
     public function create()
     {
-        return view('app.sub_category.create');
+        //
     }
 
     /**
@@ -41,36 +41,33 @@ class ProductSubCategoryController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Product  $product
+     * @param  \App\Models\ProductBrand  $productBrand
      * @return \Illuminate\Http\Response
      */
-    public function show($sub_category)
+    public function show(ProductBrand $productBrand)
     {
-        $sub_category = SubCategory::where('url', $sub_category)
-                                ->where('privacy', 1)
-                                ->firstOrFail();
-        return view('app.sub_category.show', ['sub_category' => $sub_category]);
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Product  $product
+     * @param  \App\Models\ProductBrand  $productBrand
      * @return \Illuminate\Http\Response
      */
-    public function edit($sub_category)
+    public function edit(ProductBrand $productBrand)
     {
-        return view('app.sub_category.edit');
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Product  $product
+     * @param  \App\Models\ProductBrand  $productBrand
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $sub_category)
+    public function update(Request $request, ProductBrand $productBrand)
     {
         //
     }
@@ -78,10 +75,10 @@ class ProductSubCategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Product  $product
+     * @param  \App\Models\ProductBrand  $productBrand
      * @return \Illuminate\Http\Response
      */
-    public function destroy($sub_category)
+    public function destroy(ProductBrand $productBrand)
     {
         //
     }

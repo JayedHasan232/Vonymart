@@ -21,8 +21,26 @@
 @endpush
 
 @section('content')
-    <livewire:app.page.home.hero />
-    <livewire:app.page.home.categories />
-    <livewire:app.page.home.trending qty="4" link="visible" classNames="bg-great" />
-    <livewire:app.page.home.recent qty="4" link="visible" />
+    <section class="section">
+        <div class="container-xl">
+
+            <div class="sec-head">
+                <h2 class="sec-title">Categories</h2>
+            </div>
+
+            <div class="row g-4">
+
+            @foreach($categories as $category)
+            
+            <div class="col-6 col-md-3">
+
+                @livewire('app.component.products.category', ['category' => $category])
+                
+            </div>
+            
+            @endforeach
+
+            </div>
+        </div>
+    </section>
 @endsection

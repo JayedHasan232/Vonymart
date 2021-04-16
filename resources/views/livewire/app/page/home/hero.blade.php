@@ -2,7 +2,7 @@
     <div class="container-xl">
         <ul class="categories">
             @foreach($categories as $category)
-            <li class="item"><a href="#" class="link text-capitalize">{{ $category->title }}</a></li>
+            <li class="item"><a href="{{ route('categories.show', $category->url) }}" class="link text-capitalize">{{ $category->title }}</a></li>
             @endforeach
         </ul>
         <div class="carousel">

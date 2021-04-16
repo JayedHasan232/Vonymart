@@ -2,21 +2,39 @@
 
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::namespace('\App\Http\Controllers')->group(function(){
+
+    Route::get('/', 'AppController@welcome')->name('welcome');
+
+
+    // Products
+    Route::resource('products', ProductController::class)
+        ->except(['index', 'show'])
+        ->middleware(['auth']);
+        
+    Route::resource('products', ProductController::class)
+        ->only(['index', 'show']);
+
+    Route::get('trending-products', 'ProductController@trendingProducts')->name('products.trending');
+    Route::get('new-products', 'ProductController@newProducts')->name('products.new');
+
+    // Category
+    Route::resource('categories', ProductCategoryController::class)
+        ->except(['index', 'show'])
+        ->middleware(['auth']);
+        
+    Route::resource('categories', ProductCategoryController::class)
+        ->only(['index', 'show']);
+
+    // Subcategory
+    Route::resource('sub-categories', ProductSubCategoryController::class)
+        ->except(['index', 'show'])
+        ->middleware(['auth']);
+        
+    Route::resource('sub-categories', ProductSubCategoryController::class)
+        ->only(['index', 'show']);
+
+});
+

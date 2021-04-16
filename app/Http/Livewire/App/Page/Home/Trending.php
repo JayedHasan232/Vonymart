@@ -8,14 +8,20 @@ use App\Models\Product;
 
 class Trending extends Component
 {
+    public $qty;
+    public $link;
+    public $classNames;
     public $products;
 
-    public function mount()
+    public function mount($qty, $link = '', $classNames = '')
     {
+        $this->qty = $qty;
+        $this->link = $link == 'visible' ? 1 : 0;
+        $this->classNames = $classNames;
         $this->products = Product::where('privacy', 1)
-                                    ->select('id', 'title', 'url', 'price', 'category_id')
-                                    ->get()
-                                    ->take(4);
+                                ->select('id', 'title', 'url', 'price', 'category_id')
+                                ->get()
+                                ->take($this->qty);
     }
 
     public function render()

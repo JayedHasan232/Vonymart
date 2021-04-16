@@ -19,6 +19,10 @@ a {
   background-color: #be1e2d;
 }
 
+.bg-great {
+  background-color: #15655c;
+}
+
 .navbar {
   display: flex;
   flex-direction: row;
@@ -310,10 +314,6 @@ a {
 .section .sec-head .sec-link:active {
   color: #15655c;
   border: 1px solid #15655c;
-}
-
-.hp-trending {
-  background-color: #15655c;
 }
 
 .hp-trending .sec-head .sec-title {

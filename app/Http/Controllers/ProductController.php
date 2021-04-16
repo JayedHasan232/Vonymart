@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Product;
 use Illuminate\Http\Request;
+use App\Models\Product;
 
 class ProductController extends Controller
 {
@@ -14,7 +14,17 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        return view('app.products.index');
+    }
+    
+    public function trendingProducts()
+    {
+        return view('app.products.trending');
+    }
+
+    public function newProducts()
+    {
+        return view('app.products.new');
     }
 
     /**
@@ -24,7 +34,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return view('app.products.create');
     }
 
     /**
@@ -44,9 +54,12 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show($product)
     {
-        //
+        $product = Product::where('url', $product)
+                        ->where('privacy', 1)
+                        ->firstOrFail();
+        return view('app.products.show', ['product' => $product]);
     }
 
     /**
@@ -55,9 +68,9 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product)
+    public function edit($product)
     {
-        //
+        return view('app.products.edit');
     }
 
     /**
@@ -67,7 +80,7 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, $product)
     {
         //
     }
@@ -78,7 +91,7 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy($product)
     {
         //
     }

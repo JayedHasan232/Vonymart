@@ -1,5 +1,5 @@
 <div>
-    <a class="category" href="#">
+    <a href="{{ route('categories.show', $category->url) }}" class="category" title="{{ __( $category->title ) }}">
         <div class="image-wrapper">
         <div class="image" style='background-image: url({{ asset("media/categories/cat-klock-430x430.jpg") }})'></div>
         </div>

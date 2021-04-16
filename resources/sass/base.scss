@@ -33,6 +33,9 @@ a{
 .bg-accent{
     background-color: $color;
 }
+.bg-great{
+    background-color: $colorGreat;
+}
 
 .navbar{
     display: flex;
@@ -324,7 +327,6 @@ a{
 }
 
 .hp-trending{
-    background-color: $colorGreat;
 
     .sec-head{        
         .sec-title{

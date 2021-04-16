@@ -21,8 +21,5 @@
 @endpush
 
 @section('content')
-    <livewire:app.page.home.hero />
-    <livewire:app.page.home.categories />
-    <livewire:app.page.home.trending qty="4" link="visible" classNames="bg-great" />
-    <livewire:app.page.home.recent qty="4" link="visible" />
+    @livewire('app.page.products.index')
 @endsection

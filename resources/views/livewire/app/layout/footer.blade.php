@@ -11,7 +11,7 @@
 
     <div class="copyright">
         <div class="container-xl">
-            &copy; {{ date('Y') }} Venmart. All rights reserved
+            &copy; {{ date('Y') }} {{ env('APP_NAME') }}. All rights reserved
         </div>
     </div>
 </section>

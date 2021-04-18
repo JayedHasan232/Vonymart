@@ -12,6 +12,11 @@ class Product extends Component
     {
         $this->product = $product;
     }
+
+    public function addToCart()
+    {
+        $this->emit('addedToCart');
+    }
     
     public function render()
     {

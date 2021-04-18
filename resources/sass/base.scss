@@ -421,7 +421,7 @@ a{
     }
 }
 
-// Products
+// Products - Component
 .com_product{
     height: 100%;
     padding: 1em;
@@ -514,6 +514,91 @@ a{
         }
     }
 }
+
+// Product - Show
+.productShow{
+    .header{
+        display: flex;
+        align-items: flex-start;
+        gap: 2em;
+
+        .images{
+            height: 25em;
+            display: flex;
+            gap: 1em;
+
+            .featured-image{
+                .image-wrapper{
+                    height: 25em;
+                    width: 25em;
+                    @include radius(1em);
+                    overflow: hidden;
+                    border: 1px solid transparent;
+                    transition: $transition;
+
+                    &:hover{
+                        border-color: $colorGreat;
+                    }
+        
+                    img{
+                        height: 100%;
+                        width: 100%;
+                    }
+                }
+            }
+            .image-gallery{
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                gap: 1em;
+                overflow-y: scroll;
+                &::-webkit-scrollbar {
+                    display: none;
+                }
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+
+                .image-wrapper{
+                    flex-shrink: 0;
+                    height: 6.5em;
+                    width: 6.5em;
+                    @include radius(1em);
+                    overflow: hidden;
+                    border: 1px solid transparent;
+                    transition: $transition;
+                    cursor: pointer;
+
+                    &:hover{
+                        border-color: $colorGreat;
+                    }
+        
+                    img{
+                        height: 100%;
+                        width: 100%;
+                    }
+                }
+            }
+        }
+
+        .informations{
+            height: 100%;
+            width: 100%;
+
+            .title{
+                text-transform: capitalize;
+                color: #333;
+            }
+            .price{
+                margin: 1em 0;
+                font-weight: bold;
+            }
+            .overview{
+                color: #666;
+            }
+        }
+    }
+}
+
 
 // Footer
 .footer{

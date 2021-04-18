@@ -501,6 +501,93 @@ a {
   transform: scale(1.125);
 }
 
+.productShow .header {
+  display: flex;
+  align-items: flex-start;
+  gap: 2em;
+}
+
+.productShow .header .images {
+  height: 25em;
+  display: flex;
+  gap: 1em;
+}
+
+.productShow .header .images .featured-image .image-wrapper {
+  height: 25em;
+  width: 25em;
+  border-radius: 1em;
+  -webkit-border-radius: 1em;
+  -moz-border-radius: 1em;
+  overflow: hidden;
+  border: 1px solid transparent;
+  transition: 0.125s;
+}
+
+.productShow .header .images .featured-image .image-wrapper:hover {
+  border-color: #15655c;
+}
+
+.productShow .header .images .featured-image .image-wrapper img {
+  height: 100%;
+  width: 100%;
+}
+
+.productShow .header .images .image-gallery {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.productShow .header .images .image-gallery::-webkit-scrollbar {
+  display: none;
+}
+
+.productShow .header .images .image-gallery .image-wrapper {
+  flex-shrink: 0;
+  height: 6.5em;
+  width: 6.5em;
+  border-radius: 1em;
+  -webkit-border-radius: 1em;
+  -moz-border-radius: 1em;
+  overflow: hidden;
+  border: 1px solid transparent;
+  transition: 0.125s;
+  cursor: pointer;
+}
+
+.productShow .header .images .image-gallery .image-wrapper:hover {
+  border-color: #15655c;
+}
+
+.productShow .header .images .image-gallery .image-wrapper img {
+  height: 100%;
+  width: 100%;
+}
+
+.productShow .header .informations {
+  height: 100%;
+  width: 100%;
+}
+
+.productShow .header .informations .title {
+  text-transform: capitalize;
+  color: #333;
+}
+
+.productShow .header .informations .price {
+  margin: 1em 0;
+  font-weight: bold;
+}
+
+.productShow .header .informations .overview {
+  color: #666;
+}
+
 .footer {
   height: 400px;
   color: #9CA9BE;

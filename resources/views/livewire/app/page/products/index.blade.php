@@ -37,7 +37,6 @@
       </div>
 
       <div class="col-auto form-group">
-        <!-- <label for="">Reset Filters</label> -->
         <button wire:click="resetFilter" class="btn btn-dark mt-4">Reset Filters</button>
       </div>
     </div>

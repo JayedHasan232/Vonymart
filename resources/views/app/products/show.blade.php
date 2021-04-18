@@ -21,5 +21,5 @@
 @endpush
 
 @section('content')
-    {{ $product->title }}
+    <livewire:app.page.products.show :product="$product"/>
 @endsection

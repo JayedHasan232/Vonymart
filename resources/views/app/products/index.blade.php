@@ -21,5 +21,5 @@
 @endpush
 
 @section('content')
-    @livewire('app.page.products.index')
+    <livewire:app.page.products.index />
 @endsection

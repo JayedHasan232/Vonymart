@@ -36,5 +36,9 @@ Route::namespace('\App\Http\Controllers')->group(function(){
     Route::resource('sub-categories', ProductSubCategoryController::class)
         ->only(['index', 'show']);
 
+    
+    // App - Search
+    Route::get('search', 'AppController@search')->name('search');
+
 });
 

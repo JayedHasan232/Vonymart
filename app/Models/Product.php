@@ -11,6 +11,11 @@ class Product extends Model
     
     protected $guarded = [];
 
+    public function brand()
+    {
+        return $this->belongsTo(\App\Models\ProductBrand::class, 'brand_id');
+    }
+
     public function category()
     {
         return $this->belongsTo(\App\Models\ProductCategory::class, 'category_id');

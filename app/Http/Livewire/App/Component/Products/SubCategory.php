@@ -6,15 +6,15 @@ use Livewire\Component;
 
 class SubCategory extends Component
 {
-    public $subCategory;
+    public $sub_category;
 
-    public function mount($subCategory)
+    public function mount($sub_category)
     {
-        $this->subCategory = $subCategory;
+        $this->sub_category = $sub_category;
     }
 
     public function render()
     {
-        return view('livewire.app.component.products.sub_category');
+        return view('livewire.app.component.products.sub-category');
     }
 }

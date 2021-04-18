@@ -19,6 +19,7 @@ class Index extends Component
     public $categories;
     public $sub_categories = [];
     
+    public $totalProducts;
     public $initialQty = 12;
     public $qty = 12;
     public $brand = '';
@@ -27,6 +28,7 @@ class Index extends Component
 
     public function mount()
     {
+        $this->totalProducts = Product::where('privacy', 1)->count();
         $this->brands = Brand::where('privacy', 1)->get();
         $this->categories = Category::where('privacy', 1)->get();
     }
@@ -83,7 +85,8 @@ class Index extends Component
                                     $query->where('sub_category_id', $this->sub_category);
                                 }
                             })
-                            ->select('id', 'title', 'url', 'price', 'category_id')
+                            ->select('id', 'title', 'url', 'price', 'brand_id', 'category_id', 'sub_category_id')
+                            ->latest()
                             ->paginate($this->qty);
 
         return view('livewire.app.page.products.index', ['products' => $products]);

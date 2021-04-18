@@ -21,5 +21,5 @@
 @endpush
 
 @section('content')
-    <livewire:app.page.products.sub-category.index :subCategory="$sub_category" />
+    <livewire:app.page.search.result :keyword="$keyword" />
 @endsection

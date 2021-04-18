@@ -29,17 +29,7 @@
             </div>
 
             <div class="row g-4">
-
-            @foreach($categories as $category)
-            
-            <div class="col-6 col-md-3">
-
-                @livewire('app.component.products.category', ['category' => $category])
-                
-            </div>
-            
-            @endforeach
-
+                <div class="col-6 col-md-3"></div>
             </div>
         </div>
     </section>

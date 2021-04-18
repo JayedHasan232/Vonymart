@@ -5,7 +5,7 @@
       <h2 class="sec-title">Products</h2>
     </div>
 
-    <div class="row g-4 py-2 mb-5">
+    <div class="row justify-content-between g-4 py-2 mb-5">
       <div class="col-md-3 form-group">
         <label for="">Brand</label>
         <select wire:model="brand" class="form-control">
@@ -57,7 +57,7 @@
           </div>
         @endforelse
 
-        @if(count($products) != 0)
+        @if($qty <= count($products) && $qty < $totalProducts)
           <div class="col-12" wire:loading.remove>
               <div class="btn text-white bg-accent" wire:click="loadMore">Load more</div>
           </div>

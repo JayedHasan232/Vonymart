@@ -1,5 +1,5 @@
 <nav class="menubar shadow-sm">
-    <div class="container-xl d-flex justify-content-between">
+    <div class="{{ env('BS_CONTAINER') }} d-flex justify-content-between">
         <ul class="menubar-nav">
             <li class="nav-list"><a href="/" class="nav-link">Home</a></li>
             <li class="nav-list"><a href="{{ route('products.index') }}" class="nav-link">Products</a></li>

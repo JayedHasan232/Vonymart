@@ -1,5 +1,5 @@
 <section class="section hp-trending {{ $classNames }}">
-  <div class="container-xl">
+  <div class="{{ env('BS_CONTAINER') }}">
 
     <div class="sec-head">
       <h2 class="sec-title @if(!$link) text-dark @endif">Trending Products</h2>

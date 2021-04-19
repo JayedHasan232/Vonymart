@@ -21,4 +21,9 @@ class AppController extends Controller
 
         return view('app.search', ['keyword' => $request->keyword]);
     }
+
+    public function cart()
+    {
+        return view('app.cart.index');
+    }
 }

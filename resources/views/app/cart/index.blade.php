@@ -21,16 +21,5 @@
 @endpush
 
 @section('content')
-<section class="section">
-    <div class="{{ env('BS_CONTAINER') }}">
-
-        <div class="sec-head">
-            <h2 class="sec-title">Categories</h2>
-        </div>
-
-        <div class="row g-4">
-            <div class="col-6 col-md-3"></div>
-        </div>
-    </div>
-</section>
+    <livewire:app.page.cart.index />
 @endsection

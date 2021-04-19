@@ -1,5 +1,5 @@
 <section class="section">
-  <div class="container-xl">
+  <div class="{{ env('BS_CONTAINER') }}">
 
     <div class="sec-head d-block">
         <span class="me-2 text-muted text-capitalize">

@@ -1,5 +1,5 @@
 <section class="hero">
-    <div class="container-xl">
+    <div class="{{ env('BS_CONTAINER') }}">
         <ul class="categories">
             @foreach($categories as $category)
             <li class="item"><a href="{{ route('categories.show', $category->url) }}" class="link text-capitalize">{{ $category->title }}</a></li>

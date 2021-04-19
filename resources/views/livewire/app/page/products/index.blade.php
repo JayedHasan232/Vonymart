@@ -1,5 +1,5 @@
 <section class="section">
-  <div class="container-xl">
+  <div class="{{ env('BS_CONTAINER') }}">
 
     <div class="sec-head">
       <h2 class="sec-title">Products</h2>

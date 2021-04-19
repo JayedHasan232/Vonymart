@@ -22,7 +22,7 @@
 
 @section('content')
     <section class="section">
-        <div class="container-xl">
+        <div class="{{ env('BS_CONTAINER') }}">
 
             <div class="sec-head d-block">
                 <div class="breadcrumb m-0">

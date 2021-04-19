@@ -1,0 +1,75 @@
+body {
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, ol, ul {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+.text-accent {
+  color: #be1e2d;
+}
+
+.bg-accent {
+  background-color: #be1e2d;
+}
+
+.bg-great {
+  background-color: #15655c;
+}
+
+.auth {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth .logo {
+  width: 7.5em;
+  margin-bottom: 2.5em;
+}
+
+.auth .logo img {
+  width: 100%;
+}
+
+.auth .box {
+  width: 20em;
+  padding: 1em;
+  border-radius: 1em;
+  border: 1px solid #ededed;
+  overflow: hidden;
+  transition: 0.125s;
+}
+
+.auth .box:hover {
+  border-color: #15655c;
+}
+
+.auth .box .header {
+  margin: 0;
+  margin-bottom: 1em;
+  padding-bottom: 1em;
+  text-align: center;
+  font-size: 1.5em;
+  border-bottom: 1px solid #ededed;
+}
+
+.auth .box .body {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.auth .box .body label {
+  color: #333;
+  margin-bottom: 0.5em;
+}
+/*# sourceMappingURL=guest.css.map */

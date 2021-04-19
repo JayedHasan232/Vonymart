@@ -6,6 +6,14 @@ Auth::routes();
 
 Route::namespace('\App\Http\Controllers')->group(function(){
 
+    // Auth
+    Route::name('verification.')->prefix('email')->group(function(){
+        Route::get('verify', 'AuthController@verify')->middleware('auth')->name('notice');
+        Route::get('verify/{id}/{hash}', 'AuthController@verifyCheck')->middleware(['auth', 'signed'])->name('verify');
+        Route::post('verification-notification', 'AuthController@verificationNotification')->middleware(['auth', 'throttle:6,1'])->name('resend');
+    });
+
+    // App
     Route::get('/', 'AppController@welcome')->name('welcome');
 
 
@@ -39,6 +47,10 @@ Route::namespace('\App\Http\Controllers')->group(function(){
     
     // App - Search
     Route::get('search', 'AppController@search')->name('search');
+
+    
+    // App - Cart
+    Route::get('cart', 'AppController@cart')->name('cart');
 
 });
 

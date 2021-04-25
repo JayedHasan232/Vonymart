@@ -3,8 +3,8 @@
         <ul class="menubar-nav">
             <li class="nav-list"><a href="/" class="nav-link">Home</a></li>
             <li class="nav-list"><a href="{{ route('products.index') }}" class="nav-link">Products</a></li>
-            <li class="nav-list"><a href="" class="nav-link">About</a></li>
-            <li class="nav-list"><a href="" class="nav-link">Contact</a></li>
+            <li class="nav-list"><a href="{{ route('about') }}" class="nav-link">About</a></li>
+            <li class="nav-list"><a href="{{ route('contact') }}" class="nav-link">Contact</a></li>
         </ul>
         <ul class="menubar-nav">
             <li class="nav-list">

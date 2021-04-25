@@ -29,8 +29,16 @@ class Index extends Component
     public function mount()
     {
         $this->totalProducts = Product::where('privacy', 1)->count();
-        $this->brands = Brand::where('privacy', 1)->get();
-        $this->categories = Category::where('privacy', 1)->get();
+
+        $this->brands = Brand::where('privacy', 1)
+                            ->select('id', 'title')
+                            ->orderBy('title')
+                            ->get();
+                            
+        $this->categories = Category::where('privacy', 1)
+                            ->select('id', 'title')
+                            ->orderBy('title')
+                            ->get();
     }
 
     public function loadMore()
@@ -49,8 +57,10 @@ class Index extends Component
         $this->qty = $this->initialQty;
         $this->resetPage();
         $this->sub_categories = SubCategory::where('privacy', 1)
-                                            ->where('category_id', $this->category)
-                                            ->get();
+                            ->where('category_id', $this->category)
+                            ->select('id', 'title')
+                            ->orderBy('title')
+                            ->get();
     }
 
     public function updatingSubCategory()

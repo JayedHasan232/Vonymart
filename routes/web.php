@@ -2,12 +2,15 @@
 
 use Illuminate\Support\Facades\Route;
 
+
 Auth::routes();
 
-Route::namespace('\App\Http\Controllers')->group(function(){
+Route::namespace('\App\Http\Controllers')->group(function()
+{
 
     // Auth
-    Route::name('verification.')->prefix('email')->group(function(){
+    Route::name('verification.')->prefix('email')->group(function()
+    {
         Route::get('verify', 'AuthController@verify')->middleware('auth')->name('notice');
         Route::get('verify/{id}/{hash}', 'AuthController@verifyCheck')->middleware(['auth', 'signed'])->name('verify');
         Route::post('verification-notification', 'AuthController@verificationNotification')->middleware(['auth', 'throttle:6,1'])->name('resend');
@@ -48,9 +51,60 @@ Route::namespace('\App\Http\Controllers')->group(function(){
     // App - Search
     Route::get('search', 'AppController@search')->name('search');
 
-    
     // App - Cart
     Route::get('cart', 'AppController@cart')->name('cart');
 
 });
 
+
+// Livewire
+Route::namespace('App\Http\Livewire')->group(function()
+{
+    // App
+    Route::namespace('App\Page')->group(function()
+    {
+        // App - About, Contact
+        Route::get('about', About::class)->name('about');
+        Route::get('contact', Contact::class)->name('contact');
+        Route::get('developer', Developer::class)->name('developer');
+    });
+
+    // // User
+    // Route::middleware('auth')->namespace('App\Page')->name('user.')->group(function()
+    // {
+    //     // Dashboard
+    //     Route::get('dashboard', Dashboard::class)->name('dashboard');
+    // });
+
+    // Admin
+    Route::middleware(['auth'])->namespace('Admin\Page')->name('admin.')->prefix('admin')->group(function()
+    {
+        // Dashboard
+        Route::get('dashboard', Dashboard::class)->name('dashboard');
+
+        // Product
+        Route::namespace('Product')->name('product.')->prefix('product')->group(function()
+        {
+            Route::get('create', Create::class)->name('create');
+            Route::get('edit/{id}', Edit::class)->name('edit');
+            
+            Route::namespace('Category')->name('category.')->prefix('category')->group(function()
+            {
+                Route::get('create', Create::class)->name('create');
+                Route::get('edit/{id}', Edit::class)->name('edit');
+            });
+            
+            Route::namespace('Brand')->name('brand.')->prefix('brand')->group(function()
+            {
+                Route::get('create', Create::class)->name('create');
+                Route::get('edit/{id}', Edit::class)->name('edit');
+            });
+            
+            Route::namespace('SubCategory')->name('sub-category.')->prefix('sub-category')->group(function()
+            {
+                Route::get('create', Create::class)->name('create');
+                Route::get('edit/{id}', Edit::class)->name('edit');
+            });
+        });
+    });
+});

@@ -46,6 +46,8 @@ a{
     height: 4.5em;
 
     .navbar-brand{
+        width: 123px;
+        
         .logo{
             height: 2em;
           }
@@ -326,32 +328,6 @@ a{
     }
 }
 
-.hp-trending{
-
-    .sec-head{        
-        .sec-title{
-            color: #fff;
-        }
-        .sec-link{
-            color: #fff;
-            border: 1px solid #ededed;
-
-            &:hover{
-                color: #fff;
-                border: 1px solid #fff;
-            }
-            &:active{
-                color: #fff;
-                border: 1px solid #fff;
-            }
-        }
-    }
-
-    .com_product{
-        background-color: #fff;
-    }
-}
-
 
 // Category
 .category{
@@ -602,17 +578,19 @@ a{
 
 // Footer
 .footer{
-    height: 400px;
     color: #9CA9BE;
     background-color: $colorDark;
-    
-    
+    padding: 4em 1em;
+
+    .foo-list{
+        list-style: none;
+    }
 }
 
 .copyright{
     display: flex;
     align-items: center;
-    height: 100px;
+    height: 50px;
     color: #9CA9BE;
     background-color: $colorDark;
     border-top: 1px solid #2C3542;

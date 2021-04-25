@@ -19,8 +19,8 @@ class Show extends Component
 
     public function addToCart()
     {
-        $oldCart = Session::has('cart') ? Session::get('cart') : NULL;
-        $cart = new CMH($oldCart);
+        $currentCart = Session::has('cart') ? Session::get('cart') : NULL;
+        $cart = new CMH($currentCart);
         $cart->add($this->product, $this->qty);
 
         Session::put('cart', $cart);

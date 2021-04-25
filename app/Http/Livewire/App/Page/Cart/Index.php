@@ -14,8 +14,8 @@ class Index extends Component
 
     public function mount()
     {
-        $oldCart = Session::has('cart') ? Session::get('cart') : NULL;
-        $cart = new CMH($oldCart);
+        $currentCart = Session::has('cart') ? Session::get('cart') : NULL;
+        $cart = new CMH($currentCart);
         $this->items = $cart->items;
         $this->totalQty = $cart->totalQty;
         $this->totalPrice = $cart->totalPrice;
@@ -23,35 +23,39 @@ class Index extends Component
 
     public function plus($id)
     {
-        $oldCart = Session::has('cart') ? Session::get('cart') : NULL;
-        $cart = new CMH($oldCart);
+        $currentCart = Session::has('cart') ? Session::get('cart') : NULL;
+        $cart = new CMH($currentCart);
         $cart->cartPlus($id);
         Session::put('cart', $cart);
         
         $this->items = $cart->items;
         $this->totalQty = $cart->totalQty;
         $this->totalPrice = $cart->totalPrice;
+
+        $this->emit('cartUpdated');
     }
 
     public function minus($id)
     {
-        $oldCart = Session::has('cart') ? Session::get('cart') : NULL;
-        $cart = new CMH($oldCart);
+        $currentCart = Session::has('cart') ? Session::get('cart') : NULL;
+        $cart = new CMH($currentCart);
         $cart->cartMinus($id);
         Session::put('cart', $cart);
         
         $this->items = $cart->items;
         $this->totalQty = $cart->totalQty;
         $this->totalPrice = $cart->totalPrice;
+
+        $this->emit('cartUpdated');
     }
     
     public function removeItem($id)
     {
       // Check Cart Availablity
-      $oldCart = Session::has('cart') ? Session::get('cart') : NULL;
+      $currentCart = Session::has('cart') ? Session::get('cart') : NULL;
       
       // Send Data to Cart Model
-      $cart = new CMH($oldCart);
+      $cart = new CMH($currentCart);
       $cart->cartItemRemove($id);
       Session::put('cart', $cart);
 
@@ -64,6 +68,9 @@ class Index extends Component
         $this->totalQty = $cart->totalQty;
         $this->totalPrice = $cart->totalPrice;
       }
+      
+      $this->emit('cartUpdated');
+
       return back()->with('status', 'Successfully removed!');
     }
 

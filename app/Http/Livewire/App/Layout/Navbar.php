@@ -3,10 +3,31 @@
 namespace App\Http\Livewire\App\Layout;
 
 use Livewire\Component;
+use Session;
+use App\Models\Wishlist;
 
 class Navbar extends Component
 {
-    protected $listeners = ['cartUpdated' => '$refresh'];
+    public $productsInWishlist = 0;
+    public $productsInCart = 0;
+
+    protected $listeners = ['wishlistUpdated', 'cartUpdated'];
+
+    public function mount()
+    {
+        $this->productsInWishlist = Wishlist::where('created_by', auth()->id() )->count();
+        $this->productsInCart = Session::get('cart')->totalQty ?? 0;
+    }
+    
+    public function wishlistUpdated()
+    {
+        $this->productsInWishlist = Wishlist::where('created_by', auth()->id() )->count();
+    }
+    
+    public function cartUpdated()
+    {
+        $this->productsInCart = Session::get('cart')->totalQty;
+    }
 
     public function render()
     {

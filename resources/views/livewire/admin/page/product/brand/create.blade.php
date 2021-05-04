@@ -1,5 +1,6 @@
 <form class="box" action="{{ route('admin.brands.store') }}" method="post" enctype= multipart/form-data>
     @csrf
+    
     <div class="header">
         Create Brand
 

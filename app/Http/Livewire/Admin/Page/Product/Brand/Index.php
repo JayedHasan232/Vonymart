@@ -13,34 +13,70 @@ class Index extends Component
 
     public function mount()
     {
-        $this->withTrashed();
+        // Loading data
+        $this->brandWithTrashed();
     }
 
     public function deleteBrand($id)
     {
-        Brand::findOrFail($id)->delete();
-        $this->withTrashed();
+        // Finding brand
+        $brand = Brand::findOrFail($id);
+        
+        // Soft deleting products
+        foreach($brand->products as $product){
+            $product->delete();
+        }
+        
+        // Deleting brand
+        $brand->delete();
+
+        // Reloading data
+        $this->brandWithTrashed();
 
         return back()->with('success', 'Success');
     }
 
     public function deleteBrandPermanently($id)
     {
-        Brand::withTrashed()->findOrFail($id)->forceDelete();
-        $this->withTrashed();
+        // Finding brand
+        $brand = Brand::withTrashed()->findOrFail($id);
+
+        // Permanently deleting products
+        $products = $brand->products()->withTrashed()->get();
+        foreach($products as $product){
+            $product->forceDelete();
+        }
+        
+        // Permanently deleting brand
+        $brand->forceDelete();
+
+        // Reloading data
+        $this->brandWithTrashed();
 
         return back()->with('success', 'Success');
     }
 
     public function restoreBrand($id)
     {
-        Brand::withTrashed()->findOrFail($id)->restore();
-        $this->withTrashed();
+        // Finding brand
+        $brand = Brand::withTrashed()->findOrFail($id);
+
+        // Restoring brand
+        $brand->restore();
+
+        // Restoring products
+        $products = $brand->products()->withTrashed()->get();
+        foreach($products as $product){
+            $product->restore();
+        }
+        
+        // Reloading data
+        $this->brandWithTrashed();
 
         return back()->with('success', 'Success');
     }
 
-    public function withTrashed()
+    public function brandWithTrashed()
     {
         $this->brands = Brand::withTrashed()->get();
     }

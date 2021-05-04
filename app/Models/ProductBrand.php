@@ -12,4 +12,9 @@ class ProductBrand extends Model
     use SoftDeletes;
     
     protected $guarded = [];
+
+    public function products()
+    {
+        return $this->hasMany(\App\Models\Product::class, 'brand_id');
+    }
 }

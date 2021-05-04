@@ -1,5 +1,7 @@
 <form class="box" action="{{ route('admin.brands.update', $brand->id) }}" method="post" enctype= multipart/form-data>
+    @method('PATCH')
     @csrf
+    
     <div class="header">
         Edit Brand
 
@@ -18,7 +20,7 @@
         <div class="row g-4 mb-4">
             <div class="form-group col-md-4">
                 <label for="title">Title</label>
-                <input wire:model="title" class="form-control @error('title') is-invalid @enderror" type="text" name="title" id="title" placeholder="Title" value="{{ old('title') }}">
+                <input class="form-control @error('title') is-invalid @enderror" type="text" name="title" id="title" placeholder="Title" value="{{ old('title', $brand->title) }}">
                 @error('title')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -27,7 +29,7 @@
             </div>
             <div class="form-group col-md-4">
                 <label for="meta_title">Meta Title</label>
-                <input wire:model="meta_title" class="form-control @error('meta_title') is-invalid @enderror" type="text" name="meta_title" id="meta_title" placeholder="Meta Title" value="{{ old('meta_title') }}">
+                <input class="form-control @error('meta_title') is-invalid @enderror" type="text" name="meta_title" id="meta_title" placeholder="Meta Title" value="{{ old('meta_title', $brand->meta_title) }}">
                 @error('meta_title')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -36,7 +38,7 @@
             </div>
             <div class="form-group col-md-4">
                 <label for="url">Url</label>
-                <input wire:model="url" class="form-control @error('url') is-invalid @enderror" type="text" name="url" id="url" placeholder="URL" value="{{ old('url') }}">
+                <input class="form-control @error('url') is-invalid @enderror" type="text" name="url" id="url" placeholder="URL" value="{{ old('url', $brand->url) }}">
                 @error('url')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -47,8 +49,8 @@
             <div class="form-group col-md-6">
                 <label for="privacy">Privacy</label>
                 <select class="form-control @error('privacy') is-invalid @enderror" name="privacy" id="privacy">
-                    <option value="1">Visible</option>
-                    <option value="0">Hidden</option>
+                    <option value="1" {{ $brand->privacy ? 'selected' : '' }}>Visible</option>
+                    <option value="0" {{ !$brand->privacy ? 'selected' : '' }}>Hidden</option>
                 </select>
                 @error('privacy')
                     <span class="invalid-feedback" role="alert">
@@ -67,7 +69,7 @@
             </div>
             <div class="form-group">
                 <label for="description">Description</label>
-                <textarea wire:model="description" class="form-control @error('description') is-invalid @enderror" type="text" name="description" id="description" placeholder="Description">{{ old('description') }}</textarea>
+                <textarea class="form-control @error('description') is-invalid @enderror" type="text" name="description" id="description" placeholder="Description">{{ old('description') }}</textarea>
                 @error('description')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -76,7 +78,7 @@
             </div>
             <div class="form-group">
                 <label for="meta_description">Meta Description</label>
-                <textarea wire:model="meta_description" class="form-control @error('meta_description') is-invalid @enderror" type="text" name="meta_description" id="meta_description" placeholder="Meta Description">{{ old('meta_description') }}</textarea>
+                <textarea class="form-control @error('meta_description') is-invalid @enderror" type="text" name="meta_description" id="meta_description" placeholder="Meta Description">{{ old('meta_description') }}</textarea>
                 @error('meta_description')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>

@@ -19,16 +19,20 @@ class CreateProductsTable extends Migration
             $table->string('title');
             $table->string('url');
             $table->integer('price')->nullable();
-            $table->text('description')->nullable();
-
+            
             $table->integer('brand_id')->nullable();
             $table->integer('category_id');
             $table->integer('sub_category_id')->nullable();
-
+            
+            $table->text('description')->nullable();
             $table->string('meta_title')->nullable();
             $table->text('meta_description')->nullable();
             $table->text('meta_keywords')->nullable();
             
+            $table->text('image')->nullable();
+            $table->text('img_medium')->nullable();
+            $table->text('img_small')->nullable();
+
             $table->foreignId('created_by');
             $table->foreignId('updated_by')->nullable();
             $table->timestamps();

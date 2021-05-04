@@ -16,7 +16,7 @@
 
     <div class="body">
         @foreach($brands as $brand)
-            <button type="button" class="btn @if($brand->trashed()) border text-decoration-none btn-link text-muted @elseif($brand->privacy) btn-secondary @else btn-dark @endif rounded-pill me-2 mb-2 text-capitalize" data-bs-toggle="modal" data-bs-target="#brand{{ $brand->id }}" title="@if($brand->trashed()) Deleted @elseif($brand->privacy) Hidden @else Active @endif">
+            <button type="button" class="btn @if($brand->trashed()) border text-decoration-none btn-link text-muted @elseif(!$brand->privacy) btn-secondary @else btn-dark @endif rounded-pill me-2 mb-2 text-capitalize" data-bs-toggle="modal" data-bs-target="#brand{{ $brand->id }}" title="@if($brand->trashed()) Deleted @elseif(!$brand->privacy) Hidden @else Active @endif">
                 {{ $brand->title }}
             </button>
 
@@ -34,7 +34,7 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary rounded-pill" data-bs-dismiss="modal">Close</button>
                         @if($brand->trashed())
-                        <button wire:click="restoreBrand({{ $brand->id }})" type="button" class="btn btn-danger rounded-pill" data-bs-dismiss="modal">Restore</button>
+                        <button wire:click="restoreBrand({{ $brand->id }})" type="button" class="btn btn-success rounded-pill" data-bs-dismiss="modal">Restore</button>
                         <button wire:click="deleteBrandPermanently({{ $brand->id }})" type="button" class="btn btn-danger rounded-pill" data-bs-dismiss="modal">Delete Permanently</button>
                         @else
                         <a href="{{ route('admin.product.brand.edit', $brand->id) }}" class="btn btn-success rounded-pill">Edit</a>

@@ -15,11 +15,11 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->smallInteger('privacy')->default(1);
+            $table->boolean('privacy')->default(true);
             $table->string('title');
             $table->string('url');
             $table->integer('price')->nullable();
-            $table->text('overview')->nullable();
+            $table->text('description')->nullable();
 
             $table->integer('brand_id')->nullable();
             $table->integer('category_id');
@@ -32,6 +32,8 @@ class CreateProductsTable extends Migration
             $table->foreignId('created_by');
             $table->foreignId('updated_by')->nullable();
             $table->timestamps();
+            $table->softDeletes();
+            
         });
     }
 

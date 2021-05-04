@@ -27,7 +27,6 @@ class ProductFactory extends Factory
             'title' => Str::random(25, 36),
             'url' => Str::slug(Str::random(25, 36)),
             'price' => rand(100, 1000),
-            'overview' => $this->faker->realText($maxNbChars = 200, $indexSize = 2),
             'brand_id' => rand(1, 25),
             'category_id' => rand(1, 50),
             'sub_category_id' => rand(1, 250),

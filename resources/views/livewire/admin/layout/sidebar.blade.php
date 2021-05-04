@@ -13,6 +13,7 @@
             <a class="sb-link" data-bs-toggle="collapse" data-bs-target="#collapseBrand" aria-expanded="true" aria-controls="collapseBrand">Brand</a>
             <ul class="collapse sbc-list" id="collapseBrand" aria-labelledby="headingBrand" data-bs-parent="#sidebarAccordion">
                 <li class="sbc-item"><a href="{{ route('admin.product.brand.create') }}" class="sbc-link">Create</a></li>
+                <li class="sbc-item"><a href="{{ route('admin.product.brand.index') }}" class="sbc-link">Index</a></li>
             </ul>
         </li>
         <li class="sb-item" id="category">

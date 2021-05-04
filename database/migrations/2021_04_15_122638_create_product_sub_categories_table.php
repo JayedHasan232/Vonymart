@@ -15,10 +15,10 @@ class CreateProductSubCategoriesTable extends Migration
     {
         Schema::create('product_sub_categories', function (Blueprint $table) {
             $table->id();
-            $table->smallInteger('privacy')->default(1);
+            $table->boolean('privacy')->default(true);
             $table->string('title');
             $table->string('url');
-            $table->text('overview')->nullable();
+            $table->text('description')->nullable();
             
             $table->integer('category_id');
 
@@ -29,6 +29,7 @@ class CreateProductSubCategoriesTable extends Migration
             $table->foreignId('created_by');
             $table->foreignId('updated_by')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

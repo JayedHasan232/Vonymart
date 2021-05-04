@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 20, 2021 at 06:40 PM
+-- Generation Time: Apr 26, 2021 at 05:57 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.4.13
 
@@ -60,7 +60,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (4, '2021_04_15_122524_create_products_table', 1),
 (5, '2021_04_15_122602_create_product_categories_table', 1),
 (6, '2021_04_15_122638_create_product_sub_categories_table', 1),
-(7, '2021_04_16_153205_create_product_brands_table', 1);
+(7, '2021_04_16_153205_create_product_brands_table', 1),
+(8, '2021_04_22_132153_create_wishlists_table', 2);
 
 -- --------------------------------------------------------
 
@@ -1096,7 +1097,30 @@ INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `re
 (48, 'Alice Kling', 'beer.katrine@example.com', '2021-04-19 08:02:34', '$2y$10$NuzmGNtmf.XAuIOFr9qKc.afz7Bwns.vOi3wygzO1uQUtmsBNQn02', 'wT7kCqVa6P', 0, '2021-04-19 08:02:35', '2021-04-19 08:02:35'),
 (49, 'Jaycee Quitzon', 'ahackett@example.com', '2021-04-19 08:02:34', '$2y$10$d8zYiLvVaa3tMWjqr04JTOurk6HXMarb4Cui2La0bwAMGjTk9I6pS', 'zIMKRrLhOT', 1, '2021-04-19 08:02:35', '2021-04-19 08:02:35'),
 (50, 'Darius Kilback', 'vheaney@example.org', '2021-04-19 08:02:35', '$2y$10$OdhBbeRZ/rOemXcZ5sOWpuZsqJBndh3u2Rr0I/iSZKLHyKiv9.pNe', 'zbHpz733jv', 0, '2021-04-19 08:02:35', '2021-04-19 08:02:35'),
-(52, 'Jayed Hasan', 'jayedhasan232@gmail.com', NULL, '$2y$10$.UJC50Yg6D0Gi0pXbMvi3.1o5a/hIkhFhq/I1fUrvXg6l1oo4lD2e', NULL, 0, '2021-04-19 08:06:01', '2021-04-19 08:06:01');
+(52, 'Jayed Hasan', 'jayedhasan232@gmail.com', '2021-04-22 06:40:58', '$2y$10$VurQIEYgTdKghENjdnnE6OVDiHdDcelz2V4rPAM9.XQnj/wCpvNTu', 'FsKwNgheTAVdxtzwvSI8IIWYeNgfJoDDe3vTTmFDAnBQvWoLqBGGIUxzbbbA', 0, '2021-04-19 08:06:01', '2021-04-22 07:09:06');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `wishlists`
+--
+
+CREATE TABLE `wishlists` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `product_id` bigint(20) UNSIGNED NOT NULL,
+  `created_by` bigint(20) UNSIGNED NOT NULL,
+  `updated_by` bigint(20) UNSIGNED DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `wishlists`
+--
+
+INSERT INTO `wishlists` (`id`, `product_id`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
+(1, 1, 52, NULL, '2021-04-25 05:48:21', '2021-04-25 05:48:21'),
+(2, 2, 52, NULL, '2021-04-25 05:48:28', '2021-04-25 05:48:28');
 
 --
 -- Indexes for dumped tables
@@ -1153,6 +1177,12 @@ ALTER TABLE `users`
   ADD UNIQUE KEY `users_email_unique` (`email`);
 
 --
+-- Indexes for table `wishlists`
+--
+ALTER TABLE `wishlists`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -1166,7 +1196,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `products`
@@ -1197,6 +1227,12 @@ ALTER TABLE `product_sub_categories`
 --
 ALTER TABLE `users`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+
+--
+-- AUTO_INCREMENT for table `wishlists`
+--
+ALTER TABLE `wishlists`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

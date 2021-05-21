@@ -30,8 +30,8 @@ class CreateProductsTable extends Migration
             $table->text('meta_keywords')->nullable();
             
             $table->text('image')->nullable();
-            $table->text('img_medium')->nullable();
-            $table->text('img_small')->nullable();
+            $table->text('image_medium')->nullable();
+            $table->text('image_small')->nullable();
 
             $table->foreignId('created_by');
             $table->foreignId('updated_by')->nullable();

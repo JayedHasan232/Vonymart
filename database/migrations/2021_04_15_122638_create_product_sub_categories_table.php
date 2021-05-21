@@ -16,19 +16,19 @@ class CreateProductSubCategoriesTable extends Migration
         Schema::create('product_sub_categories', function (Blueprint $table) {
             $table->id();
             $table->boolean('privacy')->default(true);
-            $table->string('title');
-            $table->string('url');
-            
             $table->integer('category_id');
             
+            $table->string('title');
+            $table->string('url');
             $table->text('description')->nullable();
+
             $table->string('meta_title')->nullable();
             $table->text('meta_description')->nullable();
             $table->text('meta_keywords')->nullable();
             
             $table->text('image')->nullable();
-            $table->text('img_medium')->nullable();
-            $table->text('img_small')->nullable();
+            $table->text('image_medium')->nullable();
+            $table->text('image_small')->nullable();
             
             $table->foreignId('created_by');
             $table->foreignId('updated_by')->nullable();

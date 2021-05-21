@@ -57,7 +57,6 @@ Route::namespace('\App\Http\Controllers')->group(function()
 
     // Admin
     Route::middleware('admin')->name('admin.')->prefix('admin')->group(function(){
-        Route::resource('products', ProductController::class);
         Route::resource('brands', ProductBrandController::class);
         Route::resource('caregories', ProductCategoryController::class);
         Route::resource('sub-caregories', ProductSubCategoryController::class);
@@ -97,15 +96,15 @@ Route::namespace('App\Http\Livewire')->group(function()
             Route::get('create', Create::class)->name('create');
             Route::get('edit/{id}', Edit::class)->name('edit');
             
-            Route::namespace('Category')->name('category.')->prefix('category')->group(function()
+            Route::namespace('Brand')->name('brand.')->prefix('brand')->group(function()
             {
+                Route::get('index', Index::class)->name('index');
                 Route::get('create', Create::class)->name('create');
                 Route::get('edit/{id}', Edit::class)->name('edit');
             });
             
-            Route::namespace('Brand')->name('brand.')->prefix('brand')->group(function()
+            Route::namespace('Category')->name('category.')->prefix('category')->group(function()
             {
-                Route::get('index', Index::class)->name('index');
                 Route::get('create', Create::class)->name('create');
                 Route::get('edit/{id}', Edit::class)->name('edit');
             });

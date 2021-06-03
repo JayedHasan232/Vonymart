@@ -24,7 +24,7 @@
     <div class="pro_title">{{ __( $product->title ) }}</div>
     <div class="pro_category">{{ __( $product->category->title ) }}</div>
     <div class="pro_image">
-        <img src="http://demo.tools.com.bd/media/dummy/products/product-accessories-8-1-430x490.jpg" alt="">
+        <img src="{{ asset('storage/' . $product->image_medium) }}" alt="">
     </div>
     <div class="pro_price">{{ __( '৳' . $product->price ) }}</div>
 </a>

@@ -5,13 +5,13 @@
                 <div class="image-gallery">
                     @for($i = 1; $i <= 5; $i++)
                     <div class="image-wrapper">
-                        <img src="http://demo.tools.com.bd/media/dummy/products/product-accessories-8-1-430x490.jpg" alt="{{ __( $product->title ) }}" title="{{ __( $product->title ) }}">
+                        <img src="{{ asset('storage/' . $product->image_medium) }}" alt="{{ __( $product->title ) }}" title="{{ __( $product->title ) }}">
                     </div>
                     @endfor
                 </div>
                 <div class="featured-image">
                     <div class="image-wrapper">
-                        <img src="http://demo.tools.com.bd/media/dummy/products/product-accessories-8-1-430x490.jpg" alt="{{ __( $product->title ) }}" title="{{ __( $product->title ) }}">
+                        <img src="{{ asset('storage/' . $product->image_medium) }}" alt="{{ __( $product->title ) }}" title="{{ __( $product->title ) }}">
                     </div>
                 </div>
             </div>

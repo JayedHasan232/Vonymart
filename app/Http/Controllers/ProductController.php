@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
+// Helpers
+use App\Helpers\ImageResize as Image;
+
+// Models
 use App\Models\Product;
 
 class ProductController extends Controller
@@ -26,34 +31,62 @@ class ProductController extends Controller
     {
         return view('app.products.new');
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        return view('app.products.create');
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    
     public function store(Request $request)
     {
-        dd($request->all());
-    }
+        $request->validate([
+            'privacy' => 'required',
+            'category' => 'required',
+            'title' => 'required|string',
+            'url' => 'required|string|unique:products',
+        ]);
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
-     */
+        $product = Product::create([
+            'privacy' => $request->privacy,
+            'brand_id' => $request->brand,
+            'category_id' => $request->category,
+            'sub_category_id' => $request->sub_category,
+            'title' => $request->title,
+            'url' => $request->url,
+            'description' => $request->description,
+            'specification' => $request->specification,
+            'meta_title' => $request->meta_title,
+            'meta_description' => $request->meta_description,
+            'meta_keywords' => $request->meta_keywords,
+            'created_by' => auth()->id(),
+            'created_at' => now(),
+        ]);
+
+        if($request->hasFile('image')){
+
+            $image = $request->image;
+            $dimension = (object) [
+                'medium' => (object) [
+                    'width' => 255,
+                    'height' => 255,
+                ],
+                'small' => (object) [
+                    'width' => 102,
+                    'height' => 102,
+                ]
+            ];
+            $path = "products";
+
+            $result = Image::store($image, $dimension, $path);
+
+            $product->update([
+                "image" => $result->image,
+                "image_medium" => $result->image_medium,
+                "image_small" => $result->image_small,
+
+                'updated_by' => auth()->id(),
+                'updated_at' => now(),
+            ]);
+        }
+
+        return back()->with('success', 'Success!');
+    }
+    
     public function show($product)
     {
         $product = Product::where('url', $product)
@@ -61,38 +94,71 @@ class ProductController extends Controller
                         ->firstOrFail();
         return view('app.products.show', ['product' => $product]);
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($product)
+    
+    public function update(Request $request, $id)
     {
-        return view('app.products.edit');
-    }
+        $product = Product::findOrFail($id);
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $product)
-    {
-        //
-    }
+        $request->validate([
+            'privacy' => 'required',
+            'category' => 'required',
+            'title' => 'required|string',
+            'url' => 'required|string',
+        ]);
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($product)
-    {
-        //
+        if($request->url != $product->url){
+            $request->validate([
+                'url' => 'unique:products',
+            ]);
+        }
+
+        $product->update([
+            'privacy' => $request->privacy,
+            'brand_id' => $request->brand,
+            'category_id' => $request->category,
+            'sub_category_id' => $request->sub_category,
+            'title' => $request->title,
+            'url' => $request->url,
+            'description' => $request->description,
+            'specification' => $request->specification,
+            'meta_title' => $request->meta_title,
+            'meta_description' => $request->meta_description,
+            'meta_keywords' => $request->meta_keywords,
+            'updated_by' => auth()->id(),
+            'updated_at' => now(),
+        ]);
+
+        if($request->hasFile('image')){
+
+            Storage::delete($product->image);
+            Storage::delete($product->image_medium);
+            Storage::delete($product->image_small);
+
+            $image = $request->image;
+            $dimension = (object) [
+                'medium' => (object) [
+                    'width' => 150,
+                    'height' => 80,
+                ],
+                'small' => (object) [
+                    'width' => 75,
+                    'height' => 40,
+                ]
+            ];
+            $path = "products";
+
+            $result = Image::store($image, $dimension, $path);
+
+            $product->update([
+                "image" => $result->image,
+                "image_medium" => $result->image_medium,
+                "image_small" => $result->image_small,
+
+                'updated_by' => auth()->id(),
+                'updated_at' => now(),
+            ]);
+        }
+
+        return back()->with('success', 'Success!');
     }
 }

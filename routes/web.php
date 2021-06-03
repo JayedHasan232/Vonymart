@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-
 Auth::routes();
 
 Route::namespace('\App\Http\Controllers')->group(function()
@@ -94,7 +93,9 @@ Route::namespace('App\Http\Livewire')->group(function()
         Route::namespace('Product')->name('product.')->prefix('product')->group(function()
         {
             Route::get('create', Create::class)->name('create');
+            Route::post('store', [App\Http\Controllers\ProductController::class, 'store'])->name('store');
             Route::get('edit/{id}', Edit::class)->name('edit');
+            Route::post('update/{id}', [App\Http\Controllers\ProductController::class, 'update'])->name('update');
             
             Route::namespace('Brand')->name('brand.')->prefix('brand')->group(function()
             {
@@ -105,12 +106,14 @@ Route::namespace('App\Http\Livewire')->group(function()
             
             Route::namespace('Category')->name('category.')->prefix('category')->group(function()
             {
+                Route::get('index', Index::class)->name('index');
                 Route::get('create', Create::class)->name('create');
                 Route::get('edit/{id}', Edit::class)->name('edit');
             });
             
             Route::namespace('SubCategory')->name('sub-category.')->prefix('sub-category')->group(function()
             {
+                Route::get('index', Index::class)->name('index');
                 Route::get('create', Create::class)->name('create');
                 Route::get('edit/{id}', Edit::class)->name('edit');
             });

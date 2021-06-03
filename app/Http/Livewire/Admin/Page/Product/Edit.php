@@ -28,6 +28,7 @@ class Edit extends Component
     public $title;
     public $url;
     public $description;
+    public $specification;
     public $privacy;
     public $price;
     public $image;
@@ -48,6 +49,7 @@ class Edit extends Component
         $this->title = $this->product->title;
         $this->url = $this->product->url;
         $this->description = $this->product->description;
+        $this->specification = $this->product->specification;
         $this->privacy = $this->product->privacy;
         $this->price = $this->product->price;
         $this->brand = $this->product->brand_id;
@@ -90,75 +92,6 @@ class Edit extends Component
                             ->select('id', 'title')
                             ->orderBy('title')
                             ->get();
-    }
-
-    public function updatedDescription()
-    {
-        $this->meta_description = $this->description;
-    }
-
-    public function store()
-    {
-        $this->validate([
-            'privacy' => 'required',
-            'category' => 'required',
-            'title' => 'required|string',
-            'url' => 'required|string',
-        ]);
-
-        if($this->url != $this->product->url){
-            $this->validate([
-                'url' => 'unique:products',
-            ]);
-        }
-
-        $this->product->update([
-            'privacy' => $this->privacy,
-            'brand_id' => $this->brand,
-            'category_id' => $this->category,
-            'sub_category_id' => $this->sub_category,
-            'title' => $this->title,
-            'url' => $this->url,
-            'description' => $this->description,
-            'meta_title' => $this->meta_title,
-            'meta_description' => $this->meta_description,
-            'meta_keywords' => $this->meta_keywords,
-            'updated_by' => auth()->id(),
-            'updated_at' => now(),
-        ]);
-
-        if($this->image){
-
-            Storage::delete($this->product->image);
-            Storage::delete($this->product->image_medium);
-            Storage::delete($this->product->image_small);
-
-            $image = $this->image;
-            $dimension = (object) [
-                'medium' => (object) [
-                    'width' => 150,
-                    'height' => 80,
-                ],
-                'small' => (object) [
-                    'width' => 75,
-                    'height' => 40,
-                ]
-            ];
-            $path = "products";
-
-            $result = Image::store($image, $dimension, $path);
-
-            $subcategory->update([
-                "image" => $result->image,
-                "image_medium" => $result->image_medium,
-                "image_small" => $result->image_small,
-
-                'updated_by' => auth()->id(),
-                'updated_at' => now(),
-            ]);
-        }
-
-        return back()->with('success', 'Success!');
     }
 
     public function render()

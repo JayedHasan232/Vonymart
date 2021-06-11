@@ -165,7 +165,7 @@
             </div>
             <div class="form-group col-md-6">
                 <label for="image">Image</label>
-                <input wire:model="image" class="form-control @error('image') is-invalid @enderror" type="file" name="image" id="image">
+                <input class="form-control @error('image') is-invalid @enderror" type="file" name="image" id="image">
                 <small class="text-muted">Recommended size: 400 x 400</small>
                 @error('image')
                     <span class="invalid-feedback" role="alert">

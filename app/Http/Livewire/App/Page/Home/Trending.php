@@ -20,6 +20,7 @@ class Trending extends Component
         $this->classNames = $classNames;
         $this->products = Product::where('privacy', 1)
                                 ->select('id', 'title', 'url', 'price', 'category_id', 'image_medium')
+                                ->latest()
                                 ->get()
                                 ->take($this->qty);
     }

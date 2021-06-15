@@ -3,7 +3,7 @@
     <script src="{{ asset('plugins/tinymce/init-tinymce.js') }}"></script>
 @endpush
 
-<form class="box" action="{{ route('admin.product.store') }}" method="post">
+<form class="box" action="{{ route('admin.product.store') }}" method="post" enctype="multipart/form-data">
     @csrf
     <div class="header">
         Create Product

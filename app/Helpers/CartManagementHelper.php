@@ -31,7 +31,7 @@ class CartManagementHelper{
       $id = $product->id;
 
       // Selecting parameters for the product to be stored in the item field
-      $proInfo = (object) ['id' => $product->id, 'price' => $product->price, 'title' => $product->title, 'url' => $product->url, 'img_medium' => $product->img_medium];
+      $proInfo = (object) ['id' => $product->id, 'price' => $product->price, 'title' => $product->title, 'url' => $product->url, 'image' => $product->image_small];
 
       // Making array to be stored if there is no items/this item not exists in the $items property
       $item = ['qty' => 0, 'price' => $product->price, 'item' => $proInfo];

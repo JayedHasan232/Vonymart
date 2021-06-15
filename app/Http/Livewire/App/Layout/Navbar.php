@@ -26,7 +26,7 @@ class Navbar extends Component
     
     public function cartUpdated()
     {
-        $this->productsInCart = Session::get('cart')->totalQty;
+        $this->productsInCart = Session::has('cart') ? Session::get('cart')->totalQty : NULL;
     }
 
     public function render()

@@ -19,9 +19,9 @@
             <td class="align-middle">
               <a class="media" href="{{ route('products.show', $product['item']->url) }}" target="_blank">
                 @php
-                  $imgSrc = $product['item']->img_medium;
+                  $image = $product['item']->image;
                 @endphp
-                <img class="mr-1" height="75" width="75" src='{{ asset("storage/$imgSrc") }}' title="{{ $product['item']->title }}" alt="{{ $product['item']->title }}">
+                <img class="mr-1" height="75" width="75" src="{{ asset('storage/' . $image) }}" title="{{ $product['item']->title }}" alt="{{ $product['item']->title }}">
               </a>
             </td>
             <td class="align-middle">

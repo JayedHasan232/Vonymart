@@ -95,7 +95,7 @@ class Index extends Component
                                     $query->where('sub_category_id', $this->sub_category);
                                 }
                             })
-                            ->select('id', 'title', 'url', 'price', 'brand_id', 'category_id', 'sub_category_id')
+                            ->select('id', 'title', 'url', 'price', 'brand_id', 'category_id', 'sub_category_id', 'image_medium')
                             ->latest()
                             ->paginate($this->qty);
 

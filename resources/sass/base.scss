@@ -550,10 +550,11 @@ a{
             gap: .5em;
 
             .item{
+                min-width: 292px;
                 display: flex;
                 align-items: center;
                 gap: 1em;
-                padding: 1em;
+                padding: 1.125em 1em;
                 background-color: #F5F5F5;
                 border: 1px solid #ededed;
                 transition: $transition;

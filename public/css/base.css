@@ -633,6 +633,7 @@ a {
 }
 
 .productShow .header .benefits .item {
+  min-width: 292px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -640,7 +641,7 @@ a {
       -ms-flex-align: center;
           align-items: center;
   gap: 1em;
-  padding: 1em;
+  padding: 1.125em 1em;
   background-color: #F5F5F5;
   border: 1px solid #ededed;
   -webkit-transition: 0.125s;

@@ -157,7 +157,7 @@
             </div>
             <div class="form-group col-md-3">
                 <label for="price">Price</label>
-                <input class="form-control @error('price') is-invalid @enderror" type="text" name="price" id="price" placeholder="Price" value="{{ old('price') }}">
+                <input class="form-control @error('price') is-invalid @enderror" type="text" name="price" id="price" placeholder="Price" value="{{ old('price', $price) }}">
                 @error('price')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>

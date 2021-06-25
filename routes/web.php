@@ -92,6 +92,7 @@ Route::namespace('App\Http\Livewire')->group(function()
         // Product
         Route::namespace('Product')->name('product.')->prefix('product')->group(function()
         {
+            Route::get('/', Index::class)->name('index');
             Route::get('create', Create::class)->name('create');
             Route::post('store', [App\Http\Controllers\ProductController::class, 'store'])->name('store');
             Route::get('edit/{id}', Edit::class)->name('edit');

@@ -15,7 +15,7 @@ class ProductCategoryController extends Controller
     public function index()
     {
         $categories = Category::where('privacy', 1)
-                            ->select('id', 'title', 'url')
+                            ->select('id', 'title', 'url', 'image')
                             ->get();
         return view('app.category.index', ['categories' => $categories]);
     }

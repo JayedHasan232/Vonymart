@@ -1,7 +1,7 @@
 <div>
     <a href="{{ route('categories.show', $category->url) }}" class="category" title="{{ __( $category->title ) }}">
         <div class="image-wrapper">
-            <div class="image" style='background-image: url({{ asset("media/categories/cat-klock-430x430.jpg") }})'></div>
+            <div class="image" style="background-image: url({{ asset('storage/' . $category->image) }})"></div>
         </div>
         <div class="info d-none d-md-block">
             <span class="label">{{ __( $category->title ) }}</span>

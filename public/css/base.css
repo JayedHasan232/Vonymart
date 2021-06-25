@@ -409,7 +409,7 @@ a {
   padding: 1em;
   display: block;
   position: relative;
-  background-color: #fff;
+  background-color: #fbfbfb;
   border: 1px solid #ededed;
   overflow: hidden;
 }
@@ -448,6 +448,11 @@ a {
   color: #333;
   font-weight: bold;
   text-transform: capitalize;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  overflow: hidden;
+  max-height: 1.25em;
+  line-height: 1.25em;
   transition: 0.125s;
 }
 

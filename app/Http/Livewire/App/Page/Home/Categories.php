@@ -14,7 +14,7 @@ class Categories extends Component
     {
         $this->categories = Category::where('privacy', 1)
                                     ->where('isFeatured', 1)
-                                    ->select('id', 'title', 'url')
+                                    ->select('id', 'title', 'url', 'image')
                                     ->get()
                                     ->take(4);
     }

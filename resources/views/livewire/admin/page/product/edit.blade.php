@@ -109,7 +109,7 @@
                 </ul>
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
-                        <textarea class="tinymce form-control @error('description') is-invalid @enderror" type="text" name="description" id="description" placeholder="Description">{{ old('description') }}</textarea>
+                        <textarea class="tinymce form-control @error('description') is-invalid @enderror" type="text" name="description" id="description" placeholder="Description">{{ old('description', $description) }}</textarea>
                         @error('description')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -117,7 +117,7 @@
                         @enderror
                     </div>
                     <div class="tab-pane fade" id="specification" role="tabpanel" aria-labelledby="specification-tab">
-                        <textarea class="tinymce form-control @error('specification') is-invalid @enderror" type="text" name="specification" id="specification" placeholder="Specification">{{ old('specification') }}</textarea>
+                        <textarea class="tinymce form-control @error('specification') is-invalid @enderror" type="text" name="specification" id="specification" placeholder="Specification">{{ old('specification', $specification) }}</textarea>
                         @error('specification')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -125,7 +125,7 @@
                         @enderror
                     </div>
                     <div class="tab-pane fade" id="meta_description" role="tabpanel" aria-labelledby="meta_description-tab">
-                        <textarea class="tinymce form-control @error('meta_description') is-invalid @enderror" type="text" name="meta_description" id="meta_description" placeholder="Meta Description">{{ old('meta_description') }}</textarea>
+                        <textarea class="tinymce form-control @error('meta_description') is-invalid @enderror" type="text" name="meta_description" id="meta_description" placeholder="Meta Description">{{ old('meta_description', $meta_description) }}</textarea>
                         @error('meta_description')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -133,7 +133,7 @@
                         @enderror
                     </div>
                     <div class="tab-pane fade" id="meta_keywords" role="tabpanel" aria-labelledby="meta_keywords-tab">
-                        <textarea class="tinymce form-control @error('meta_keywords') is-invalid @enderror" type="text" name="meta_keywords" id="meta_keywords" placeholder="Separate by comma (,)">{{ old('meta_keywords') }}</textarea>
+                        <textarea class="tinymce form-control @error('meta_keywords') is-invalid @enderror" type="text" name="meta_keywords" id="meta_keywords" placeholder="Separate by comma (,)">{{ old('meta_keywords', $meta_keywords) }}</textarea>
                         @error('meta_keywords')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>

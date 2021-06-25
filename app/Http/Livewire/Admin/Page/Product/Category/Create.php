@@ -19,6 +19,7 @@ class Create extends Component
     use WithFileUploads;
     
     public $privacy = 1;
+    public $isFeatured = 0;
     public $title;
     public $url;
     public $description;
@@ -48,6 +49,7 @@ class Create extends Component
 
         $category = Category::create([
             'privacy' => $this->privacy,
+            'isFeatured' => $this->isFeatured,
             'title' => $this->title,
             'url' => $this->url,
             'description' => $this->description,

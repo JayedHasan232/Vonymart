@@ -303,7 +303,7 @@ a {
 }
 
 .section {
-  padding: 5em 0;
+  padding-top: 4em;
 }
 
 .section .sec-head {
@@ -311,30 +311,27 @@ a {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1.5em;
+  padding: .5em 1em;
+  color: #fff;
+  background-color: #15655c;
 }
 
 .section .sec-head .sec-title {
-  color: #333;
   text-transform: capitalize;
+  font-size: 1.5em;
+}
+
+.section .sec-head a {
+  color: #fff;
 }
 
 .section .sec-head .sec-link {
-  color: #333;
   text-transform: capitalize;
-  padding: .5em 2em;
-  border: 1px solid #ededed;
-  border-radius: 1em;
   transition: 0.125s;
 }
 
 .section .sec-head .sec-link:hover {
-  color: #be1e2d;
-  border: 1px solid #be1e2d;
-}
-
-.section .sec-head .sec-link:active {
-  color: #15655c;
-  border: 1px solid #15655c;
+  opacity: .75;
 }
 
 .category {

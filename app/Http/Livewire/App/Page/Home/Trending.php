@@ -20,7 +20,7 @@ class Trending extends Component
         $this->classNames = $classNames;
         $this->products = Product::where('privacy', 1)
                                 ->select('id', 'view_count', 'title', 'url', 'price', 'category_id', 'image_medium')
-                                ->orderBy('view_count', 'desc')
+                                ->orderByDesc('view_count')
                                 ->get()
                                 ->take($this->qty);
     }

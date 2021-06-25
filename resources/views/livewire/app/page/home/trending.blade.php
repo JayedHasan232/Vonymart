@@ -2,7 +2,7 @@
   <div class="{{ env('BS_CONTAINER') }}">
 
     <div class="sec-head">
-      <h2 class="sec-title text-dark">Trending Products</h2>
+      <h2 class="sec-title">Trending Products</h2>
       @if($link)
       <a href="{{ route('products.trending') }}" class="sec-link">See More</a>
       @endif

@@ -27,7 +27,19 @@
                     </span>
                 @enderror
             </div>
-            <div class="form-group col-md-5">
+            <div class="form-group col-md-2">
+                <label for="isFeatured">Is Featured?</label>
+                <select wire:model="isFeatured" class="form-control @error('isFeatured') is-invalid @enderror">
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select>
+                @error('isFeatured')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+            <div class="form-group col-md-4">
                 <label for="title">Title</label>
                 <input wire:model="title" class="form-control @error('title') is-invalid @enderror" type="text" id="title" placeholder="Title">
                 @error('title')
@@ -36,7 +48,7 @@
                     </span>
                 @enderror
             </div>
-            <div class="form-group col-md-5">
+            <div class="form-group col-md-4">
                 <label for="url">URL</label>
                 <input wire:model="url" class="form-control @error('url') is-invalid @enderror" type="text" id="url" placeholder="URL">
                 @error('url')

@@ -16,7 +16,7 @@ class CreateProductsTable extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->boolean('privacy')->default(true);
-            $table->bigInteger('view_count')->default(0);
+            $table->bigInteger('view_count')->nullable();
             $table->string('title');
             $table->string('url');
             $table->integer('price')->nullable();

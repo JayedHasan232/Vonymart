@@ -21,6 +21,7 @@ class Edit extends Component
     public $category;
 
     public $privacy;
+    public $isFeatured;
     public $title;
     public $url;
     public $meta_title;
@@ -34,6 +35,7 @@ class Edit extends Component
         $this->category = Category::findOrFail($id);
 
         $this->privacy = $this->category->privacy;
+        $this->isFeatured = $this->category->isFeatured;
         $this->title = $this->category->title;
         $this->url = $this->category->url;
         $this->description = $this->category->description;
@@ -64,6 +66,7 @@ class Edit extends Component
 
         $this->category->update([
             'privacy' => $this->privacy,
+            'isFeatured' => $this->isFeatured,
             'title' => $this->title,
             'url' => $this->url,
             'description' => $this->description,

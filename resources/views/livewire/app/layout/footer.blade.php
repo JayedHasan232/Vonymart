@@ -12,15 +12,15 @@
                 <div class="col-md-6">
                     <h3 class="title">Contact Us</h3>
                     <ul class="foo-list">
-                        <li class="foo-item">Address: House # 32/2 Janata Housing, Mirpur 1, Dhaka 1216</li>
-                        <li class="foo-item">Email: <a class="foo-link" href="mailto:support@vonymart.com">support@vonymart.com</a></li>
-                        <li class="foo-item">Mobile: <a class="foo-link" href="tel:+8801630451356">+88 01630451356</a></li>
+                        <li class="foo-item">Address: {{ $info->address }}</li>
+                        <li class="foo-item">Email: <a class="foo-link" href="mailto:{{ $info->email }}">{{ $info->email }}</a></li>
+                        <li class="foo-item">Mobile: <a class="foo-link" href="tel:+88{{ $info->mobile }}">+88 {{ $info->mobile }}</a></li>
                     </ul>
                 </div>
                 <div class="col-md-3">
                     <h3 class="title">Get In Touch</h3>
                     <ul class="foo-list">
-                        <li class="foo-item">Facebook: <a class="foo-link" href="//www.facebook.com/vonymart.com.bd">@vonymart.com.bd</a></li>
+                        <li class="foo-item">Facebook: <a class="foo-link" href="//www.facebook.com/{{ $info->facebook_page }}">{{ '@' . $info->facebook_page }}</a></li>
                     </ul>
                 </div>
             </div>

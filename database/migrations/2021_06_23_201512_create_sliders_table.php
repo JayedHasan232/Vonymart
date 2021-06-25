@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProductsTable extends Migration
+class CreateSlidersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,22 +13,15 @@ class CreateProductsTable extends Migration
      */
     public function up()
     {
-        Schema::create('products', function (Blueprint $table) {
+        Schema::create('sliders', function (Blueprint $table) {
             $table->id();
             $table->boolean('privacy')->default(true);
-            $table->bigInteger('view_count')->default(0);
+            $table->smallInteger('position')->nullable();
             $table->string('title');
-            $table->string('url');
-            $table->integer('price')->nullable();
+            $table->text('overview');
             
-            $table->integer('brand_id')->nullable();
-            $table->integer('category_id');
-            $table->integer('sub_category_id')->nullable();
-            
-            $table->text('description')->nullable();
-            $table->string('meta_title')->nullable();
-            $table->text('meta_description')->nullable();
-            $table->text('meta_keywords')->nullable();
+            $table->text('link')->nullable();
+            $table->string('link_title')->nullable();
             
             $table->text('image')->nullable();
             $table->text('image_medium')->nullable();
@@ -38,7 +31,6 @@ class CreateProductsTable extends Migration
             $table->foreignId('updated_by')->nullable();
             $table->timestamps();
             $table->softDeletes();
-            
         });
     }
 
@@ -49,6 +41,6 @@ class CreateProductsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('products');
+        Schema::dropIfExists('sliders');
     }
 }

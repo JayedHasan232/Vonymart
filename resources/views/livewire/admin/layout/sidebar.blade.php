@@ -30,6 +30,17 @@
                 <li class="sbc-item"><a href="{{ route('admin.product.sub-category.index') }}" class="sbc-link">Index</a></li>
             </ul>
         </li>
+
+        <!-- Slider -->
+        <li class="sb-item">
+            <a href="{{ route('admin.slider.create') }}" class="sb-link">Slider</a>
+        </li>
+
+        <!-- Site Informations -->
+        <li class="sb-item" id="items">
+            <a href="{{ route('admin.site-info') }}" class="sb-link">Site Informations</a>
+        </li>
+        
         <li class="sb-item"><a href="#" class="sb-link">Users</a></li>
     </ul>
 </nav>

@@ -38,90 +38,95 @@ a{
 }
 
 .navbar{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
     padding: 0;
     height: 4.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
-    .navbar-brand{
-        width: 123px;
-        
-        .logo{
-            height: 2em;
-          }
-    }
-
-    .search-box{
-        width: 350px;
+    .container-xl{
         display: flex;
-        flex-direction: row;
         justify-content: space-between;
         align-items: center;
 
-        .form-control{
-            height: 2.5em;
-            border-radius: 0.75em 0 0 0.75em;
-        }
-        .btn{
-            display: flex;
-            align-items: center;
-            height: 2.5em;
-            border-radius: 0 0.75em 0.75em 0;
-            color: #fff;
-            background-color: $color;
-
-            &:hover{
-                background-color: $colorHover;
+        .navbar-brand{
+            width: 123px;
+            
+            .logo{
+                height: 2em;
             }
         }
-    }
 
-    .navbar-action-box{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 1em;
-
-        .nab-icon{
+        .search-box{
+            width: 350px;
             display: flex;
-            justify-content: center;
+            flex-direction: row;
+            justify-content: space-between;
             align-items: center;
-            gap: .5em;
-            height: 2.5em;
-            min-width: 2.5em;
-            padding: .5em 1em;
-            border: 1px solid #ededed;
-            border-radius: 1em;
-            color: #333;
-            cursor: pointer;
 
-            &:hover{
+            .form-control{
+                height: 2.5em;
+                border-radius: 0.75em 0 0 0.75em;
+            }
+            .btn{
+                display: flex;
+                align-items: center;
+                height: 2.5em;
+                border-radius: 0 0.75em 0.75em 0;
+                color: #fff;
+                background-color: $color;
+
+                &:hover{
+                    background-color: $colorHover;
+                }
+            }
+        }
+
+        .navbar-action-box{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1em;
+
+            .nab-icon{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: .5em;
+                height: 2.5em;
+                min-width: 2.5em;
+                padding: .5em 1em;
+                border: 1px solid #ededed;
+                border-radius: 1em;
+                color: #333;
+                cursor: pointer;
+
+                &:hover{
+                    color: $color;
+                    border: 1px solid $color;
+                }
+                &:active{
+                    color: $colorGreat;
+                    border: 1px solid $colorGreat;
+                }
+            }
+            .nab-shop{
                 color: $color;
                 border: 1px solid $color;
             }
-            &:active{
-                color: $colorGreat;
-                border: 1px solid $colorGreat;
+            .nab-love{
+
+            }
+            .nab-cart{
+
             }
         }
-        .nab-shop{
-            color: $color;
-            border: 1px solid $color;
-        }
-        .nab-love{
 
-        }
-        .nab-cart{
-
-        }
-    }
-
-    .navbar-nav{
-        .nav-item{
-            .nav-link{
-                color: $color;
+        .navbar-nav{
+            .nav-item{
+                .nav-link{
+                    color: $color;
+                }
             }
         }
     }
@@ -169,6 +174,10 @@ a{
         display: flex;
         align-items: flex-start;
 
+        @media only screen and (max-width: 767px){
+           padding: 0;
+        }
+
         .categories{
             height: 20em;
             width: 300px;
@@ -205,6 +214,10 @@ a{
             .carousel-inner{
                 .carousel-item{
                     height: 20em;
+
+                    @media screen and (max-width: 767px){
+                        height: 233.31px;
+                    }
                     
                     img{
                         height: 100%;

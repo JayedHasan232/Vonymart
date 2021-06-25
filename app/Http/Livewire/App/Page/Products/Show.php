@@ -15,6 +15,7 @@ class Show extends Component
     public function mount( $product )
     {
         $this->product = $product;
+        $this->product->increment('view_count');
     }
 
     public function addToCart()

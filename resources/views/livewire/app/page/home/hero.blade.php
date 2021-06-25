@@ -1,6 +1,6 @@
 <section class="hero">
     <div class="{{ env('BS_CONTAINER') }}">
-        <ul class="categories">
+        <ul class="categories d-none d-md-block">
             @foreach($categories as $category)
             <li class="item"><a href="{{ route('categories.show', $category->url) }}" class="link text-capitalize">{{ $category->title }}</a></li>
             @endforeach
@@ -9,33 +9,21 @@
             <div id="hphcarousel" class="carousel carousel-dark slide" data-bs-ride="carousel">
                 
                 <ol class="carousel-indicators">
-                    <li data-bs-target="#hphcarousel" data-bs-slide-to="0" class="active"></li>
-                    <li data-bs-target="#hphcarousel" data-bs-slide-to="1"></li>
-                    <li data-bs-target="#hphcarousel" data-bs-slide-to="2"></li>
+                    @for($item = 0; $item < $sliders->count(); $item++)
+                    <li data-bs-target="#hphcarousel" data-bs-slide-to="{{ $item }}" class="{{ $item == 0 ? 'active' : '' }}"></li>
+                    @endfor
                 </ol>
 
                 <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="{{ asset('media/hero/slider-main-demo.jpg') }}" class="d-block w-100" alt="Slider">
+                    @foreach($sliders as $slider)
+                    <div class="carousel-item {{ $loop->index == 0 ? 'active' : '' }}">
+                        <img src="{{ asset('storage/' . $slider->image) }}" class="d-block w-100" alt="{{ $slider->title }}">
                         <div class="carousel-caption">
-                            <h5 class="title">First slide label</h5>
-                            <p class="text">Some representative placeholder content for the first slide.</p>
+                            <h5 class="title">{{ $slider->title }}</h5>
+                            <p class="text">{{ $slider->overview }}</p>
                         </div>
                     </div>
-                    <div class="carousel-item">
-                        <img src="{{ asset('media/hero/slider-main-demo.jpg') }}" class="d-block w-100" alt="Slider">
-                        <div class="carousel-caption">
-                            <h5 class="title">Second slide label</h5>
-                            <p class="text">Some representative placeholder content for the second slide.</p>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="{{ asset('media/hero/slider-main-demo.jpg') }}" class="d-block w-100" alt="Slider">
-                        <div class="carousel-caption">
-                            <h5 class="title">Third slide label</h5>
-                            <p class="text">Some representative placeholder content for the third slide.</p>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
 
                 <a class="carousel-control-prev" data-bs-target="#hphcarousel" role="button" data-bs-slide="prev">

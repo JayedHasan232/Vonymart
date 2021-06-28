@@ -50,9 +50,6 @@ Route::namespace('\App\Http\Controllers')->group(function()
     // App - Search
     Route::get('search', 'AppController@search')->name('search');
 
-    // App - Cart
-    Route::get('cart', 'AppController@cart')->name('cart');
-
 
     // Admin
     Route::middleware('admin')->name('admin.')->prefix('admin')->group(function(){
@@ -70,6 +67,14 @@ Route::namespace('App\Http\Livewire')->group(function()
     // App
     Route::namespace('App\Page')->group(function()
     {
+
+        // App - Order
+        Route::namespace('Shopping')->group(function()
+        {
+            Route::get('cart', Cart::class)->name('cart');
+            Route::get('checkout', Checkout::class)->name('checkout')->middleware('auth');
+        });
+
         // App - About, Contact
         Route::get('about', About::class)->name('about');
         Route::get('contact', Contact::class)->name('contact');

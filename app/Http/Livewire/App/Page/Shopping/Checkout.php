@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Livewire\App\Page\Cart;
+namespace App\Http\Livewire\App\Page\Shopping;
 
 use Livewire\Component;
 use Session;
 use App\Helpers\CartManagementHelper as CMH;
 
-class Index extends Component
+class Checkout extends Component
 {
     public $items;
     public $totalQty;
@@ -76,6 +76,6 @@ class Index extends Component
 
     public function render()
     {
-        return view('livewire.app.page.cart.index');
+      return view('livewire.app.page.shopping.checkout')->extends('layouts.app');
     }
 }

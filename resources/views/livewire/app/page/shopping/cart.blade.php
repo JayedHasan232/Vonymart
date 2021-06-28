@@ -1,3 +1,23 @@
+@push('meta')
+    <!-- Primary Meta Tags -->
+    <title>{{ config('app.name', 'Laravel') }}</title>
+    <meta name="title" content="">
+    <meta name="description" property="og:description" content="">
+    <meta name="keywords" content="">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:url" content="">
+    <meta property="og:title" content="">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="">
+
+    <!-- Twitter -->
+    <meta property="twitter:url" content="">
+    <meta property="twitter:title" content="">
+    <meta property="twitter:description" content="">
+    <meta property="twitter:image" content="">
+@endpush
+
 <section class="py-5">
   <div class="{{ env('BS_CONTAINER') }}">
   
@@ -62,7 +82,7 @@
                 </tr>
               </table>
               <a href="" class="btn bg-great text-white my-3">Checkout</a>
-              <small class="d-block text-muted">You must login before checkout.</small>
+              <small class="d-block text-muted">*You must login before checkout.</small>
             </div>
           </div>
         </div>
@@ -72,7 +92,7 @@
       <div class="card text-center border-0 py-5">
         <h2>No products in your cart!</h2>
         <div class="card-body">
-          <a class="btn bg-dark text-white mx-5" href="{{ route('products.index') }}">Back To Shop</a>
+          <a class="btn bg-dark text-white mx-5" href="{{ route('checkout') }}">Back To Shop</a>
         </div>
       </div>
     @endif

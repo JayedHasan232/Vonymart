@@ -79,34 +79,103 @@
         </div>
 
         <div class="product-details py-5">
-            <div class="accordion" id="accordionExample">
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="productDescription">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseproductDescription" aria-expanded="true" aria-controls="collapseproductDescription">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-patch-question-fill me-2 text-great" viewBox="0 0 16 16">
-                                <path d="M5.933.87a2.89 2.89 0 0 1 4.134 0l.622.638.89-.011a2.89 2.89 0 0 1 2.924 2.924l-.01.89.636.622a2.89 2.89 0 0 1 0 4.134l-.637.622.011.89a2.89 2.89 0 0 1-2.924 2.924l-.89-.01-.622.636a2.89 2.89 0 0 1-4.134 0l-.622-.637-.89.011a2.89 2.89 0 0 1-2.924-2.924l.01-.89-.636-.622a2.89 2.89 0 0 1 0-4.134l.637-.622-.011-.89a2.89 2.89 0 0 1 2.924-2.924l.89.01.622-.636zM7.002 11a1 1 0 1 0 2 0 1 1 0 0 0-2 0zm1.602-2.027c.04-.534.198-.815.846-1.26.674-.475 1.05-1.09 1.05-1.986 0-1.325-.92-2.227-2.262-2.227-1.02 0-1.792.492-2.1 1.29A1.71 1.71 0 0 0 6 5.48c0 .393.203.64.545.64.272 0 .455-.147.564-.51.158-.592.525-.915 1.074-.915.61 0 1.03.446 1.03 1.084 0 .563-.208.885-.822 1.325-.619.433-.926.914-.926 1.64v.111c0 .428.208.745.585.745.336 0 .504-.24.554-.627z"/>
-                            </svg>
-                            Description
-                        </button>
-                    </h2>
-                    <div id="collapseproductDescription" class="accordion-collapse show" aria-labelledby="productDescription" data-bs-parent="#accordionExample">
-                        <div class="accordion-body">{!! $product->description !!}</div>
+            <!-- Product Info Start -->
+            <div class="productInfo">
+                <nav>
+                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                        <a class="nav-item nav-link active" id="nav-description-tab" data-bs-toggle="tab" href="#nav-description" role="tab" aria-controls="nav-description" aria-selected="true">Description</a>
+                        <a class="nav-item nav-link" id="nav-details-tab" data-bs-toggle="tab" href="#nav-details" role="tab" aria-controls="nav-details" aria-selected="false">Details</a>
+                        <a class="nav-item nav-link" id="nav-reviews-tab" data-bs-toggle="tab" href="#nav-reviews" role="tab" aria-controls="nav-reviews" aria-selected="false">Reviews</a>
                     </div>
-                </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="productSpecifications">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseproductSpecifications" aria-expanded="false" aria-controls="collapseproductSpecifications">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-patch-question-fill me-2 text-great" viewBox="0 0 16 16">
-                                <path d="M5.933.87a2.89 2.89 0 0 1 4.134 0l.622.638.89-.011a2.89 2.89 0 0 1 2.924 2.924l-.01.89.636.622a2.89 2.89 0 0 1 0 4.134l-.637.622.011.89a2.89 2.89 0 0 1-2.924 2.924l-.89-.01-.622.636a2.89 2.89 0 0 1-4.134 0l-.622-.637-.89.011a2.89 2.89 0 0 1-2.924-2.924l.01-.89-.636-.622a2.89 2.89 0 0 1 0-4.134l.637-.622-.011-.89a2.89 2.89 0 0 1 2.924-2.924l.89.01.622-.636zM7.002 11a1 1 0 1 0 2 0 1 1 0 0 0-2 0zm1.602-2.027c.04-.534.198-.815.846-1.26.674-.475 1.05-1.09 1.05-1.986 0-1.325-.92-2.227-2.262-2.227-1.02 0-1.792.492-2.1 1.29A1.71 1.71 0 0 0 6 5.48c0 .393.203.64.545.64.272 0 .455-.147.564-.51.158-.592.525-.915 1.074-.915.61 0 1.03.446 1.03 1.084 0 .563-.208.885-.822 1.325-.619.433-.926.914-.926 1.64v.111c0 .428.208.745.585.745.336 0 .504-.24.554-.627z"/>
-                            </svg>
-                            Specifications
-                        </button>
-                    </h2>
-                    <div id="collapseproductSpecifications" class="accordion-collapse collapse" aria-labelledby="productSpecifications" data-bs-parent="#accordionExample">
-                        <div class="accordion-body">{!! $product->specification !!}</div>
+                </nav>
+                <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="nav-description" role="tabpanel" aria-labelledby="nav-description-tab">
+                        {!! $product->description !!}
+                    </div>
+                    <div class="tab-pane fade" id="nav-details" role="tabpanel" aria-labelledby="nav-details-tab">
+                        <div class="accordion" id="accordionExample">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="productSpecifications">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseproductSpecifications" aria-expanded="true" aria-controls="collapseproductSpecifications">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-patch-question-fill me-2 text-great" viewBox="0 0 16 16">
+                                            <path d="M5.933.87a2.89 2.89 0 0 1 4.134 0l.622.638.89-.011a2.89 2.89 0 0 1 2.924 2.924l-.01.89.636.622a2.89 2.89 0 0 1 0 4.134l-.637.622.011.89a2.89 2.89 0 0 1-2.924 2.924l-.89-.01-.622.636a2.89 2.89 0 0 1-4.134 0l-.622-.637-.89.011a2.89 2.89 0 0 1-2.924-2.924l.01-.89-.636-.622a2.89 2.89 0 0 1 0-4.134l.637-.622-.011-.89a2.89 2.89 0 0 1 2.924-2.924l.89.01.622-.636zM7.002 11a1 1 0 1 0 2 0 1 1 0 0 0-2 0zm1.602-2.027c.04-.534.198-.815.846-1.26.674-.475 1.05-1.09 1.05-1.986 0-1.325-.92-2.227-2.262-2.227-1.02 0-1.792.492-2.1 1.29A1.71 1.71 0 0 0 6 5.48c0 .393.203.64.545.64.272 0 .455-.147.564-.51.158-.592.525-.915 1.074-.915.61 0 1.03.446 1.03 1.084 0 .563-.208.885-.822 1.325-.619.433-.926.914-.926 1.64v.111c0 .428.208.745.585.745.336 0 .504-.24.554-.627z"/>
+                                        </svg>
+                                        Specifications
+                                    </button>
+                                </h2>
+                                <div id="collapseproductSpecifications" class="accordion-collapse show" aria-labelledby="productSpecifications" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">{!! $product->specification !!}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="nav-reviews" role="tabpanel" aria-labelledby="nav-reviews-tab">
+                        <div class="productReview">
+                            <!-- User/Visitor Comments Section Start -->
+                            <div class="card-body">
+                                <form action="#" method="post">
+                                    @csrf
+                                    <div class="form-group mb-3">
+                                        <label for="rating" class="me-2">Your Rating:</label>
+                                        <div class="star-rating text-center">
+                                            @for($rate = 5; $rate >= 1; $rate--)
+                                            <input id="star-{{$rate}}" type="radio" name="rating" value="{{$rate}}">
+                                            <label for="star-{{$rate}}" title="{{$rate}}">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                                </svg>
+                                            </label>
+                                            @endfor
+                                        </div>
+                                    </div>
+
+                                    @auth
+                                    <div class="form-group">
+                                        <textarea class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}" name="content" placeholder="Hi {{ Auth::user()->name }}, please insert your review." required></textarea>
+                                        @if ($errors->has('content'))
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $errors->first('content') }}</strong>
+                                            </span>
+                                        @endif
+                                        <input type="hidden" name="name" value="{{ Auth::id() }}">
+                                        <input type="hidden" name="email" value="{{ Auth::user()->email }}">
+                                        <input type="hidden" name="relative_id" value="0">
+                                    </div>
+                                    @else
+                                        <div class="form-group">
+                                            <textarea class="form-control" onfocus="getgeoLocation()" name="content" placeholder="Please insert your review." required></textarea>
+                                            @if ($errors->has('content'))
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $errors->first('content') }}</strong>
+                                                </span>
+                                            @endif
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-group col-md-4">
+                                                <label for="inputCity">Name</label>
+                                                <input type="text" class="form-control" name="name" placeholder="Insert your name." required>
+                                            </div>
+                                            <div class="form-group col-md-4">
+                                                <label for="inputState">Email</label>
+                                                <input type="email" class="form-control" name="email" placeholder="Insert your email." required>
+                                            </div>
+                                            <div class="form-group col-md-4">
+                                                <label for="inputZip">Website</label>
+                                                <input type="text" class="form-control" name="website" placeholder="Insert your website.">
+                                            </div>
+                                        </div>
+                                        <input type="hidden" name="relative_id" value="0">
+                                    
+                                    @endauth
+                                    <button type="submit" class="btn bg-accent text-white mt-3">Submit</button>
+                                </form>
+                            </div>
+                            <!-- Rating end -->
+                        </div>
                     </div>
                 </div>
             </div>
+            <!-- Product Info End -->
         </div>
     </div>
 </section>

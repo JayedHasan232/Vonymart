@@ -81,7 +81,7 @@
                   <td><strong>৳</strong><span id="currentTotalPrice">{{ round( $totalPrice ) }}</span></td>
                 </tr>
               </table>
-              <a href="" class="btn bg-great text-white my-3">Checkout</a>
+              <a href="{{ route('checkout') }}" class="btn bg-great text-white my-3">Checkout</a>
               <small class="d-block text-muted">*You must login before checkout.</small>
             </div>
           </div>
@@ -92,7 +92,7 @@
       <div class="card text-center border-0 py-5">
         <h2>No products in your cart!</h2>
         <div class="card-body">
-          <a class="btn bg-dark text-white mx-5" href="{{ route('checkout') }}">Back To Shop</a>
+          <a class="btn bg-dark text-white mx-5" href="{{ route('products.index') }}">Back To Shop</a>
         </div>
       </div>
     @endif

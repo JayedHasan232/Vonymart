@@ -18,10 +18,10 @@
                     @foreach($sliders as $slider)
                     <div class="carousel-item {{ $loop->index == 0 ? 'active' : '' }}">
                         <img src="{{ asset('storage/' . $slider->image) }}" class="d-block w-100" alt="{{ $slider->title }}">
-                        <div class="carousel-caption">
+                        {{--<div class="carousel-caption">
                             <h5 class="title">{{ $slider->title }}</h5>
                             <p class="text">{{ $slider->overview }}</p>
-                        </div>
+                        </div>--}}
                     </div>
                     @endforeach
                 </div>

@@ -150,7 +150,7 @@
                                                 </span>
                                             @endif
                                         </div>
-                                        <div class="row g-3 mt-3">
+                                        <div class="row g-3 mt-2">
                                             <div class="form-group col-md-4">
                                                 <label for="inputCity">Name</label>
                                                 <input type="text" class="form-control" name="name" placeholder="Insert your name." required>

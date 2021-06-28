@@ -15,6 +15,10 @@ a {
   color: #be1e2d;
 }
 
+.text-great {
+  color: #15655c;
+}
+
 .bg-accent {
   background-color: #be1e2d;
 }
@@ -601,7 +605,7 @@ a {
 }
 
 .accordion .accordion-item .accordion-header .accordion-button:not(.collapsed) {
-  color: #af0a0f;
+  color: #15655c;
   background-color: #fff;
   box-shadow: none;
 }

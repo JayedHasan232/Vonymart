@@ -28,6 +28,9 @@ a{
 .text-accent{
     color: $color;
 }
+.text-great{
+    color: $colorGreat;
+}
 
 // Background colors
 .bg-accent{
@@ -614,7 +617,7 @@ a{
                     box-shadow: none;
                 }
                 &:not(.collapsed) {
-                    color: $colorHover;
+                    color: $colorGreat;
                     background-color: #fff;
                     box-shadow: none;
                 }

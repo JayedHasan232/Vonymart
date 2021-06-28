@@ -601,6 +601,31 @@ a{
     }
 }
 
+.accordion{
+    .accordion-item{
+        margin-bottom: .75em;
+        border: 1px solid #ededed;
+        border-radius: 1em;
+        overflow: hidden;
+
+        .accordion-header{
+            .accordion-button{
+                &:focus {
+                    box-shadow: none;
+                }
+                &:not(.collapsed) {
+                    color: $colorHover;
+                    background-color: #fff;
+                    box-shadow: none;
+                }
+            }
+        }
+        .accordion-body{
+            background-color: #fff;
+        }
+    }
+}
+
 
 // Footer
 .footer{

@@ -589,6 +589,27 @@ a {
   font-size: 15px;
 }
 
+.accordion .accordion-item {
+  margin-bottom: .75em;
+  border: 1px solid #ededed;
+  border-radius: 1em;
+  overflow: hidden;
+}
+
+.accordion .accordion-item .accordion-header .accordion-button:focus {
+  box-shadow: none;
+}
+
+.accordion .accordion-item .accordion-header .accordion-button:not(.collapsed) {
+  color: #af0a0f;
+  background-color: #fff;
+  box-shadow: none;
+}
+
+.accordion .accordion-item .accordion-body {
+  background-color: #fff;
+}
+
 .footer {
   color: #9CA9BE;
   background-color: #1A202C;

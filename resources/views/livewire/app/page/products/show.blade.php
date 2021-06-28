@@ -143,14 +143,14 @@
                                     </div>
                                     @else
                                         <div class="form-group">
-                                            <textarea class="form-control" onfocus="getgeoLocation()" name="content" placeholder="Please insert your review." required></textarea>
+                                            <textarea class="form-control" name="content" placeholder="Please insert your review." required></textarea>
                                             @if ($errors->has('content'))
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $errors->first('content') }}</strong>
                                                 </span>
                                             @endif
                                         </div>
-                                        <div class="form-row">
+                                        <div class="row g-3 mt-3">
                                             <div class="form-group col-md-4">
                                                 <label for="inputCity">Name</label>
                                                 <input type="text" class="form-control" name="name" placeholder="Insert your name." required>

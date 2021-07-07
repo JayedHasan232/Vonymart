@@ -7,8 +7,11 @@
                 </div>
             </div>
             <div class="informations">
-                <h1 class="title fs-4">{{ __( $product->title ) }}</h1>
-                <h3 class="price">{{ __( '৳' . $product->price ) }}</h3>
+                <h1 class="title fs-4 mb-4">{{ __( $product->title ) }}</h1>
+                <h5 class="mt-2 fw-normal">Brand: <strong>{{ __( $product->brand ? $product->brand->title : 'Fluke' ) }}</strong></h5>
+                <h5 class="mt-2 fw-normal">Category: <strong>{{ __( $product->category->title ) }}</strong></h5>
+                <h5 class="mt-2 fw-normal">Sub Category: <strong>{{ __( $product->sub_category ? $product->sub_category->title : '' ) }}</strong></h5>
+                <h4 class="price fw-normal">Price: <strong>{{ __( '৳' . $product->price ) }}</strong></h4>
                 <p class="overview">{{ __( $product->overview ) }}</p>
                 <button wire:click.prevent="addToCart" class="btn bg-accent text-white">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-plus" viewBox="0 0 16 16">

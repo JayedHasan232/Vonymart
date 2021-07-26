@@ -19,83 +19,82 @@
 @endpush
 
 <section class="py-5">
-  <div class="{{ env('BS_CONTAINER') }}">
-  
-    @if($totalQty > 0)
-
-    <table class="table table-striped table-bordered table-hover border text-center table-responsive-sm" width="100%">
-        <thead class="bg-great text-white">
-          <tr>
-            <th>Thumbnail</th>
-            <th>Quantity</th>
-            <th>Unit Price</th>
-            <th>Total Price</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          @foreach($items as $product)
-          <tr :key="$loop->index">
-            <td class="align-middle">
-              <a class="media" href="{{ route('products.show', $product['item']->url) }}" target="_blank">
-                @php
-                  $image = $product['item']->image;
-                @endphp
-                <img class="mr-1" height="75" width="75" src="{{ asset('storage/' . $image) }}" title="{{ $product['item']->title }}" alt="{{ $product['item']->title }}">
-              </a>
-            </td>
-            <td class="align-middle">
-              <div class="">
-                <button wire:click="minus({{ $product['item']->id }})" type="button" class="btn btn-dark">-</button>
-                <input type="text" class="btn qty" value="{{ $product['qty'] }}" disabled>
-                <button wire:click="plus({{ $product['item']->id }})" type="button" class="btn bg-great text-white">+</button>
-              </div>
-            </td>
-            <td class="align-middle">৳{{ $product['item']->price }}</td>
-            <td class="align-middle">৳{{ $product['price'] }}</td>
-            <td class="align-middle">
-                <button wire:click="removeItem({{ $product['item']->id }})" type="button" class="btn btn-danger">
-                  <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-x-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                    <path fill-rule="evenodd" d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
-                  </svg>
-                </button>
-            </td>
-          </tr>
-          @endforeach
-        </tbody>
-      </table>
-
-      <div class="row mt-5 justify-content-start">
-        <div class="col-md-8">
-          <div class="card rounded-0">
-            <h4 class="card-header rounded-0 bg-great text-white">Total</h4>
-            <div class="card-body">
-              <table class="table table-bordered">
-                <tr class="">
-                  <th>Total Quantity:</th>
-                  <td><span class="currentTotalQty">{{ round( $totalQty ) }}</span>@if(round( $totalQty ) > 1) pcs @else piece @endif </td>
-                </tr>
-                <tr class="table table-bordered">
-                  <th>Total Price:</th>
-                  <td><strong>৳</strong><span id="currentTotalPrice">{{ round( $totalPrice ) }}</span></td>
-                </tr>
-              </table>
-              <a href="" class="btn bg-great text-white my-3">Checkout</a>
-              <small class="d-block text-muted">You must login before checkout.</small>
+    <div class="{{ env('BS_CONTAINER') }}">
+        <form class="row g-4" action="" method="post">
+            @csrf
+            <div class="col-md-7">
+                <div class="billing-details">
+                    <h3 class="d-block">Billing Details</h3>
+                    <small class="text-muted mb-5">Edit informations, if you want to ship to a different address</small>
+                    <div class="row g-3 mt-3">
+                        <div class="form-group col-md-6">
+                            <label class="form-label" for="name">Name*</label>
+                            <input class="form-control" type="text" name="name" placeholder="Name" value="{{ old('name', auth()->user()->name) }}" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label class="form-label" for="email">Email*</label>
+                            <input class="form-control" type="text" name="email" placeholder="Email" value="{{ old('email', auth()->user()->email) }}" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label class="form-label" for="phone">Phone*</label>
+                            <input class="form-control" type="text" name="phone" placeholder="Phone" value="{{ old('phone', auth()->user()->phone) }}" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label class="form-label" for="alt_phone">Alternative phone</label>
+                            <input class="form-control" type="text" name="alt_phone" placeholder="(Optional)" value="{{ old('alt_phone', auth()->user()->alt_phone) }}">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label class="form-label" for="address">Address*</label>
+                            <textarea class="form-control" name="address" placeholder="Address" required>{{ old('address', auth()->user()->address) }}</textarea>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label class="form-label" for="office_address">Office address</label>
+                            <textarea class="form-control" name="office_address" placeholder="(Optional)">{{ old('office_address', auth()->user()->office_address) }}</textarea>
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label class="form-label" for="note">Your note</label>
+                            <textarea class="form-control" name="note" placeholder="(Optional)">{{ old('note') }}</textarea>
+                        </div>
+                        <div class="form-group col-md-4">
+                                <label class="form-label" for="payment_method">Payment method*</label>
+                                <select class="form-control" name="payment_method" required>
+                                    <option value="1">Mobile Banking</option>
+                                    <option value="1">Cash on delivery</option>
+                                </select>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
-
-    @else
-      <div class="card text-center border-0 py-5">
-        <h2>No products in your cart!</h2>
-        <div class="card-body">
-          <a class="btn bg-dark text-white mx-5" href="{{ route('products.index') }}">Back To Shop</a>
-        </div>
-      </div>
-    @endif
-
-  </div>
+            <div class="col-md-5">
+                <div class="order-details">
+                    <h3 class="my-3">Order Details</h3>
+                    <table class="table table-bordered">
+                        <thead>
+                            <th>Products</th>
+                            <th>Qty</th>
+                            <th>Price</th>
+                        </thead>
+                        <tbody>
+                            @foreach($items as $product)
+                            <tr>
+                                <td class="font-weight-bold">{{ $product['item']->title }}</td>
+                                <td>{{ $product['qty'] }}</td>
+                                <td>৳ {{ $product['item']->price }}</td>
+                            </tr>
+                            @endforeach
+                            <tr>
+                                <td class="font-weight-bold">Shipping</td>
+                                <td colspan="2">Call us</td>
+                            </tr>
+                            <tr>
+                                <td class="font-weight-bold">Grand Total</td>
+                                <td colspan="2">৳ {{ round($totalPrice) }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <button class="btn bg-great text-white mt-3" type="submit">Place Order</button>
+                </div>
+            </div>
+        </form>
+    </div>
 </section>

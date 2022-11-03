@@ -12,15 +12,15 @@
                 <div class="col-md-6">
                     <h3 class="title">Contact Us</h3>
                     <ul class="foo-list">
-                        <li class="foo-item">Address: {{ $info->address }}</li>
-                        <li class="foo-item">Email: <a class="foo-link" href="mailto:{{ $info->email }}">{{ $info->email }}</a></li>
-                        <li class="foo-item">Mobile: <a class="foo-link" href="tel:+88{{ $info->mobile }}">+88 {{ $info->mobile }}</a></li>
+                        <li class="foo-item">Address: {{ $info ? $info->address : '' }}</li>
+                        <li class="foo-item">Email: <a class="foo-link" href="mailto:{{ $info ? $info->email : '' }}">{{ $info ? $info->email : '' }}</a></li>
+                        <li class="foo-item">Mobile: <a class="foo-link" href="tel:+88{{ $info ? $info->mobile : '' }}">+88{{ $info ? $info->mobile : '' }}</a></li>
                     </ul>
                 </div>
                 <div class="col-md-3">
                     <h3 class="title">Get In Touch</h3>
                     <ul class="foo-list">
-                        <li class="foo-item">Facebook: <a class="foo-link" href="//www.facebook.com/{{ $info->facebook_page }}">{{ '@' . $info->facebook_page }}</a></li>
+                        <li class="foo-item">Facebook: <a class="foo-link" href="//www.facebook.com/{{ $info ? $info->facebook_page : '' }}">{{ $info ? '@' . $info->facebook_page : '' }}</a></li>
                     </ul>
                 </div>
             </div>

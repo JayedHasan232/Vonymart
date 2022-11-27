@@ -1,4 +1,4 @@
-<section class="hero">
+<section class="hero bg-accent">
     <div class="{{ env('BS_CONTAINER') }}">
         <ul class="categories d-none d-md-block">
             @foreach($categories as $category)

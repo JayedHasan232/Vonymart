@@ -17,7 +17,7 @@ class Recent extends Component
         $this->qty = $qty;
         $this->link = $link == 'visible' ? 1 : 0;
         $this->products = Product::where('privacy', 1)
-                                ->select('id', 'title', 'url', 'price', 'category_id', 'image_medium')
+                                ->select('id', 'title', 'url', 'price', 'category_id', 'image')
                                 ->latest()
                                 ->get()
                                 ->take($this->qty);

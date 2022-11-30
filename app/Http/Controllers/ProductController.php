@@ -9,6 +9,7 @@ use App\Helpers\ImageResize as Image;
 
 // Models
 use App\Models\Product;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -21,7 +22,7 @@ class ProductController extends Controller
     {
         return view('app.products.index');
     }
-    
+
     public function trendingProducts()
     {
         return view('app.products.trending');
@@ -31,7 +32,7 @@ class ProductController extends Controller
     {
         return view('app.products.new');
     }
-    
+
     public function store(Request $request)
     {
         $request->validate([
@@ -58,7 +59,7 @@ class ProductController extends Controller
             'created_at' => now(),
         ]);
 
-        if($request->hasFile('image')){
+        if ($request->hasFile('image')) {
 
             $image = $request->image;
             $dimension = (object) [
@@ -87,15 +88,15 @@ class ProductController extends Controller
 
         return back()->with('success', 'Success!');
     }
-    
+
     public function show($product)
     {
         $product = Product::where('url', $product)
-                        ->where('privacy', 1)
-                        ->firstOrFail();
+            ->where('privacy', 1)
+            ->firstOrFail();
         return view('app.products.show', ['product' => $product]);
     }
-    
+
     public function update(Request $request, $id)
     {
         $product = Product::findOrFail($id);
@@ -107,7 +108,7 @@ class ProductController extends Controller
             'url' => 'required|string',
         ]);
 
-        if($request->url != $product->url){
+        if ($request->url != $product->url) {
             $request->validate([
                 'url' => 'unique:products',
             ]);
@@ -130,7 +131,7 @@ class ProductController extends Controller
             'updated_at' => now(),
         ]);
 
-        if($request->hasFile('image')){
+        if ($request->hasFile('image')) {
 
             Storage::delete($product->image);
             Storage::delete($product->image_medium);

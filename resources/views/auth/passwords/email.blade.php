@@ -5,7 +5,7 @@
     <div class="auth">
 
         <a class="logo" href="{{ url('/') }}">
-            <img src="https://evaly.com.bd/static/images/logo_b&w.svg" alt="{{ config('app.name', 'Laravel') }}">
+            <img src="{{asset('logo.png')}}" alt="{{ config('app.name', 'Laravel') }}">
         </a>
 
         <div class="box">
@@ -19,12 +19,14 @@
                     <label for="email">{{ __('E-Mail Address') }}</label>
 
                     <div class="">
-                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="ex: email@gmail.com">
+                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
+                            name="email" value="{{ old('email') }}" required autocomplete="email"
+                            placeholder="ex: email@gmail.com">
 
                         @error('email')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
                         @enderror
                     </div>
                 </div>

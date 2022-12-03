@@ -14,11 +14,11 @@ class Index extends Component
 {
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
-    
+
     public $brands;
     public $categories;
     public $sub_categories = [];
-    
+
     public $totalProducts;
     public $initialQty = 12;
     public $qty = 12;
@@ -31,21 +31,21 @@ class Index extends Component
         $this->totalProducts = Product::where('privacy', 1)->count();
 
         $this->brands = Brand::where('privacy', 1)
-                            ->select('id', 'title')
-                            ->orderBy('title')
-                            ->get();
-                            
+            ->select('id', 'title')
+            ->orderBy('title')
+            ->get();
+
         $this->categories = Category::where('privacy', 1)
-                            ->select('id', 'title')
-                            ->orderBy('title')
-                            ->get();
+            ->select('id', 'title')
+            ->orderBy('title')
+            ->get();
     }
 
     public function loadMore()
     {
         $this->qty += $this->initialQty;
     }
-    
+
     public function updatingBrand()
     {
         $this->qty = $this->initialQty;
@@ -57,10 +57,10 @@ class Index extends Component
         $this->qty = $this->initialQty;
         $this->resetPage();
         $this->sub_categories = SubCategory::where('privacy', 1)
-                            ->where('category_id', $this->category)
-                            ->select('id', 'title')
-                            ->orderBy('title')
-                            ->get();
+            ->where('category_id', $this->category)
+            ->select('id', 'title')
+            ->orderBy('title')
+            ->get();
     }
 
     public function updatingSubCategory()
@@ -80,24 +80,24 @@ class Index extends Component
     public function render()
     {
         $products = Product::where('privacy', 1)
-                            ->where(function($query){
-                                if($this->brand != ''){
-                                    $query->where('brand_id', $this->brand);
-                                }
-                            })
-                            ->where(function($query){
-                                if($this->category != ''){
-                                    $query->where('category_id', $this->category);
-                                }
-                            })
-                            ->where(function($query){
-                                if($this->sub_category != ''){
-                                    $query->where('sub_category_id', $this->sub_category);
-                                }
-                            })
-                            ->select('id', 'title', 'url', 'price', 'brand_id', 'category_id', 'sub_category_id', 'image_medium')
-                            ->latest()
-                            ->paginate($this->qty);
+            ->where(function ($query) {
+                if ($this->brand != '') {
+                    $query->where('brand_id', $this->brand);
+                }
+            })
+            ->where(function ($query) {
+                if ($this->category != '') {
+                    $query->where('category_id', $this->category);
+                }
+            })
+            ->where(function ($query) {
+                if ($this->sub_category != '') {
+                    $query->where('sub_category_id', $this->sub_category);
+                }
+            })
+            ->select('id', 'title', 'url', 'price', 'brand_id', 'category_id', 'sub_category_id', 'image')
+            ->latest()
+            ->paginate($this->qty);
 
         return view('livewire.app.page.products.index', ['products' => $products]);
     }

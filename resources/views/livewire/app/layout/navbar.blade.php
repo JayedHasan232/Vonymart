@@ -1,8 +1,7 @@
 <nav class="navbar navbar-expand-md shadow-sm bg-white py-5 sticky-top top-0">
     <div class="{{ env('BS_CONTAINER') }}">
         <a class="navbar-brand" href="{{ url('/') }}">
-            <img class="logo" src="https://evaly.com.bd/static/images/logo_b&w.svg"
-                alt="{{ config('app.name', 'Laravel') }}">
+            <img class="logo" src="{{asset('logo.png')}}" alt="{{ config('app.name', 'Laravel') }}">
         </a>
 
         <form action="{{ route('search') }}" method="get" class="search-box d-none d-md-flex">

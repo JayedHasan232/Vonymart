@@ -12,10 +12,10 @@ class Index extends Component
 {
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
-    
+
     public $subCategory;
     public $brands;
-    
+
     public $totalProducts;
     public $initialQty = 12;
     public $qty = 12;
@@ -32,7 +32,7 @@ class Index extends Component
     {
         $this->qty += $this->initialQty;
     }
-    
+
     public function updatingBrand()
     {
         $this->qty = $this->initialQty;
@@ -50,17 +50,17 @@ class Index extends Component
     public function render()
     {
         $products = Product::where('privacy', 1)
-                            ->where(function($query){
-                                $query->where('sub_category_id', $this->subCategory->id);
-                            })
-                            ->where(function($query){
-                                if($this->brand != ''){
-                                    $query->where('brand_id', $this->brand);
-                                }
-                            })
-                            ->select('id', 'title', 'url', 'price', 'brand_id', 'category_id', 'sub_category_id', 'image_medium')
-                            ->latest()
-                            ->paginate($this->qty);
+            ->where(function ($query) {
+                $query->where('sub_category_id', $this->subCategory->id);
+            })
+            ->where(function ($query) {
+                if ($this->brand != '') {
+                    $query->where('brand_id', $this->brand);
+                }
+            })
+            ->select('id', 'title', 'url', 'price', 'brand_id', 'category_id', 'sub_category_id', 'image')
+            ->latest()
+            ->paginate($this->qty);
 
         return view('livewire.app.page.products.sub-category.index', ['products' => $products]);
     }

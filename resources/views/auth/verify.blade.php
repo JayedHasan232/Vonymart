@@ -5,7 +5,7 @@
     <div class="auth">
 
         <a class="logo" href="{{ url('/') }}">
-            <img src="https://evaly.com.bd/static/images/logo_b&w.svg" alt="{{ config('app.name', 'Laravel') }}">
+            <img src="{{asset('logo.png')}}" alt="{{ config('app.name', 'Laravel') }}">
         </a>
 
         <div class="box">
@@ -14,20 +14,20 @@
 
             <div class="body">
                 @if (session('resent'))
-                    <div class="alert alert-success" role="alert">
-                        {{ __('A fresh verification link has been sent to your email address.') }}
-                    </div>
+                <div class="alert alert-success" role="alert">
+                    {{ __('A fresh verification link has been sent to your email address.') }}
+                </div>
                 @endif
 
                 {{ __('Before proceeding, please check your email for a verification link.') }}
                 {{ __('If you did not receive the email') }},
                 <form class="d-inline" method="POST" action="{{ route('verification.resend') }}">
                     @csrf
-                    <button type="submit" class="btn btn-link p-0 m-0 align-baseline">{{ __('click here to request another') }}</button>.
+                    <button type="submit" class="btn btn-link p-0 m-0 align-baseline">{{ __('click here to request
+                        another') }}</button>.
                 </form>
             </div>
         </div>
     </div>
 </div>
 @endsection
-

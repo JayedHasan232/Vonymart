@@ -5,7 +5,7 @@
     <div class="auth">
 
         <a class="logo" href="{{ url('/') }}">
-            <img src="https://evaly.com.bd/static/images/logo_b&w.svg" alt="{{ config('app.name', 'Laravel') }}">
+            <img src="{{asset('logo.png')}}" alt="{{ config('app.name', 'Laravel') }}">
         </a>
 
         <div class="box">
@@ -20,12 +20,13 @@
                 <div class="form-group">
                     <label for="password">{{ __('Password') }}</label>
 
-                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror"
+                        name="password" required autocomplete="current-password">
 
                     @error('password')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
                     @enderror
                 </div>
 
@@ -35,9 +36,9 @@
                     </button>
 
                     @if (Route::has('password.request'))
-                        <a class="btn btn-link" href="{{ route('password.request') }}">
-                            {{ __('Forgot Your Password?') }}
-                        </a>
+                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                        {{ __('Forgot Your Password?') }}
+                    </a>
                     @endif
                 </div>
             </form>

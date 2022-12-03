@@ -420,22 +420,15 @@ a {
 // Products - Component
 .com_product {
     height: 100%;
-    padding: 1em;
-    display: block;
-    position: relative;
     background-color: #fbfbfb;
     border: 1px solid #ededed;
     overflow: hidden;
 
     .pro_actions {
-        position: absolute;
         text-align: center;
         background-color: #fff;
         box-shadow: 1px 1px 1px 0 rgba(0, 0, 0, 0.25);
         border-radius: 1em;
-        right: 0;
-        bottom: 10px;
-        transform: translateX(100%);
         opacity: 0;
         transition: $transition;
         z-index: 1;

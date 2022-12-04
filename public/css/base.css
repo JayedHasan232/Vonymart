@@ -488,7 +488,6 @@ a {
   align-items: center;
   gap: 1em;
   padding: 1.125em 1em;
-  background-color: #f5f5f5;
   border: 1px solid #ededed;
   transition: 0.125s;
 }
@@ -592,12 +591,15 @@ a {
 }
 
 .footer {
-  color: #9ca9be;
-  background-color: #1a202c;
+  color: #ededed;
+  background-color: #be1e2d;
   padding: 4em 1em;
 }
 .footer .foo-list {
   list-style: none;
+}
+.footer a {
+  color: #ededed;
 }
 
 .copyright {

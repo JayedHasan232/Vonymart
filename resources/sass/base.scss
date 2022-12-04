@@ -567,7 +567,6 @@ a {
                 align-items: center;
                 gap: 1em;
                 padding: 1.125em 1em;
-                background-color: #f5f5f5;
                 border: 1px solid #ededed;
                 transition: $transition;
 
@@ -684,12 +683,15 @@ a {
 
 // Footer
 .footer {
-    color: #9ca9be;
-    background-color: $colorDark;
+    color: #ededed;
+    background-color: $color;
     padding: 4em 1em;
 
     .foo-list {
         list-style: none;
+    }
+    a {
+        color: #ededed;
     }
 }
 

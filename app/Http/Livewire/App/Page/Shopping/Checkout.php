@@ -14,8 +14,9 @@ class Checkout extends Component
 
     public function mount()
     {
-        $currentCart = Session::has('cart') ? Session::get('cart') : NULL;
-        $cart = new CMH($currentCart);
+        if (!session()->has('cart')) return redirect('/');
+
+        $cart = new CMH(session()->get('cart'));
         $this->items = $cart->items;
         $this->totalQty = $cart->totalQty;
         $this->totalPrice = $cart->totalPrice;

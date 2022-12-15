@@ -16,7 +16,7 @@ class Categories extends Component
                                     ->where('isFeatured', 1)
                                     ->select('id', 'title', 'url', 'image')
                                     ->get()
-                                    ->take(4);
+                                    ->take(6);
     }
     
     public function render()

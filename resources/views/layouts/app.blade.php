@@ -50,7 +50,7 @@
 <body>
     <div id="app">
         @livewire('app.layout.navbar')
-        @livewire('app.layout.menubar')
+        {{-- @livewire('app.layout.menubar') --}}
 
         <main>
             @yield('content')

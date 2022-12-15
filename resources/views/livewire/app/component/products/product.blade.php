@@ -8,7 +8,8 @@
                 }}</span>
             <span class="pro_price">{{ __( '৳' . $product->price ) }}</span>
         </div>
-        <div class="mx-auto d-flex justify-content-center align-items-center" style="width: fit-content">
+
+        <div class="mx-auto d-flex justify-content-center align-items-center pointer" style="width: fit-content">
             @if(!$alreadyExists)
             <div class="pro_icon border border-end-0 py-2 px-3" wire:click.prevent="addToWishlist">
                 <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-heart" fill="currentColor"

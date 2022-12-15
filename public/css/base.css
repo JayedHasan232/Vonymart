@@ -435,7 +435,7 @@ a {
 .productShow .header {
   display: flex;
   justify-content: space-between;
-  gap: 0.5em;
+  gap: 0.75em;
 }
 .productShow .header .image {
   height: 25em;
@@ -447,9 +447,6 @@ a {
   border: 1px solid #ededed;
   transition: 0.125s;
 }
-.productShow .header .image .image-wrapper:hover {
-  border-color: #15655c;
-}
 .productShow .header .image .image-wrapper img {
   height: 100%;
   width: 100%;
@@ -457,12 +454,7 @@ a {
 .productShow .header .informations {
   flex-grow: 1;
   height: auto;
-  padding: 1em;
-  border: 1px solid #ededed;
   transition: 0.125s;
-}
-.productShow .header .informations:hover {
-  border: 1px solid #15655c;
 }
 .productShow .header .informations .title {
   text-transform: capitalize;

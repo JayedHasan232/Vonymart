@@ -1,15 +1,13 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::namespace('\App\Http\Controllers')->group(function()
-{
-
+Route::namespace('\App\Http\Controllers')->group(function () {
     // Auth
-    Route::name('verification.')->prefix('email')->group(function()
-    {
+    Route::name('verification.')->prefix('email')->group(function () {
         Route::get('verify', 'AuthController@verify')->middleware('auth')->name('notice');
         Route::get('verify/{id}/{hash}', 'AuthController@verifyCheck')->middleware(['auth', 'signed'])->name('verify');
         Route::post('verification-notification', 'AuthController@verificationNotification')->middleware(['auth', 'throttle:6,1'])->name('resend');
@@ -18,12 +16,11 @@ Route::namespace('\App\Http\Controllers')->group(function()
     // App
     Route::get('/', 'AppController@welcome')->name('welcome');
 
-
     // Products
     Route::resource('products', ProductController::class)
         ->except(['index', 'show'])
         ->middleware(['auth']);
-        
+
     Route::resource('products', ProductController::class)
         ->only(['index', 'show']);
 
@@ -34,7 +31,7 @@ Route::namespace('\App\Http\Controllers')->group(function()
     Route::resource('categories', ProductCategoryController::class)
         ->except(['index', 'show'])
         ->middleware(['auth']);
-        
+
     Route::resource('categories', ProductCategoryController::class)
         ->only(['index', 'show']);
 
@@ -42,35 +39,30 @@ Route::namespace('\App\Http\Controllers')->group(function()
     Route::resource('sub-categories', ProductSubCategoryController::class)
         ->except(['index', 'show'])
         ->middleware(['auth']);
-        
+
     Route::resource('sub-categories', ProductSubCategoryController::class)
         ->only(['index', 'show']);
 
-    
     // App - Search
     Route::get('search', 'AppController@search')->name('search');
-
+    Route::post('place-order', 'CheckoutController@place_order')->name('place_order');
 
     // Admin
-    Route::middleware('admin')->name('admin.')->prefix('admin')->group(function(){
+    Route::middleware('admin')->name('admin.')->prefix('admin')->group(function () {
         Route::resource('brands', ProductBrandController::class);
         Route::resource('caregories', ProductCategoryController::class);
         Route::resource('sub-caregories', ProductSubCategoryController::class);
     });
-
 });
 
 
 // Livewire
-Route::namespace('App\Http\Livewire')->group(function()
-{
+Route::namespace('App\Http\Livewire')->group(function () {
     // App
-    Route::namespace('App\Page')->group(function()
-    {
+    Route::namespace('App\Page')->group(function () {
 
         // App - Order
-        Route::namespace('Shopping')->group(function()
-        {
+        Route::namespace('Shopping')->group(function () {
             Route::get('cart', Cart::class)->name('cart');
             Route::get('checkout', Checkout::class)->name('checkout')->middleware('auth');
         });
@@ -89,36 +81,31 @@ Route::namespace('App\Http\Livewire')->group(function()
     // });
 
     // Admin
-    Route::middleware(['auth', 'admin'])->namespace('Admin\Page')->name('admin.')->prefix('admin')->group(function()
-    {
+    Route::middleware(['auth', 'admin'])->namespace('Admin\Page')->name('admin.')->prefix('admin')->group(function () {
         // Dashboard
         Route::get('dashboard', Dashboard::class)->name('dashboard');
 
         // Product
-        Route::namespace('Product')->name('product.')->prefix('product')->group(function()
-        {
+        Route::namespace('Product')->name('product.')->prefix('product')->group(function () {
             Route::get('/', Index::class)->name('index');
             Route::get('create', Create::class)->name('create');
             Route::post('store', [App\Http\Controllers\ProductController::class, 'store'])->name('store');
             Route::get('edit/{id}', Edit::class)->name('edit');
             Route::post('update/{id}', [App\Http\Controllers\ProductController::class, 'update'])->name('update');
-            
-            Route::namespace('Brand')->name('brand.')->prefix('brand')->group(function()
-            {
+
+            Route::namespace('Brand')->name('brand.')->prefix('brand')->group(function () {
                 Route::get('index', Index::class)->name('index');
                 Route::get('create', Create::class)->name('create');
                 Route::get('edit/{id}', Edit::class)->name('edit');
             });
-            
-            Route::namespace('Category')->name('category.')->prefix('category')->group(function()
-            {
+
+            Route::namespace('Category')->name('category.')->prefix('category')->group(function () {
                 Route::get('index', Index::class)->name('index');
                 Route::get('create', Create::class)->name('create');
                 Route::get('edit/{id}', Edit::class)->name('edit');
             });
-            
-            Route::namespace('SubCategory')->name('sub-category.')->prefix('sub-category')->group(function()
-            {
+
+            Route::namespace('SubCategory')->name('sub-category.')->prefix('sub-category')->group(function () {
                 Route::get('index', Index::class)->name('index');
                 Route::get('create', Create::class)->name('create');
                 Route::get('edit/{id}', Edit::class)->name('edit');
@@ -126,13 +113,12 @@ Route::namespace('App\Http\Livewire')->group(function()
         });
 
         // Slider
-        Route::namespace('Slider')->name('slider.')->prefix('slider')->group(function(){
+        Route::namespace('Slider')->name('slider.')->prefix('slider')->group(function () {
             Route::get('create', Create::class)->name('create');
             Route::get('edit/{id}', Edit::class)->name('edit');
         });
 
         // Site Informations
         Route::get('site-informations', SiteInfo::class)->name('site-info');
-        
     });
 });

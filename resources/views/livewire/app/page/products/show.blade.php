@@ -7,53 +7,80 @@
                         title="{{ __( $product->title ) }}">
                 </div>
             </div>
-            <div class="informations">
-                <div class="mb-4">
-                    <h1 class="title fs-4">{{ __( $product->title ) }}</h1>
-                    <div class="">
-                        <a class="text-muted fw-bold" href="/">{{ __( 'Home' ) }}</a>
 
-                        <i class="las la-arrow-right"></i>
-                        <a class="text-muted fw-bold" href="{{ route('categories.show', $product->category->url) }}">
-                            {{ __( $product->category->title )}}
-                        </a>
+            <div class="informations d-flex flex-column justify-content-between">
+                <div class="h-100 border p-4 mb-2">
+                    <div class="mb-4">
+                        <h1 class="title fs-4">{{ __( $product->title ) }}</h1>
+                        <div class="">
+                            <a class="text-muted fw-bold" href="/">{{ __( 'Home' ) }}</a>
 
-                        <i class="las la-arrow-right"></i>
-                        <a class="text-muted fw-bold"
-                            href="{{ route('sub-categories.show', $product->sub_category->url) }}">
-                            {{ __( $product->sub_category ? $product->sub_category->title : '' ) }}
-                        </a>
+                            <i class="las la-arrow-right"></i>
+                            <a class="text-muted fw-bold"
+                                href="{{ route('categories.show', $product->category->url) }}">
+                                {{ __( $product->category->title )}}
+                            </a>
+
+                            <i class="las la-arrow-right"></i>
+                            <a class="text-muted fw-bold"
+                                href="{{ route('sub-categories.show', $product->sub_category->url) }}">
+                                {{ __( $product->sub_category ? $product->sub_category->title : '' ) }}
+                            </a>
+                        </div>
                     </div>
+
+                    <div class="">
+                        @if($product->sku)
+                        <div>Product Code: {{ __( strtoupper($product->sku) )}}</div>
+                        @endif
+
+                        <div>
+                            Availability:
+                            @if($product->stock_count)
+                            <span class="text-success">{{__('In Stock')}}</span>
+                            @else
+                            <span class="text-danger">{{__('Out Stock')}}</span>
+                            @endif
+                        </div>
+                    </div>
+
+                    <h4 class="price fw-normal">Price: <strong>{{ __( '৳' . $product->price ) }}</strong></h4>
+                    <p class="overview">{{ __( $product->overview ) }}</p>
                 </div>
 
-                <div class="">
-                    @if($product->sku)
-                    <div>Product Code: {{ __( strtoupper($product->sku) )}}</div>
+                <div class="d-flex justify-content-center align-items-center pointer border py-2">
+                    @if(!$alreadyExists)
+                    <div class="pro_icon border border-end-0 py-2 px-3" wire:click.prevent="addToWishlist">
+                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-heart" fill="currentColor"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z" />
+                        </svg>
+                    </div>
+                    @else
+                    <div class="pro_icon text-danger border border-end-0 py-2 px-3" wire:click.prevent title="Saved">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-heart-fill" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" />
+                        </svg>
+                    </div>
                     @endif
 
-                    <div>
-                        Availability:
-                        @if($product->stock_count)
-                        <span class="text-success">{{__('In Stock')}}</span>
-                        @else
-                        <span class="text-danger">{{__('Out Stock')}}</span>
-                        @endif
+                    <div class="pro_icon border py-2 px-3" wire:click.prevent="addToCart">
+                        Add to Cart
+                    </div>
+
+                    <div class="pro_icon border border-start-0 py-2 px-3" wire:click.prevent="addToCart">
+                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cart3" fill="currentColor"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
+                        </svg>
                     </div>
                 </div>
-
-                <h4 class="price fw-normal">Price: <strong>{{ __( '৳' . $product->price ) }}</strong></h4>
-                <p class="overview">{{ __( $product->overview ) }}</p>
-                <button wire:click.prevent="addToCart" class="btn bg-accent text-white">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        class="bi bi-cart-plus" viewBox="0 0 16 16">
-                        <path
-                            d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z" />
-                        <path
-                            d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
-                    </svg>
-                    {{ __('Add to cart') }}
-                </button>
             </div>
+
             <div class="benefits">
                 <div class="item">
                     <div class="icon">

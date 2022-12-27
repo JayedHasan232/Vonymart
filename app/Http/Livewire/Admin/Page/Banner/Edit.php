@@ -49,7 +49,6 @@ class Edit extends Component
         ]);
 
         if ($this->image) {
-
             Storage::delete($this->banner->image);
             Storage::delete($this->banner->image_medium);
             Storage::delete($this->banner->image_small);

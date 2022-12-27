@@ -74,7 +74,8 @@
             </div>
         </div>
 
-        <button type="submit" class="btn bg-accent rounded-pill px-5">Update</button>
+        <button wire:loading.remove type="submit" class="btn bg-accent rounded-pill px-5">Update</button>
+        <button wire:loading type="button" class="btn bg-accent rounded-pill px-5">Processing...</button>
 
     </div>
 </form>

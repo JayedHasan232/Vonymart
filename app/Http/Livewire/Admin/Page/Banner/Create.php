@@ -27,7 +27,7 @@ class Create extends Component
             'position' => 'required',
         ]);
 
-        $slider = Banner::create([
+        $banner = Banner::create([
             'privacy' => $this->privacy,
             'title' => $this->title,
             'link' => $this->link,
@@ -36,7 +36,7 @@ class Create extends Component
             'created_at' => now(),
         ]);
 
-        if ($slider && $this->image) {
+        if ($banner && $this->image) {
             $image = $this->image;
             $dimension = (object) [
                 'medium' => (object) [
@@ -48,11 +48,11 @@ class Create extends Component
                     'height' => 125.93,
                 ]
             ];
-            $path = "slider";
+            $path = "banner";
 
             $result = Image::store($image, $dimension, $path);
 
-            $slider->update([
+            $banner->update([
                 "image" => $result->image,
                 "image_medium" => $result->image_medium,
                 "image_small" => $result->image_small,

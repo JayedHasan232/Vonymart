@@ -1,3 +1,7 @@
+@push('meta')
+<title>{{ 'Sliders | ' . config('app.name', 'Laravel') }}</title>
+@endpush
+
 <form wire:submit.prevent="store" class="box">
     <div class="header">
         Add Slider
@@ -22,61 +26,65 @@
                     <option value="0">Hidden</option>
                 </select>
                 @error('privacy')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
                 @enderror
             </div>
             <div class="form-group col-md-6">
                 <label for="title">Title</label>
-                <input wire:model="title" class="form-control @error('title') is-invalid @enderror" type="text" id="title" placeholder="Title">
+                <input wire:model="title" class="form-control @error('title') is-invalid @enderror" type="text"
+                    id="title" placeholder="Title">
                 @error('title')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
                 @enderror
             </div>
             <div class="form-group col-md-4">
                 <label for="image">Image</label>
-                <input wire:model="image" class="form-control @error('image') is-invalid @enderror" type="file" name="image" id="image">
+                <input wire:model="image" class="form-control @error('image') is-invalid @enderror" type="file"
+                    name="image" id="image">
                 <small class="text-muted">Recommended size: 1052px * 320px</small>
                 @error('image')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
                 @enderror
             </div>
             <div class="form-group col-md-9">
                 <label for="link">Link</label>
-                <input wire:model="link" class="form-control @error('link') is-invalid @enderror" type="text" id="link" placeholder="[Optional]">
+                <input wire:model="link" class="form-control @error('link') is-invalid @enderror" type="text" id="link"
+                    placeholder="[Optional]">
                 @error('link')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
                 @enderror
             </div>
             <div class="form-group col-md-3">
                 <label for="link_title">Link Title</label>
-                <input wire:model="link_title" class="form-control @error('link_title') is-invalid @enderror" type="text" id="link_title" placeholder="[Optional]">
+                <input wire:model="link_title" class="form-control @error('link_title') is-invalid @enderror"
+                    type="text" id="link_title" placeholder="[Optional]">
                 @error('link_title')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
                 @enderror
             </div>
 
             <div class="form-group col-md-12">
                 <label for="overview">Overview</label>
-                <textarea wire:model="overview" class="form-control @error('overview') is-invalid @enderror" type="text" name="overview" id="overview" placeholder="Overview"></textarea>
+                <textarea wire:model="overview" class="form-control @error('overview') is-invalid @enderror" type="text"
+                    name="overview" id="overview" placeholder="Overview"></textarea>
                 @error('overview')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
                 @enderror
             </div>
         </div>
 
-        <button wire:loading.remove type="submit" class="btn bg-accent rounded-pill px-5">Store</button>
-        
+        <button type="submit" class="btn bg-accent rounded-pill px-5">Store</button>
     </div>
 </form>

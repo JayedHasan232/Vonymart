@@ -23,7 +23,7 @@
 
                             <i class="las la-arrow-right"></i>
                             <a class="text-muted fw-bold"
-                                href="{{ route('sub-categories.show', $product->sub_category->url) }}">
+                                href="{{ route('sub-categories.show', ['category' => $product->category->url, 'subcategory' => $product->sub_category->url]) }}">
                                 {{ __( $product->sub_category ? $product->sub_category->title : '' ) }}
                             </a>
                         </div>
@@ -136,6 +136,7 @@
                         <h4 class="sub-title">Your data is always protected</h4>
                     </div>
                 </div>
+
                 <div class="item">
                     <div class="icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -146,7 +147,7 @@
                     </div>
                     <div class="info">
                         <h3 class="title">Discount</h3>
-                        <h4 class="sub-title">Get 5% discount</h4>
+                        <h4 class="sub-title">Get {{$product->discount_rate ?? 0}}% discount</h4>
                     </div>
                 </div>
             </div>

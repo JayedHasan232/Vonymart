@@ -5,9 +5,9 @@ namespace App\Http\Livewire\Admin\Page\Slider;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
-use Storage;
 use App\Helpers\ImageResize as Image;
 use App\Models\Slider;
+use Illuminate\Support\Facades\Storage;
 
 class Edit extends Component
 {
@@ -22,9 +22,9 @@ class Edit extends Component
     public $link_title;
     public $image;
 
-    public function mount($id)
+    public function mount(Slider $slider)
     {
-        $this->slider = Slider::findOrFail($id);
+        $this->slider = $slider;
 
         $this->privacy = $this->slider->privacy;
         $this->title = $this->slider->title;
@@ -51,11 +51,11 @@ class Edit extends Component
             'updated_at' => now(),
         ]);
 
-        if($this->image){
+        if ($this->image) {
 
-            Storage::delete($this->item->image);
-            Storage::delete($this->item->image_medium);
-            Storage::delete($this->item->image_small);
+            Storage::delete($this->slider->image);
+            Storage::delete($this->slider->image_medium);
+            Storage::delete($this->slider->image_small);
 
             $image = $this->image;
             $dimension = (object) [

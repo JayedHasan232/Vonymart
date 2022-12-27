@@ -54,14 +54,14 @@ class Edit extends Component
     }
 
     public function store()
-    {        
+    {
         $this->validate([
             'privacy' => 'required',
             'title' => 'required|string',
             'url' => 'required|string',
         ]);
 
-        if($this->url != $this->brand->url){
+        if ($this->url != $this->brand->url) {
             $this->validate([
                 'url' => 'unique:product_brands',
             ]);
@@ -79,8 +79,8 @@ class Edit extends Component
             'updated_at' => now(),
         ]);
 
-        if($this->image){
-            
+        if ($this->image) {
+
             Storage::delete($this->brand->image);
             Storage::delete($this->brand->image_medium);
             Storage::delete($this->brand->image_small);

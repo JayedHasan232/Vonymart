@@ -17,7 +17,6 @@ class Show extends Component
     public function mount($product)
     {
         $this->product = $product;
-        $this->product->increment('view_count');
         $this->alreadyExists = Wishlist::where('product_id', $this->product->id)
             ->where('created_by', auth()->id())
             ->exists();

@@ -17,19 +17,24 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->boolean('privacy')->default(true);
             $table->bigInteger('view_count')->nullable();
+            $table->string('sku')->nullable();
+            $table->integer('stock_count')->nullable();
+            $table->boolean('show_in_trending')->default(true);
+            $table->float('discount_rate')->nullable();
+
             $table->string('title');
             $table->string('url');
             $table->integer('price')->nullable();
-            
+
             $table->integer('brand_id')->nullable();
             $table->integer('category_id');
             $table->integer('sub_category_id')->nullable();
-            
+
             $table->text('description')->nullable();
             $table->string('meta_title')->nullable();
             $table->text('meta_description')->nullable();
             $table->text('meta_keywords')->nullable();
-            
+
             $table->text('image')->nullable();
             $table->text('image_medium')->nullable();
             $table->text('image_small')->nullable();
@@ -38,7 +43,6 @@ class CreateProductsTable extends Migration
             $table->foreignId('updated_by')->nullable();
             $table->timestamps();
             $table->softDeletes();
-            
         });
     }
 

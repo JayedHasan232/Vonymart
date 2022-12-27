@@ -11,6 +11,7 @@ class Checkout extends Component
     public $items;
     public $totalQty;
     public $totalPrice;
+    public $totalDiscount;
 
     public function mount()
     {
@@ -20,6 +21,7 @@ class Checkout extends Component
         $this->items = $cart->items;
         $this->totalQty = $cart->totalQty;
         $this->totalPrice = $cart->totalPrice;
+        $this->totalDiscount = $cart->totalDiscount;
     }
 
     public function render()

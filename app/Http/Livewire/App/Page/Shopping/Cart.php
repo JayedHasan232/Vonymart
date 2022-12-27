@@ -3,7 +3,7 @@
 namespace App\Http\Livewire\App\Page\Shopping;
 
 use Livewire\Component;
-use Session;
+use Illuminate\Support\Facades\Session;
 use App\Helpers\CartManagementHelper as CMH;
 
 class Cart extends Component
@@ -11,6 +11,7 @@ class Cart extends Component
     public $items;
     public $totalQty;
     public $totalPrice;
+    public $totalDiscount;
 
     public function mount()
     {
@@ -19,6 +20,7 @@ class Cart extends Component
         $this->items = $cart->items;
         $this->totalQty = $cart->totalQty;
         $this->totalPrice = $cart->totalPrice;
+        $this->totalDiscount = $cart->totalDiscount;
     }
 
     public function plus($id)
@@ -27,10 +29,11 @@ class Cart extends Component
         $cart = new CMH($currentCart);
         $cart->cartPlus($id);
         Session::put('cart', $cart);
-        
+
         $this->items = $cart->items;
         $this->totalQty = $cart->totalQty;
         $this->totalPrice = $cart->totalPrice;
+        $this->totalDiscount = $cart->totalDiscount;
 
         $this->emit('cartUpdated');
     }
@@ -41,41 +44,43 @@ class Cart extends Component
         $cart = new CMH($currentCart);
         $cart->cartMinus($id);
         Session::put('cart', $cart);
-        
+
         $this->items = $cart->items;
         $this->totalQty = $cart->totalQty;
         $this->totalPrice = $cart->totalPrice;
+        $this->totalDiscount = $cart->totalDiscount;
 
         $this->emit('cartUpdated');
     }
-    
+
     public function removeItem($id)
     {
-      // Check Cart Availablity
-      $currentCart = Session::has('cart') ? Session::get('cart') : NULL;
-      
-      // Send Data to Cart Model
-      $cart = new CMH($currentCart);
-      $cart->cartItemRemove($id);
-      Session::put('cart', $cart);
+        // Check Cart Availablity
+        $currentCart = Session::has('cart') ? Session::get('cart') : NULL;
 
-      // Destroy cart if empty
-      if ($cart->items == NULL) {
-        Session::forget('cart', $cart);
-        $this->totalQty = 0;
-      }else{
-        $this->items = $cart->items;
-        $this->totalQty = $cart->totalQty;
-        $this->totalPrice = $cart->totalPrice;
-      }
-      
-      $this->emit('cartUpdated');
+        // Send Data to Cart Model
+        $cart = new CMH($currentCart);
+        $cart->cartItemRemove($id);
+        Session::put('cart', $cart);
 
-      return back()->with('status', 'Successfully removed!');
+        // Destroy cart if empty
+        if ($cart->items == NULL) {
+            Session::forget('cart', $cart);
+            $this->totalQty = 0;
+        } else {
+            $this->items = $cart->items;
+            $this->totalQty = $cart->totalQty;
+            $this->totalPrice = $cart->totalPrice;
+            $this->totalDiscount = $cart->totalDiscount;
+        }
+
+        $this->emit('cartUpdated');
+
+        return back()->with('status', 'Successfully removed!');
     }
 
     public function render()
     {
-      return view('livewire.app.page.shopping.cart')->extends('layouts.app');
+        return view('livewire.app.page.shopping.cart')->extends('layouts.app');
     }
 }

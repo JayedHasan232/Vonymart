@@ -2,7 +2,8 @@
     <div class="{{ env('BS_CONTAINER') }}">
 
         <a class="navbar-brand" href="{{ url('/') }}">
-            <img class="logo" src="{{asset('logo.png')}}" alt="{{ config('app.name', 'Laravel') }}">
+            <img class="logo" src="{{asset('storage/'.$appConfiguration->logo)}}"
+                alt="{{ config('app.name', 'Laravel') }}">
         </a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"

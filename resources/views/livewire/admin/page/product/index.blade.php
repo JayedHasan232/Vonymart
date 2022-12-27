@@ -1,3 +1,7 @@
+@push('meta')
+<title>{{ 'Products | ' . config('app.name', 'Laravel') }}</title>
+@endpush
+
 <div class="box mb-5">
     <div class="header">
         Products - ({{ $totalProducts }})

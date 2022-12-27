@@ -19,10 +19,11 @@ class Trending extends Component
         $this->link = $link == 'visible' ? 1 : 0;
         $this->classNames = $classNames;
         $this->products = Product::where('privacy', 1)
-                                ->select('id', 'view_count', 'title', 'url', 'price', 'category_id', 'image')
-                                ->orderByDesc('view_count')
-                                ->get()
-                                ->take($this->qty);
+            ->where('show_in_trending', 1)
+            ->select('id', 'view_count', 'title', 'url', 'price', 'category_id', 'image')
+            ->orderByDesc('view_count')
+            ->get()
+            ->take($this->qty);
     }
 
     public function render()

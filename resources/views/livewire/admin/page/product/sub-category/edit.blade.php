@@ -1,3 +1,7 @@
+@push('meta')
+<title>{{ 'Subcategories: Create | ' . config('app.name', 'Laravel') }}</title>
+@endpush
+
 <form wire:submit.prevent="store" class="box">
     <div class="header">
         Edit Subcategory
@@ -22,9 +26,9 @@
                     <option value="0">Hidden</option>
                 </select>
                 @error('privacy')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
                 @enderror
             </div>
             <div class="form-group col-md-2">
@@ -36,83 +40,91 @@
                     @endforeach
                 </select>
                 @error('category')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
                 @enderror
             </div>
             <div class="form-group col-md-4">
                 <label for="title">Title</label>
-                <input wire:model="title" class="form-control @error('title') is-invalid @enderror" type="text" id="title" placeholder="Title">
+                <input wire:model="title" class="form-control @error('title') is-invalid @enderror" type="text"
+                    id="title" placeholder="Title">
                 @error('title')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
                 @enderror
             </div>
             <div class="form-group col-md-4">
                 <label for="url">URL</label>
-                <input wire:model="url" class="form-control @error('url') is-invalid @enderror" type="text" id="url" placeholder="URL">
+                <input wire:model="url" class="form-control @error('url') is-invalid @enderror" type="text" id="url"
+                    placeholder="URL">
                 @error('url')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
                 @enderror
             </div>
 
             <div class="form-group col-md-12">
                 <label for="description">Description</label>
-                <textarea wire:model="description" class="form-control @error('description') is-invalid @enderror" type="text" name="description" id="description" placeholder="Description"></textarea>
+                <textarea wire:model="description" class="form-control @error('description') is-invalid @enderror"
+                    type="text" name="description" id="description" placeholder="Description"></textarea>
                 @error('description')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
                 @enderror
             </div>
 
             <div class="form-group col-md-6">
                 <label for="meta_title">Meta Title</label>
-                <input wire:model="meta_title" class="form-control @error('meta_title') is-invalid @enderror" type="text" id="meta_title" placeholder="Title">
+                <input wire:model="meta_title" class="form-control @error('meta_title') is-invalid @enderror"
+                    type="text" id="meta_title" placeholder="Title">
                 @error('meta_title')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
                 @enderror
             </div>
 
             <div class="form-group col-md-6">
                 <label for="image">Image</label>
-                <input wire:model="image" class="form-control @error('image') is-invalid @enderror" type="file" name="image" id="image">
+                <input wire:model="image" class="form-control @error('image') is-invalid @enderror" type="file"
+                    name="image" id="image">
                 <small class="text-muted">Recommended size: 260 x 260</small>
                 @error('image')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
                 @enderror
             </div>
 
             <div class="form-group col-md-6">
                 <label for="meta_description">Meta Description</label>
-                <textarea wire:model="meta_description" class="form-control @error('meta_description') is-invalid @enderror" type="text" name="meta_description" id="meta_description" placeholder="Meta Description"></textarea>
+                <textarea wire:model="meta_description"
+                    class="form-control @error('meta_description') is-invalid @enderror" type="text"
+                    name="meta_description" id="meta_description" placeholder="Meta Description"></textarea>
                 @error('meta_description')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
                 @enderror
             </div>
 
             <div class="form-group col-md-6">
                 <label for="meta_keywords">Meta Keywords</label>
-                <textarea wire:model="meta_keywords" class="form-control @error('meta_keywords') is-invalid @enderror" type="text" name="meta_keywords" id="meta_keywords" placeholder="Meta Keywords"></textarea>
+                <textarea wire:model="meta_keywords" class="form-control @error('meta_keywords') is-invalid @enderror"
+                    type="text" name="meta_keywords" id="meta_keywords" placeholder="Meta Keywords"></textarea>
                 @error('meta_keywords')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
                 @enderror
             </div>
         </div>
 
-        <button wire:loading.remove type="submit" class="btn bg-accent rounded-pill px-5">Update</button>
-        
+        <button type="submit" class="btn bg-accent rounded-pill px-5">Update</button>
+
     </div>
 </form>

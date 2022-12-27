@@ -2,15 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Banner;
 use Illuminate\Http\Request;
-
-use App\Models\Product;
 
 class AppController extends Controller
 {
     public function welcome()
     {
-        return view('app.welcome');
+        return view('app.welcome', ['banners' => Banner::where('privacy', 1)->get()]);
     }
 
     public function search(Request $request)

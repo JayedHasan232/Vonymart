@@ -16,14 +16,15 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
 
-            $table->string('user_id');
+            $table->foreignId('user_id');
             $table->string('tracking_id')->nullable()->comment('Human readable');
 
+            $table->float('discount');
             $table->string('total_price');
             $table->float('total_quantity');
 
-            $table->string('order_status')->default(1);
-            $table->string('payment_status')->default(0)->comment('0: Unpaid, 1: Paid');
+            $table->tinyInteger('order_status')->default(0);
+            $table->tinyInteger('payment_status')->default(0)->comment('0: Unpaid, 1: Paid');
 
             $table->string('payment_currency')->nullable();
             $table->string('payment_method')->nullable();

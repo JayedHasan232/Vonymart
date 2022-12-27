@@ -20,7 +20,7 @@
 
 <section class="py-5">
     <div class="{{ env('BS_CONTAINER') }}">
-        <form class="row g-4" action="{{route('place_order')}}" method="post">
+        <form class="row g-5" action="{{route('place_order')}}" method="post">
             @csrf
             <div class="col-md-7">
                 <div class="billing-details">
@@ -94,8 +94,16 @@
                                 <td colspan="2">Call us</td>
                             </tr>
                             <tr>
-                                <td class="font-weight-bold">Grand Total</td>
+                                <td class="font-weight-bold">Sub Total</td>
                                 <td colspan="2">৳ {{ round($totalPrice) }}</td>
+                            </tr>
+                            <tr>
+                                <td class="font-weight-bold">Discount</td>
+                                <td colspan="2">৳ {{ round($totalDiscount) }}</td>
+                            </tr>
+                            <tr>
+                                <td class="font-weight-bold">Grand Total</td>
+                                <td colspan="2">৳ {{ round($totalPrice - $totalDiscount) }}</td>
                             </tr>
                         </tbody>
                     </table>

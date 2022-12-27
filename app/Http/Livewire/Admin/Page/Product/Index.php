@@ -34,7 +34,7 @@ class Index extends Component
     public function render()
     {
         return view('livewire.admin.page.product.index', [
-            'products' => Product::where('title', 'LIKE', "%$this->keyword%")->paginate($this->qty)
+            'products' => Product::where('title', 'like', "%$this->keyword%")->paginate($this->qty)
         ])->extends('layouts.admin');
     }
 }

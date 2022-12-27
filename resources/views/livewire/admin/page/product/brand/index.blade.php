@@ -1,3 +1,7 @@
+@push('meta')
+<title>{{ 'Brands | ' . config('app.name', 'Laravel') }}</title>
+@endpush
+
 <div class="box">
 
     <div class="header">

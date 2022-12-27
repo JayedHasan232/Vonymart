@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use Storage;
 use App\Helpers\ImageResize as Image;
 
 use App\Models\ProductBrand as Brand;
+use Illuminate\Support\Facades\Storage;
 
 class ProductBrandController extends Controller
 {
@@ -63,21 +63,21 @@ class ProductBrandController extends Controller
         $request->validate([
             'title' => 'required',
             'url' => 'required',
-        ]);        
+        ]);
 
         // Checking url existance
         if ($brand->url != $request->url) {
-          $request->validate([
-            'url' => 'unique:product_brands',
-          ]);
+            $request->validate([
+                'url' => 'unique:product_brands',
+            ]);
         }
 
         // Changing products privacy
-        if($brand->privacy != $request->privacy){
-            
+        if ($brand->privacy != $request->privacy) {
+
             $products = $brand->products()->where('privacy', $brand->privacy)->get();
 
-            foreach($products as $product){
+            foreach ($products as $product) {
                 $product->update(['privacy' => $request->privacy]);
             }
         }

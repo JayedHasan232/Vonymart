@@ -16,10 +16,10 @@ class Hero extends Component
     {
         $this->categories = Category::where('privacy', 1)->get();
         $this->sliders = Slider::where('privacy', 1)
-                                ->orderBy('position', 'asc')
-                                ->get();
+            ->orderBy('position', 'asc')
+            ->get();
     }
-    
+
     public function render()
     {
         return view('livewire.app.page.home.hero');

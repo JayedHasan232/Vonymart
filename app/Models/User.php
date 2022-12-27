@@ -19,6 +19,7 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $fillable = [
         'name',
         'email',
+        'phone',
         'password',
     ];
 
@@ -43,6 +44,11 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function wishlist()
     {
-        return $this->hasMany(\App\Models\Wishlist::class, 'created_by');
+        return $this->hasMany(Wishlist::class, 'created_by');
+    }
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
     }
 }

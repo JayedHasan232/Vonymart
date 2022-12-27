@@ -5,15 +5,15 @@ namespace App\Http\Livewire\Admin\Page;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
-use Storage;
 use App\Models\SiteInfo as Info;
+use Illuminate\Support\Facades\Storage;
 
 class SiteInfo extends Component
 {
     use WithFileUploads;
 
     public $name, $mobile, $email, $google_map, $address, $facebook_page, $facebook_group, $twitter, $linkedin, $youtube, $logo, $favicon;
-    
+
     public function mount()
     {
         $info = Info::find(1);
@@ -34,7 +34,7 @@ class SiteInfo extends Component
     {
         $info = Info::find(1);
 
-        if(!Info::find(1)){
+        if (!Info::find(1)) {
             Info::create([
                 'name' => $this->name,
                 'mobile' => $this->mobile,
@@ -45,11 +45,11 @@ class SiteInfo extends Component
                 'facebook_group' => $this->facebook_group,
                 'twitter' => $this->twitter,
                 'linkedin' => $this->linkedin,
-                'youtube' => $this->youtube,                
+                'youtube' => $this->youtube,
                 'created_by' => auth()->id(),
                 'created_at' => now(),
             ]);
-        }else{
+        } else {
             Info::find(1)->update([
                 'name' => $this->name,
                 'mobile' => $this->mobile,
@@ -60,29 +60,28 @@ class SiteInfo extends Component
                 'facebook_group' => $this->facebook_group,
                 'twitter' => $this->twitter,
                 'linkedin' => $this->linkedin,
-                'youtube' => $this->youtube,                
+                'youtube' => $this->youtube,
                 'updated_by' => auth()->id(),
                 'updated_at' => now(),
             ]);
         }
-        
 
-        if($info){
-            if($this->logo){
+
+        if ($info) {
+            if ($this->logo) {
 
                 Storage::delete($info->logo);
 
                 $info->logo = $this->logo->store('images/resources');
                 $info->save();
-
             }
-            if($this->favicon){
+
+            if ($this->favicon) {
 
                 Storage::delete($info->favicon);
 
                 $info->favicon = $this->favicon->store('images/resources');
                 $info->save();
-
             }
         }
 

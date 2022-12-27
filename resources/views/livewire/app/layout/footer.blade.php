@@ -19,15 +19,16 @@
                 <div class="col-md-3">
                     <h3 class="title">Menu</h3>
                     <ul class="foo-list">
-                        <li class="foo-item"><a class="foo-link" href="">Privacy Policy</a></li>
-                        <li class="foo-item"><a class="foo-link" href="">Terms & Conditions</a></li>
+                        <li class="foo-item"><a class="foo-link" href="{{route('policy')}}">Privacy Policy</a></li>
+                        <li class="foo-item"><a class="foo-link" href="{{route('terms')}}">Terms & Conditions</a>
+                        </li>
                     </ul>
                 </div>
                 <div class="col-md-3">
                     <h3 class="title">Menu</h3>
                     <ul class="foo-list">
-                        <li class="foo-item"><a class="foo-link" href="#">About Us</a></li>
-                        <li class="foo-item"><a class="foo-link" href="#">Contact Us</a></li>
+                        <li class="foo-item"><a class="foo-link" href="{{route('about')}}">About Us</a></li>
+                        <li class="foo-item"><a class="foo-link" href="{{route('contact')}}">Contact Us</a></li>
                     </ul>
                 </div>
             </div>

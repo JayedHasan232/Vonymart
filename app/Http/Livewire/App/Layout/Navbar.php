@@ -3,8 +3,9 @@
 namespace App\Http\Livewire\App\Layout;
 
 use Livewire\Component;
-use Session;
 use App\Models\Wishlist;
+use App\Models\SiteInfo;
+use Illuminate\Support\Facades\Session;
 
 class Navbar extends Component
 {
@@ -15,15 +16,15 @@ class Navbar extends Component
 
     public function mount()
     {
-        $this->productsInWishlist = Wishlist::where('created_by', auth()->id() )->count();
+        $this->productsInWishlist = Wishlist::where('created_by', auth()->id())->count();
         $this->productsInCart = Session::get('cart')->totalQty ?? 0;
     }
-    
+
     public function wishlistUpdated()
     {
-        $this->productsInWishlist = Wishlist::where('created_by', auth()->id() )->count();
+        $this->productsInWishlist = Wishlist::where('created_by', auth()->id())->count();
     }
-    
+
     public function cartUpdated()
     {
         $this->productsInCart = Session::has('cart') ? Session::get('cart')->totalQty : NULL;

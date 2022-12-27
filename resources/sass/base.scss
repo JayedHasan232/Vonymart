@@ -4,10 +4,10 @@
     -moz-border-radius: $value;
 }
 
-$colorDark: #1a202c;
+$colorDark: #444444;
 $colorGreat: #15655c;
-$color: #be1e2d;
-$colorHover: #af0a0f;
+$color: #890101;
+$colorHover: #890101;
 $transition: 0.125s;
 
 body {
@@ -320,7 +320,7 @@ a {
 
 // Section
 .section {
-    padding-top: 4em;
+    padding-top: 3em;
 
     .sec-head {
         display: flex;
@@ -328,15 +328,13 @@ a {
         align-items: center;
         margin-bottom: 1.5em;
         padding: 0.5em 1em;
-        color: #fff;
-        background-color: $colorGreat;
 
         .sec-title {
             text-transform: capitalize;
             font-size: 1.5em;
         }
         a {
-            color: #fff;
+            color: #333;
         }
         .sec-link {
             text-transform: capitalize;

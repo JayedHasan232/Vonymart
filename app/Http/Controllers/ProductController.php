@@ -13,11 +13,6 @@ use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         return view('app.products.index');
@@ -50,6 +45,10 @@ class ProductController extends Controller
             'title' => $request->title,
             'url' => $request->url,
             'price' => $request->price,
+            'sku' => $request->sku,
+            'stock_count' => $request->stock_count,
+            'show_in_trending' => $request->show_in_trending,
+            'discount_rate' => $request->discount_rate,
             'description' => $request->description,
             'specification' => $request->specification,
             'meta_title' => $request->meta_title,
@@ -94,7 +93,11 @@ class ProductController extends Controller
         $product = Product::where('url', $product)
             ->where('privacy', 1)
             ->firstOrFail();
-        return view('app.products.show', ['product' => $product]);
+
+        $product->view_count += 1;
+        $product->save();
+
+        return view('app.products.show', compact('product'));
     }
 
     public function update(Request $request, $id)
@@ -122,6 +125,10 @@ class ProductController extends Controller
             'title' => $request->title,
             'url' => $request->url,
             'price' => $request->price,
+            'sku' => $request->sku,
+            'stock_count' => $request->stock_count,
+            'show_in_trending' => $request->show_in_trending,
+            'discount_rate' => $request->discount_rate,
             'description' => $request->description,
             'specification' => $request->specification,
             'meta_title' => $request->meta_title,

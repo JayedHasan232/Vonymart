@@ -1,6 +1,6 @@
 <div>
-    <a href="{{ route('sub-categories.show', $sub_category->url) }}" class="category"
-        title="{{ __( $sub_category->title ) }}">
+    <a href="{{ route('sub-categories.show', ['category' => $sub_category->category->url, 'subcategory' => $sub_category->url]) }}"
+        class="category" title="{{ __( $sub_category->title ) }}">
         <div class="image-wrapper">
             <div class="image" style="background-image: url({{ asset('storage/' . $sub_category->image) }})"></div>
         </div>

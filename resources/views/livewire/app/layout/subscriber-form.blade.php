@@ -36,27 +36,26 @@
 
     <div class="{{ env('BS_CONTAINER') }}">
         <div class="row">
-            <div class="col-lg-3 col-md-6 border border-top-0 border-end-0">
+            <div class="col-lg-3 col-md-6 border border-end-0">
                 <a class="text-reset border-left text-center p-4 d-block" href="#">
                     <i class="la la-file-text la-3x text-danger mb-2"></i>
                     <h4 class="h6">Terms & conditions</h4>
                 </a>
             </div>
-            <div class="col-lg-3 col-md-6 border border-top-0 border-end-0">
+            <div class="col-lg-3 col-md-6 border border-end-0">
                 <a class="text-reset border-left text-center p-4 d-block" href="#">
                     <i class="la la-mail-reply la-3x text-danger mb-2"></i>
                     <h4 class="h6">Return policy</h4>
                 </a>
             </div>
-            <div class="col-lg-3 col-md-6 border border-top-0 border-end-0">
+            <div class="col-lg-3 col-md-6 border border-end-0">
                 <a class="text-reset border-left text-center p-4 d-block" href="#">
                     <i class="la la-support la-3x text-danger mb-2"></i>
                     <h4 class="h6">Support policy</h4>
                 </a>
             </div>
-            <div class="col-lg-3 col-md-6 border border-top-0">
-                <a class="text-reset border-left border-right text-center p-4 d-block"
-                    href="#">
+            <div class="col-lg-3 col-md-6 border">
+                <a class="text-reset border-left border-right text-center p-4 d-block" href="#">
                     <i class="las la-exclamation-circle la-3x text-danger mb-2"></i>
                     <h4 class="h6">Privacy policy</h4>
                 </a>

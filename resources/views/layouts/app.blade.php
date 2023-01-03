@@ -9,6 +9,11 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="shortcut icon" href="{{asset('storage/'.$appConfiguration->favicon)}}" type="image/x-icon">
 
+    <title>Alokmart - Online Shopping In Bangladesh</title>
+    <meta name="title" content="Alokmart - Online Shopping In Bangladesh">
+    <meta name="description"
+        content="Alokmart is a trusted, reliable, and the biggest online shopping center in Bangladesh. Fashion, jewelry, beauty, electronics, and others.">
+
     @stack('meta')
 
     <!-- Common Meta -->
@@ -18,8 +23,8 @@
     <meta property="og:type" content="website">
     <meta property="fb:app_id" content="">
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:site" content="@vonymar">
-    <meta property="twitter:creator" content="@vonymar">
+    <meta property="twitter:site" content="@alokmart">
+    <meta property="twitter:creator" content="@alokmart">
 
     @stack('schema')
 

@@ -15,17 +15,21 @@
                         <div class="">
                             <a class="text-muted fw-bold" href="/">{{ __( 'Home' ) }}</a>
 
+                            @if($product->category)
                             <i class="las la-arrow-right"></i>
                             <a class="text-muted fw-bold"
                                 href="{{ route('categories.show', $product->category->url) }}">
                                 {{ __( $product->category->title )}}
                             </a>
+                            @endif
 
+                            @if($product->category && $product->sub_category)
                             <i class="las la-arrow-right"></i>
                             <a class="text-muted fw-bold"
                                 href="{{ route('sub-categories.show', ['category' => $product->category->url, 'subcategory' => $product->sub_category->url]) }}">
                                 {{ __( $product->sub_category ? $product->sub_category->title : '' ) }}
                             </a>
+                            @endif
                         </div>
                     </div>
 

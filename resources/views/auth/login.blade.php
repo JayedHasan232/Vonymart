@@ -5,7 +5,7 @@
     <div class="auth">
 
         <a class="logo" href="{{ url('/') }}">
-            <img src="{{asset('logo.png')}}" alt="{{ config('app.name', 'Laravel') }}">
+            <img src="{{asset('storage/'.$appConfiguration->logo)}}" alt="{{ config('app.name', 'Laravel') }}">
         </a>
 
         <div class="box">

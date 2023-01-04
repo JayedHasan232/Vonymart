@@ -25,6 +25,18 @@
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:site" content="@vonymar">
     <meta property="twitter:creator" content="@vonymar">
+    <meta name="google-site-verification" content="fXS6cgZZYHd59V1hLfyuHAOqp6IjwdtYk1T3mF4quPM" />
+    <meta name="msvalidate.01" content="100D1B07279F130294AF9219A645BFFF" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YWDDHGK6BR"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YWDDHGK6BR');
+    </script>
 
     @stack('schema')
 

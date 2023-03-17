@@ -40,7 +40,7 @@ class Result extends Component
                 $query->where('title', 'like', '%' . $this->keyword . '%')
                     ->orWhere('description', 'like', '%' . $this->keyword . '%');
             })
-            ->select('id', 'title', 'url', 'price', 'brand_id', 'category_id', 'sub_category_id')
+            ->select('id', 'image', 'title', 'url', 'price', 'brand_id', 'category_id', 'sub_category_id')
             ->paginate($this->qty);
 
         return view('livewire.app.page.search.result', ['products' => $products]);

@@ -28,7 +28,7 @@
             </div>
             @endif
 
-            <div class="pro_icon border py-2 px-3" wire:click.prevent="addToCart">
+            <div class="d-none d-md-block pro_icon border py-2 px-3" wire:click.prevent="addToCart">
                 Add to Cart
             </div>
 

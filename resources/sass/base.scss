@@ -5,9 +5,9 @@
 }
 
 $colorDark: #444444;
-$colorGreat: #15655c;
-$color: #890101;
-$colorHover: #890101;
+$colorGreat: #890101;
+$color: #be1e2d;
+$colorHover: #af0a0f;
 $transition: 0.125s;
 
 body {
@@ -43,7 +43,11 @@ a {
     background-color: $color;
 }
 .bg-great {
-    background-color: $colorGreat;
+    background-color: $color;
+
+    &:hover {
+        background-color: $colorGreat;
+    }
 }
 
 .navbar {
@@ -95,7 +99,7 @@ a {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: 1em;
+            gap: 0.5em;
 
             .nab-icon {
                 display: flex;
@@ -122,10 +126,6 @@ a {
             .nab-shop {
                 color: $color;
                 border: 1px solid $color;
-            }
-            .nab-love {
-            }
-            .nab-cart {
             }
         }
 

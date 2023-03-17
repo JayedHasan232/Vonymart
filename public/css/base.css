@@ -19,19 +19,22 @@ a {
 }
 
 .text-accent {
-  color: #890101;
+  color: #be1e2d;
 }
 
 .text-great {
-  color: #15655c;
+  color: #890101;
 }
 
 .bg-accent {
-  background-color: #890101;
+  background-color: #be1e2d;
 }
 
 .bg-great {
-  background-color: #15655c;
+  background-color: #be1e2d;
+}
+.bg-great:hover {
+  background-color: #890101;
 }
 
 .navbar {
@@ -69,16 +72,16 @@ a {
   height: 2.5em;
   border-radius: 0 0.75em 0.75em 0;
   color: #fff;
-  background-color: #890101;
+  background-color: #be1e2d;
 }
 .navbar .container-xl .search-box .btn:hover {
-  background-color: #890101;
+  background-color: #af0a0f;
 }
 .navbar .container-xl .navbar-action-box {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 1em;
+  gap: 0.5em;
 }
 .navbar .container-xl .navbar-action-box .nab-icon {
   display: flex;
@@ -94,19 +97,19 @@ a {
   cursor: pointer;
 }
 .navbar .container-xl .navbar-action-box .nab-icon:hover {
-  color: #890101;
-  border: 1px solid #890101;
+  color: #be1e2d;
+  border: 1px solid #be1e2d;
 }
 .navbar .container-xl .navbar-action-box .nab-icon:active {
-  color: #15655c;
-  border: 1px solid #15655c;
-}
-.navbar .container-xl .navbar-action-box .nab-shop {
   color: #890101;
   border: 1px solid #890101;
 }
+.navbar .container-xl .navbar-action-box .nab-shop {
+  color: #be1e2d;
+  border: 1px solid #be1e2d;
+}
 .navbar .container-xl .navbar-nav .nav-item .nav-link {
-  color: #890101;
+  color: #be1e2d;
 }
 
 .menubar {
@@ -114,7 +117,7 @@ a {
   align-items: center;
   padding: 0;
   height: 2.5em;
-  background-color: #15655c;
+  background-color: #890101;
 }
 .menubar .menubar-nav {
   display: flex;
@@ -136,11 +139,11 @@ a {
   transition: 0.125s;
 }
 .menubar .menubar-nav .nav-list .nav-link:hover {
-  background-color: #890101;
+  background-color: #af0a0f;
 }
 
 .hero {
-  background-color: #890101;
+  background-color: #be1e2d;
 }
 .hero .container-xl {
   display: flex;
@@ -176,7 +179,7 @@ a {
 }
 .hero .container-xl .categories .item .link:hover {
   color: #fff;
-  background-color: #890101;
+  background-color: #af0a0f;
 }
 .hero .container-xl .carousel {
   width: 100%;
@@ -227,7 +230,7 @@ a {
 }
 .hero .container-xl .carousel .carousel-indicators li {
   background-color: transparent;
-  border: 5px solid #890101;
+  border: 5px solid #be1e2d;
   height: 1em;
   width: 1em;
   border-radius: 0.5em;
@@ -272,7 +275,7 @@ a {
 .hero .container-xl .carousel:hover .carousel-control-next:hover,
 .hero .container-xl .carousel:hover .carousel-control-prev:hover {
   opacity: 1;
-  background-color: #890101;
+  background-color: #be1e2d;
 }
 .hero .container-xl .carousel .carousel-control-next {
   border-radius: 50% 0 0 50%;
@@ -423,7 +426,7 @@ a {
   transition: 0.125s;
 }
 .com_product .pro_price {
-  color: #890101;
+  color: #be1e2d;
   font-weight: bold;
 }
 .com_product:hover .pro_image img {
@@ -482,16 +485,16 @@ a {
   transition: 0.125s;
 }
 .productShow .header .benefits .item:hover {
-  border: 1px solid #15655c;
+  border: 1px solid #890101;
 }
 .productShow .header .benefits .item:hover .info .title {
-  color: #15655c;
+  color: #890101;
 }
 .productShow .header .benefits .item:hover .info .sub-title {
   color: #333;
 }
 .productShow .header .benefits .item .icon {
-  color: #15655c;
+  color: #890101;
 }
 .productShow .header .benefits .item .info .title {
   color: #333;
@@ -572,7 +575,7 @@ a {
   box-shadow: none;
 }
 .accordion .accordion-item .accordion-header .accordion-button:not(.collapsed) {
-  color: #15655c;
+  color: #890101;
   background-color: #fff;
   box-shadow: none;
 }
@@ -582,7 +585,7 @@ a {
 
 .footer {
   color: #ededed;
-  background-color: #890101;
+  background-color: #be1e2d;
   padding: 4em 1em;
 }
 .footer .foo-list {

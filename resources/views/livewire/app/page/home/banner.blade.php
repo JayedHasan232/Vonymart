@@ -1,13 +1,11 @@
 <section class="mt-5">
     <div class="{{ env('BS_CONTAINER') }}">
         @if($banner->link)
-        <a href="{{$banner->link}}" class="d-block"
-            style="height: 200px; width: 100%; background-image: url({{asset('storage/'.$banner->image)}}); background-repeat: no-repeat; background-size: cover; background-position: center">
+        <a href="{{$banner->link}}" class="d-block">
+            <img width="100%" src="{{asset('storage/'.$banner->image)}}" alt="">
         </a>
         @else
-        <div
-            style="height: 200px; width: 100%; background-image: url({{asset('storage/'.$banner->image)}}); background-repeat: no-repeat; background-size: cover; background-position: center">
-        </div>
+        <img width="100%" src="{{asset('storage/'.$banner->image)}}" alt="">
         @endif
     </div>
 </section>

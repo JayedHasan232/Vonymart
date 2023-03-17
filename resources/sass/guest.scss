@@ -1,53 +1,64 @@
-body{
-    font-family: 'Roboto Condensed', sans-serif;
+body {
+    font-family: "Roboto Condensed", sans-serif;
 }
 
-$colorDark: #1A202C;
-$colorGreat: #15655c;
+$colorDark: #1a202c;
+$colorGreat: #af0a0f;
 $color: #be1e2d;
 $colorHover: #af0a0f;
-$transition: .125s;
+$transition: 0.125s;
 
 // Overrides
-h1, h2, h3, h4, h5, h6, ol, ul{
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ol,
+ul {
     margin: 0;
     padding: 0;
 }
-a{
+a {
     text-decoration: none;
 }
 
 // Text colors
-.text-accent{
+.text-accent {
     color: $color;
 }
 
 // Background colors
-.bg-accent{
+.bg-accent {
     background-color: $color;
 }
-.bg-great{
-    background-color: $colorGreat;
+.bg-great {
+    background-color: $color;
+
+    &:hover {
+        background-color: $colorGreat;
+    }
 }
 
 // Auth
-.auth{
+.auth {
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 
-    .logo{
+    .logo {
         width: 7.5em;
         margin-bottom: 2.5em;
 
-        img{
+        img {
             width: 100%;
         }
     }
-    
-    .box{
+
+    .box {
         width: 20em;
         padding: 1em;
         border-radius: 1em;
@@ -55,11 +66,11 @@ a{
         overflow: hidden;
         transition: $transition;
 
-        &:hover{
+        &:hover {
             border-color: $colorGreat;
         }
 
-        .header{
+        .header {
             margin: 0;
             margin-bottom: 1em;
             padding-bottom: 1em;
@@ -67,12 +78,12 @@ a{
             font-size: 1.5em;
             border-bottom: 1px solid #ededed;
         }
-        .body{
+        .body {
             display: flex;
             flex-direction: column;
             gap: 1em;
 
-            label{
+            label {
                 color: #333;
                 margin-bottom: 0.5em;
             }

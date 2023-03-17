@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-md shadow-sm bg-white py-5 sticky-top top-0">
-    <div class="{{ env('BS_CONTAINER') }}">
+    <div class="{{ env('BS_CONTAINER') }} d-flex align-items-center justify-content-between">
         <a class="navbar-brand" href="{{ url('/') }}">
             <img class="logo" src="{{asset('storage/'.$appConfiguration->logo)}}"
                 alt="{{ config('app.name', 'Laravel') }}">
@@ -16,7 +16,7 @@
             </button>
         </form>
 
-        <div class="navbar-action-box d-none d-md-flex">
+        <div class="navbar-action-box">
             <a href="{{ route('categories.index') }}" class="nab-shop nab-icon" title="Our Basket">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-shop"
                     viewBox="0 0 16 16">

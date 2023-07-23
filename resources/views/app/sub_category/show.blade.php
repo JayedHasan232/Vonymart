@@ -2,22 +2,22 @@
 
 @push('meta')
 <!-- Primary Meta Tags -->
-<title>{{ config('app.name', 'Laravel') }}</title>
-<meta name="title" content="">
-<meta name="description" property="og:description" content="">
-<meta name="keywords" content="">
+<title>{{ config('app.name', 'Laravel') }} | {{ __( $sub_category->title ) }}</title>
+<meta name="title" content="{{ __( $sub_category->title ) }}">
+<meta name="description" property="og:description" content="{{ __( $sub_category->meta_description ) }}">
+<meta name="keywords" content="{{ __( $sub_category->meta_keywords ) }}">
 
 <!-- Open Graph / Facebook -->
-<meta property="og:url" content="">
-<meta property="og:title" content="">
-<meta property="og:description" content="">
-<meta property="og:image" content="">
+<meta property="og:url" content="{{url()->current()}}">
+<meta property="og:title" content="{{ __( $sub_category->title ) }}">
+<meta property="og:description" content="{{ __( $sub_category->meta_description ) }}">
+<meta property="og:image" content="{{ asset('storage/' . $sub_category->image) }}">
 
 <!-- Twitter -->
-<meta property="twitter:url" content="">
-<meta property="twitter:title" content="">
-<meta property="twitter:description" content="">
-<meta property="twitter:image" content="">
+<meta property="twitter:url" content="{{url()->current()}}">
+<meta property="twitter:title" content="{{ __( $sub_category->title ) }}">
+<meta property="twitter:description" content="{{ __( $sub_category->meta_description ) }}">
+<meta property="twitter:image" content="{{ asset('storage/' . $sub_category->image) }}">
 @endpush
 
 @section('content')

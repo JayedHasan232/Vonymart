@@ -13,12 +13,15 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="shortcut icon" href="{{asset('storage/'.$appConfiguration->favicon)}}" type="image/x-icon">
 
+    @stack('meta')
+
+    @if(empty(trim($__env->yieldContent('meta'))))
     <title>Alokmart - Online Shopping In Bangladesh</title>
     <meta name="title" content="Alokmart - Online Shopping In Bangladesh">
     <meta name="description"
         content="Alokmart is a trusted, reliable, and the biggest online shopping center in Bangladesh. Fashion, jewelry, beauty, electronics, and others.">
+    @endif
 
-    @stack('meta')
 
     <!-- Common Meta -->
     <meta name="author" content="">

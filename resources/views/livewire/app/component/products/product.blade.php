@@ -1,5 +1,5 @@
-<a href="{{ route('products.show', $product->url) }}" class="com_product d-flex flex-column justify-content-between"
-    title="{{ __( $product->title ) }}">
+<a href="{{ route('short-url-dynamic-data-show', $product->url) }}"
+    class="com_product d-flex flex-column justify-content-between" title="{{ __( $product->title ) }}">
     <img class="ratio ratio-1x1" src="{{ asset('storage/' . $product->image) }}" alt="{{ __( $product->title ) }}">
 
     <div class="p-4 align-self-end w-100 text-dark">

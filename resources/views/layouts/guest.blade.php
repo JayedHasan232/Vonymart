@@ -23,8 +23,8 @@
     <meta property="og:type" content="website">
     <meta property="fb:app_id" content="">
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:site" content="@vonymar">
-    <meta property="twitter:creator" content="@vonymar">
+    <meta property="twitter:site" content="@amidmart">
+    <meta property="twitter:creator" content="@amidmart">
     <meta name="google-site-verification" content="fXS6cgZZYHd59V1hLfyuHAOqp6IjwdtYk1T3mF4quPM" />
     <meta name="msvalidate.01" content="100D1B07279F130294AF9219A645BFFF" />
 
@@ -32,10 +32,10 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-YWDDHGK6BR"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
-  gtag('config', 'G-YWDDHGK6BR');
+        gtag('config', 'G-YWDDHGK6BR');
     </script>
 
     @stack('schema')
@@ -48,8 +48,8 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous"> -->
-    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link href="{{ asset('css/guest.css') }}" rel="stylesheet">
     @stack('stylesheets')
     @livewireStyles
@@ -61,6 +61,10 @@
             @yield('content')
         </main>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
+    </script>
 
     @stack('modals')
     @stack('scripts')

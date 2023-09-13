@@ -10,10 +10,10 @@ class ProductSubCategory extends Model
 {
     use HasFactory;
     use SoftDeletes;
-    
+
     protected $guarded = [];
 
-    public function category()
+    public function parent()
     {
         return $this->belongsTo(\App\Models\ProductCategory::class, 'category_id');
     }

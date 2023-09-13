@@ -63,27 +63,37 @@ Route::namespace('\App\Http\Controllers')
                         Route::get('/', 'index')->name('index');
                         Route::get('trending', 'trendingProducts')->name('trending');
                         Route::get('recent', 'newProducts')->name('recent');
-                        Route::get('/{product}', 'show')->name('show');
                     });
             });
 
-        // Category
         Route::controller(ProductCategoryController::class)
             ->group(function () {
                 Route::name('categories.')
                     ->group(function () {
                         Route::get('categories', 'index')->name('index');
-                        Route::get('/{category}', 'show')->name('show');
                     });
             });
 
-        // Subcategory
-        Route::controller(ProductSubCategoryController::class)
-            ->group(function () {
-                Route::name('sub-categories.')
-                    ->group(function () {
-                        Route::get('sub-categories', 'index')->name('index');
-                        Route::get('/{category}/{subcategory}', 'show')->name('show');
-                    });
-            });
+        Route::get('{url}', 'ShortUrlDynamicDataController@show')
+            ->name('short-url-dynamic-data-show');
+
+        // // Category
+        // Route::controller(ProductCategoryController::class)
+        //     ->group(function () {
+        //         Route::name('categories.')
+        //             ->group(function () {
+        //                 Route::get('categories', 'index')->name('index');
+        //                 Route::get('/{category}', 'show')->name('show');
+        //             });
+        //     });
+
+        // // Subcategory
+        // Route::controller(ProductSubCategoryController::class)
+        //     ->group(function () {
+        //         Route::name('sub-categories.')
+        //             ->group(function () {
+        //                 Route::get('sub-categories', 'index')->name('index');
+        //                 Route::get('/{category}/{subcategory}', 'show')->name('show');
+        //             });
+        //     });
     });

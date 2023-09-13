@@ -1,5 +1,6 @@
 <div>
-    <a href="{{ route('categories.show', $category->url) }}" class="category" title="{{ __( $category->title ) }}">
+    <a href="{{ route('short-url-dynamic-data-show', $category->url) }}" class="category"
+        title="{{ __( $category->title ) }}">
         <div class="image-wrapper">
             <div class="image" style="background-image: url({{ asset('storage/' . $category->image) }})"></div>
         </div>

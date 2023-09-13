@@ -47,7 +47,7 @@
         </div>
 
         <div class="row g-4">
-            @foreach($category->sub_categories()->where('privacy', 1)->get() as $sub_category)
+            @foreach($category->sub_categories as $sub_category)
             <div class="col-6 col-md-3">
                 @livewire('app.component.products.sub-category', ['sub_category' => $sub_category])
             </div>

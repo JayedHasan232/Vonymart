@@ -21,5 +21,5 @@
 @endpush
 
 @section('content')
-<livewire:app.page.products.sub-category.index :subCategory="$sub_category" />
+<livewire:app.page.products.sub-category.index :sub_category="$sub_category" />
 @endsection

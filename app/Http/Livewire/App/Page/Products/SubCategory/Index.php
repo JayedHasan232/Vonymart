@@ -13,18 +13,19 @@ class Index extends Component
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
 
-    public $subCategory;
+    public $sub_category;
     public $brands;
 
     public $totalProducts;
     public $initialQty = 12;
     public $qty = 12;
     public $brand = '';
+    public $category;
 
-    public function mount($subCategory)
+    public function mount($sub_category)
     {
         $this->totalProducts = Product::where('privacy', 1)->count();
-        $this->subCategory = $subCategory;
+        $this->sub_category = $sub_category;
         $this->brands = Brand::where('privacy', 1)->get();
     }
 
@@ -51,7 +52,7 @@ class Index extends Component
     {
         $products = Product::where('privacy', 1)
             ->where(function ($query) {
-                $query->where('sub_category_id', $this->subCategory->id);
+                $query->where('sub_category_id', $this->sub_category->id);
             })
             ->where(function ($query) {
                 if ($this->brand != '') {

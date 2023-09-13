@@ -30,8 +30,8 @@
     <meta property="og:type" content="website">
     <meta property="fb:app_id" content="">
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:site" content="@alokmart">
-    <meta property="twitter:creator" content="@alokmart">
+    <meta property="twitter:site" content="@amidmart">
+    <meta property="twitter:creator" content="@amidmart">
 
     @stack('schema')
 
@@ -46,15 +46,11 @@
         rel="stylesheet">
 
     <!-- Styles -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link rel="stylesheet"
         href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
 
-    @if(env('APP_ENV') == 'production')
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-    @else
-    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
-    @endif
     <link href="{{ asset('css/base.css') }}" rel="stylesheet">
     @stack('stylesheets')
     @livewireStyles
@@ -104,13 +100,9 @@
         @livewire('app.layout.footer')
     </div>
 
-    @if(env('APP_ENV') == 'production')
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
     </script>
-    @else
-    <script src="{{ asset('js/bootstrap.bundle.min.js') }}" defer></script>
-    @endif
 
     @stack('modals')
     @stack('scripts')

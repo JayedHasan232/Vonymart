@@ -12,38 +12,38 @@ class ShortUrlDynamicDataController extends Controller
     public function show($url)
     {
         try {
-            $product = Product::where('url', $url)
+            $category = ProductCategory::with(['sub_categories' => function ($query) {
+                $query->where('privacy', 1);
+            }])
+                ->where('url', $url)
                 ->where('privacy', 1)
                 ->firstOrFail();
 
-            $product->view_count += 1;
-            $product->save();
-
-            return view('app.products.show', compact('product'));
+            return view('app.category.show', compact('category'));
         } catch (Exception $e) {
-            // dd('Product', $e->getMessage());
+            // dd($e->getMessage());
 
             try {
-                $category = ProductCategory::with(['sub_categories' => function ($query) {
-                    $query->where('privacy', 1);
-                }])
+                $sub_category = ProductSubCategory::with('parent')
                     ->where('url', $url)
                     ->where('privacy', 1)
                     ->firstOrFail();
 
-                return view('app.category.show', compact('category'));
+                return view('app.sub_category.show', compact('sub_category'));
             } catch (Exception $e) {
-                // dd('Category', $e->getMessage());
+                // dd($e->getMessage());
 
                 try {
-                    $sub_category = ProductSubCategory::with('parent')
-                        ->where('url', $url)
+                    $product = Product::where('url', $url)
                         ->where('privacy', 1)
                         ->firstOrFail();
 
-                    return view('app.sub_category.show', compact('sub_category'));
+                    $product->view_count += 1;
+                    $product->save();
+
+                    return view('app.products.show', compact('product'));
                 } catch (Exception $e) {
-                    // dd('Subcategory', $e->getMessage());
+                    // dd($e->getMessage());
                     abort(404);
                 }
             }

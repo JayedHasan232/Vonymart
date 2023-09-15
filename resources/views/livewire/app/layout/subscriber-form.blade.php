@@ -4,7 +4,7 @@
 
             <div class="col-md-6 border border-top-0 border-bottom-0 d-flex justify-content-center align-items-center text-center"
                 style="height: 10em">
-                Keep your trust and touch with Alokmart and get authentic products by subscribing.
+                Keep your trust and touch with Amidmart and get authentic products by subscribing.
             </div>
 
             <form wire:submit.prevent="subscribe"

@@ -27,7 +27,7 @@ class Contact extends Component
                 'message' => $this->message
             ];
 
-            Mail::to(env('ADMIN_MAIL', 'info@alokmart.com'))->send(new ContactMail($data));
+            Mail::to(env('ADMIN_MAIL', 'info@amidmart.com'))->send(new ContactMail($data));
 
             $this->reset();
             return back()->with('success', __('Your query has been sent.'));

@@ -33,5 +33,5 @@ jobs:
         uses: SamKirkland/FTP-Deploy-Action@4.3.2
         with:
           server: ftp.esncb.com
-          username: jams@alokmart.com
+          username: jams@amidmart.com
           password: "uPIK,i**=MXp"

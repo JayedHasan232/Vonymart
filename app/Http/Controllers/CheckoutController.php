@@ -71,7 +71,7 @@ class CheckoutController extends Controller
 
             DB::commit();
             Mail::to(auth()->user()->email)->send(new OrderPlaced($order));
-            Mail::to('admin@alokmart.com')->send(new NewOrder($order));
+            Mail::to('admin@amidmart.com')->send(new NewOrder($order));
 
             session()->forget('cart');
             return redirect()->route('thanks', $order);

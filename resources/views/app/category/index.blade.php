@@ -25,8 +25,8 @@
     <div class="{{ env('BS_CONTAINER') }}">
 
         <div class="sec-head d-block">
-            <div class="breadcrumb m-0">
-                <a href="{{ route('welcome') }}" class="me-2 text-capitalize">
+            <div class="tw-flex tw-items-center tw-gap-2">
+                <a href="{{ route('welcome') }}" class="tw-flex tw-items-center tw-gap-1">
                     {{ __( 'Home' ) }}
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                         class="bi bi-arrow-right" viewBox="0 0 16 16">

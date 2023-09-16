@@ -51,7 +51,8 @@
     <link rel="stylesheet"
         href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
 
-    <link href="{{ asset('css/base.css') }}" rel="stylesheet">
+    <link href="{{ mix('css/tailwind.css') }}" rel="stylesheet">
+    <link href="{{ mix('css/base.css') }}" rel="stylesheet">
     @stack('stylesheets')
     @livewireStyles
 </head>
@@ -89,6 +90,7 @@
     </script>
 
     <div id="app">
+        @livewire('app.layout.topbar')
         @livewire('app.layout.navbar')
         {{-- @livewire('app.layout.menubar') --}}
 

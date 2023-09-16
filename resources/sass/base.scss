@@ -79,13 +79,15 @@ a {
 
             .form-control {
                 height: 2.5em;
-                border-radius: 0.75em 0 0 0.75em;
+                // border-radius: 0.75em 0 0 0.75em;
+                border-radius: 0;
             }
             .btn {
                 display: flex;
                 align-items: center;
                 height: 2.5em;
-                border-radius: 0 0.75em 0.75em 0;
+                // border-radius: 0 0.75em 0.75em 0;
+                border-radius: 0;
                 color: #fff;
                 background-color: $color;
 
@@ -110,7 +112,7 @@ a {
                 min-width: 2.5em;
                 padding: 0.5em 1em;
                 border: 1px solid #ededed;
-                border-radius: 1em;
+                border-radius: 0;
                 color: #333;
                 cursor: pointer;
 
@@ -124,8 +126,9 @@ a {
                 }
             }
             .nab-shop {
-                color: $color;
-                border: 1px solid $color;
+                // color: $color;
+                // border: 1px solid $color;
+                border: 1px solid #ededed;
             }
         }
 
@@ -177,143 +180,102 @@ a {
 .hero {
     background-color: $color;
 
-    .container-xl {
-        display: flex;
-        align-items: flex-start;
+    .carousel {
+        width: 100%;
+        .carousel-inner {
+            .carousel-item {
+                height: 315px;
 
-        @media only screen and (max-width: 767px) {
-            padding: 0;
-        }
-
-        .categories {
-            height: 20em;
-            width: 300px;
-            overflow-x: hidden;
-            overflow-y: scroll;
-
-            &::-webkit-scrollbar {
-                display: none;
-            }
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-
-            .item {
-                list-style: none;
-
-                .link {
-                    font-size: 15px;
-                    padding: 0.5em 1em;
-                    display: block;
-                    background-color: #fff;
-                    color: #666;
-                    border-bottom: 1px solid #f9f9f9;
-                    transition: $transition;
-
-                    &:hover {
-                        color: #fff;
-                        background-color: $colorHover;
-                    }
+                @media screen and (max-width: 767px) {
+                    height: 233.31px;
                 }
-            }
-        }
-        .carousel {
-            width: 100%;
-            .carousel-inner {
-                .carousel-item {
-                    height: 20em;
 
-                    @media screen and (max-width: 767px) {
-                        height: 233.31px;
+                img {
+                    height: 100%;
+                }
+                .carousel-caption {
+                    position: absolute;
+                    left: 5%;
+                    top: 50%;
+                    bottom: auto;
+                    padding: 0;
+                    transform: translateY(-50%);
+                    color: #000;
+                    text-align: left;
+
+                    @media only screen and (min-width: 768px) {
+                        right: 50%;
                     }
 
-                    img {
-                        height: 100%;
-                    }
-                    .carousel-caption {
-                        position: absolute;
-                        left: 5%;
-                        top: 50%;
-                        bottom: auto;
-                        padding: 0;
-                        transform: translateY(-50%);
-                        color: #000;
-                        text-align: left;
+                    .title {
+                        color: #333;
+                        font-size: 1.5em;
+                        margin-bottom: 0;
 
                         @media only screen and (min-width: 768px) {
-                            right: 50%;
+                            font-size: 50px;
                         }
-
-                        .title {
-                            color: #333;
-                            font-size: 1.5em;
-                            margin-bottom: 0;
-
-                            @media only screen and (min-width: 768px) {
-                                font-size: 50px;
-                            }
-                        }
-                        .text {
-                            color: #444;
-                            font-size: 1em;
-                        }
+                    }
+                    .text {
+                        color: #444;
+                        font-size: 1em;
                     }
                 }
             }
+        }
 
-            .carousel-indicators {
-                position: absolute;
-                bottom: 0;
-                li {
-                    background-color: transparent;
-                    border: 5px solid $color;
-                    height: 1em;
-                    width: 1em;
-                    @include radius(0.5em);
-                }
-                .active {
-                    background-color: transparent;
-                }
+        .carousel-indicators {
+            position: absolute;
+            bottom: -2.5em;
+            li {
+                background-color: transparent;
+                border: 1px solid $color;
+                height: 10px;
+                width: 25px;
             }
+            .active {
+                background-color: $color;
+            }
+        }
+        .carousel-control-next,
+        .carousel-control-prev {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 3em;
+            width: 3em;
+            border-radius: 0 50% 50% 0;
+            background-color: #000;
+            color: #000;
+            text-align: center;
+            opacity: 0;
+            transition: $transition;
+
+            .carousel-control-prev-icon,
+            .carousel-control-next-icon {
+                filter: none;
+            }
+
+            &:hover {
+                opacity: 0.75;
+            }
+        }
+        &:hover {
             .carousel-control-next,
             .carousel-control-prev {
-                position: absolute;
-                top: 50%;
-                transform: translateY(-50%);
-                z-index: 1;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                height: 3em;
-                width: 3em;
-                border-radius: 0 50% 50% 0;
-                background-color: #000;
-                color: #000;
-                text-align: center;
-                opacity: 0;
-                transition: $transition;
-
-                .carousel-control-prev-icon,
-                .carousel-control-next-icon {
-                    filter: none;
-                }
-
+                opacity: 0.5;
                 &:hover {
-                    opacity: 0.75;
+                    opacity: 1;
+                    background-color: $color;
                 }
             }
-            &:hover {
-                .carousel-control-next,
-                .carousel-control-prev {
-                    opacity: 0.5;
-                    &:hover {
-                        opacity: 1;
-                        background-color: $color;
-                    }
-                }
-            }
-            .carousel-control-next {
-                border-radius: 50% 0 0 50%;
-            }
+        }
+        .carousel-control-next {
+            border-radius: 50% 0 0 50%;
         }
     }
 }

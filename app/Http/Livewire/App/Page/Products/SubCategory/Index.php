@@ -26,7 +26,13 @@ class Index extends Component
     {
         $this->totalProducts = Product::where('privacy', 1)->count();
         $this->sub_category = $sub_category;
-        $this->brands = Brand::where('privacy', 1)->get();
+        $this->brands = Product::with(['brand' => function ($query) {
+            $query->select('id', 'title');
+        }])
+            ->select('id', 'brand_id')
+            ->where('sub_category_id', $sub_category->id)
+            ->where('privacy', 1)
+            ->get()->unique('brand_id')->pluck('brand');
     }
 
     public function loadMore()

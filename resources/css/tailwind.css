@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+h1 {
+    font-size: xx-large !important;
+}
+
+.topbar-categories {
+    @apply tw-flex tw-items-center tw-gap-1 tw-cursor-pointer tw-relative;
+}
+.topbar-categories:hover .topbar-category-list {
+    @apply tw-block;
+}
+.topbar-category-list {
+    @apply tw-hidden tw-absolute tw-top-[100%] tw-right-0 tw-z-[10000] tw-w-48 tw-bg-white tw-divide-y tw-border tw-rounded-xl;
+}
+
+.topbar-category-item {
+    @apply tw-block tw-text-gray-800 tw-px-4 tw-py-2 tw-transition-all;
+}
+.topbar-category-item:hover {
+    @apply tw-text-red-600;
+}

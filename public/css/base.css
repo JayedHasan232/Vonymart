@@ -64,13 +64,13 @@ a {
 }
 .navbar .container-xl .search-box .form-control {
   height: 2.5em;
-  border-radius: 0.75em 0 0 0.75em;
+  border-radius: 0;
 }
 .navbar .container-xl .search-box .btn {
   display: flex;
   align-items: center;
   height: 2.5em;
-  border-radius: 0 0.75em 0.75em 0;
+  border-radius: 0;
   color: #fff;
   background-color: #be1e2d;
 }
@@ -92,7 +92,7 @@ a {
   min-width: 2.5em;
   padding: 0.5em 1em;
   border: 1px solid #ededed;
-  border-radius: 1em;
+  border-radius: 0;
   color: #333;
   cursor: pointer;
 }
@@ -105,8 +105,7 @@ a {
   border: 1px solid #890101;
 }
 .navbar .container-xl .navbar-action-box .nab-shop {
-  color: #be1e2d;
-  border: 1px solid #be1e2d;
+  border: 1px solid #ededed;
 }
 .navbar .container-xl .navbar-nav .nav-item .nav-link {
   color: #be1e2d;
@@ -145,57 +144,21 @@ a {
 .hero {
   background-color: #be1e2d;
 }
-.hero .container-xl {
-  display: flex;
-  align-items: flex-start;
-}
-@media only screen and (max-width: 767px) {
-  .hero .container-xl {
-    padding: 0;
-  }
-}
-.hero .container-xl .categories {
-  height: 20em;
-  width: 300px;
-  overflow-x: hidden;
-  overflow-y: scroll;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-.hero .container-xl .categories::-webkit-scrollbar {
-  display: none;
-}
-.hero .container-xl .categories .item {
-  list-style: none;
-}
-.hero .container-xl .categories .item .link {
-  font-size: 15px;
-  padding: 0.5em 1em;
-  display: block;
-  background-color: #fff;
-  color: #666;
-  border-bottom: 1px solid #f9f9f9;
-  transition: 0.125s;
-}
-.hero .container-xl .categories .item .link:hover {
-  color: #fff;
-  background-color: #af0a0f;
-}
-.hero .container-xl .carousel {
+.hero .carousel {
   width: 100%;
 }
-.hero .container-xl .carousel .carousel-inner .carousel-item {
-  height: 20em;
+.hero .carousel .carousel-inner .carousel-item {
+  height: 315px;
 }
 @media screen and (max-width: 767px) {
-  .hero .container-xl .carousel .carousel-inner .carousel-item {
+  .hero .carousel .carousel-inner .carousel-item {
     height: 233.31px;
   }
 }
-.hero .container-xl .carousel .carousel-inner .carousel-item img {
+.hero .carousel .carousel-inner .carousel-item img {
   height: 100%;
 }
-.hero .container-xl .carousel .carousel-inner .carousel-item .carousel-caption {
+.hero .carousel .carousel-inner .carousel-item .carousel-caption {
   position: absolute;
   left: 5%;
   top: 50%;
@@ -206,42 +169,39 @@ a {
   text-align: left;
 }
 @media only screen and (min-width: 768px) {
-  .hero .container-xl .carousel .carousel-inner .carousel-item .carousel-caption {
+  .hero .carousel .carousel-inner .carousel-item .carousel-caption {
     right: 50%;
   }
 }
-.hero .container-xl .carousel .carousel-inner .carousel-item .carousel-caption .title {
+.hero .carousel .carousel-inner .carousel-item .carousel-caption .title {
   color: #333;
   font-size: 1.5em;
   margin-bottom: 0;
 }
 @media only screen and (min-width: 768px) {
-  .hero .container-xl .carousel .carousel-inner .carousel-item .carousel-caption .title {
+  .hero .carousel .carousel-inner .carousel-item .carousel-caption .title {
     font-size: 50px;
   }
 }
-.hero .container-xl .carousel .carousel-inner .carousel-item .carousel-caption .text {
+.hero .carousel .carousel-inner .carousel-item .carousel-caption .text {
   color: #444;
   font-size: 1em;
 }
-.hero .container-xl .carousel .carousel-indicators {
+.hero .carousel .carousel-indicators {
   position: absolute;
-  bottom: 0;
+  bottom: -2.5em;
 }
-.hero .container-xl .carousel .carousel-indicators li {
+.hero .carousel .carousel-indicators li {
   background-color: transparent;
-  border: 5px solid #be1e2d;
-  height: 1em;
-  width: 1em;
-  border-radius: 0.5em;
-  -webkit-border-radius: 0.5em;
-  -moz-border-radius: 0.5em;
+  border: 1px solid #be1e2d;
+  height: 10px;
+  width: 25px;
 }
-.hero .container-xl .carousel .carousel-indicators .active {
-  background-color: transparent;
+.hero .carousel .carousel-indicators .active {
+  background-color: #be1e2d;
 }
-.hero .container-xl .carousel .carousel-control-next,
-.hero .container-xl .carousel .carousel-control-prev {
+.hero .carousel .carousel-control-next,
+.hero .carousel .carousel-control-prev {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -258,26 +218,26 @@ a {
   opacity: 0;
   transition: 0.125s;
 }
-.hero .container-xl .carousel .carousel-control-next .carousel-control-prev-icon,
-.hero .container-xl .carousel .carousel-control-next .carousel-control-next-icon,
-.hero .container-xl .carousel .carousel-control-prev .carousel-control-prev-icon,
-.hero .container-xl .carousel .carousel-control-prev .carousel-control-next-icon {
+.hero .carousel .carousel-control-next .carousel-control-prev-icon,
+.hero .carousel .carousel-control-next .carousel-control-next-icon,
+.hero .carousel .carousel-control-prev .carousel-control-prev-icon,
+.hero .carousel .carousel-control-prev .carousel-control-next-icon {
   filter: none;
 }
-.hero .container-xl .carousel .carousel-control-next:hover,
-.hero .container-xl .carousel .carousel-control-prev:hover {
+.hero .carousel .carousel-control-next:hover,
+.hero .carousel .carousel-control-prev:hover {
   opacity: 0.75;
 }
-.hero .container-xl .carousel:hover .carousel-control-next,
-.hero .container-xl .carousel:hover .carousel-control-prev {
+.hero .carousel:hover .carousel-control-next,
+.hero .carousel:hover .carousel-control-prev {
   opacity: 0.5;
 }
-.hero .container-xl .carousel:hover .carousel-control-next:hover,
-.hero .container-xl .carousel:hover .carousel-control-prev:hover {
+.hero .carousel:hover .carousel-control-next:hover,
+.hero .carousel:hover .carousel-control-prev:hover {
   opacity: 1;
   background-color: #be1e2d;
 }
-.hero .container-xl .carousel .carousel-control-next {
+.hero .carousel .carousel-control-next {
   border-radius: 50% 0 0 50%;
 }
 
@@ -547,7 +507,6 @@ a {
   font-size: 18px;
   padding: 0;
   cursor: pointer;
-  -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
 
@@ -602,4 +561,4 @@ a {
   color: #9ca9be;
   background-color: #444444;
   border-top: 1px solid #2c3542;
-}/*# sourceMappingURL=base.css.map */
+}

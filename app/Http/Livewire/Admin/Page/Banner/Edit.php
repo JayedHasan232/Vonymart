@@ -2,12 +2,11 @@
 
 namespace App\Http\Livewire\Admin\Page\Banner;
 
-use Livewire\Component;
-use Livewire\WithFileUploads;
-
 use App\Helpers\ImageResize as Image;
 use App\Models\Banner;
 use Illuminate\Support\Facades\Storage;
+use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class Edit extends Component
 {
@@ -16,9 +15,13 @@ class Edit extends Component
     public $banner;
 
     public $privacy;
+
     public $title;
+
     public $link;
+
     public $image;
+
     public $position;
 
     public function mount(Banner $banner)
@@ -62,16 +65,16 @@ class Edit extends Component
                 'small' => (object) [
                     'width' => 360,
                     'height' => 160,
-                ]
+                ],
             ];
-            $path = "banner";
+            $path = 'banner';
 
             $result = Image::store($image, $dimension, $path);
 
             $this->banner->update([
-                "image" => $result->image,
-                "image_medium" => $result->image_medium,
-                "image_small" => $result->image_small,
+                'image' => $result->image,
+                'image_medium' => $result->image_medium,
+                'image_small' => $result->image_small,
             ]);
         }
 

@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 use App\Helpers\ImageResize as Image;
-
 use App\Models\ProductBrand as Brand;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 class ProductBrandController extends Controller
@@ -44,9 +42,9 @@ class ProductBrandController extends Controller
             $result = Image::storeIt($image, $path, $size);
 
             $brand->update([
-                "image" => $result->image,
-                "img_medium" => $result->img_medium,
-                "img_small" => $result->img_small,
+                'image' => $result->image,
+                'img_medium' => $result->img_medium,
+                'img_small' => $result->img_small,
 
                 'updated_by' => auth()->id(),
                 'updated_at' => now(),
@@ -113,9 +111,9 @@ class ProductBrandController extends Controller
             $result = Image::storeIt($image, $path, $size);
 
             $brand->update([
-                "image" => $result->image,
-                "img_medium" => $result->img_medium,
-                "img_small" => $result->img_small,
+                'image' => $result->image,
+                'img_medium' => $result->img_medium,
+                'img_small' => $result->img_small,
 
                 'updated_by' => auth()->id(),
                 'updated_at' => now(),

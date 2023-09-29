@@ -2,20 +2,23 @@
 
 namespace App\Http\Livewire\Admin\Page\Banner;
 
-use Livewire\Component;
-use Livewire\WithFileUploads;
-
 use App\Helpers\ImageResize as Image;
 use App\Models\Banner;
+use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class Create extends Component
 {
     use WithFileUploads;
 
     public $privacy = 1;
+
     public $title;
+
     public $link;
+
     public $image;
+
     public $position;
 
     public function store()
@@ -46,16 +49,16 @@ class Create extends Component
                 'small' => (object) [
                     'width' => 414,
                     'height' => 125.93,
-                ]
+                ],
             ];
-            $path = "banner";
+            $path = 'banner';
 
             $result = Image::store($image, $dimension, $path);
 
             $banner->update([
-                "image" => $result->image,
-                "image_medium" => $result->image_medium,
-                "image_small" => $result->image_small,
+                'image' => $result->image,
+                'image_medium' => $result->image_medium,
+                'image_small' => $result->image_small,
             ]);
         }
 

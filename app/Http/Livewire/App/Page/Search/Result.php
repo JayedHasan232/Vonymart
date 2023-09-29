@@ -2,19 +2,22 @@
 
 namespace App\Http\Livewire\App\Page\Search;
 
-use Livewire\Component;
-
-use Livewire\WithPagination;
 use App\Models\Product;
+use Livewire\Component;
+use Livewire\WithPagination;
 
 class Result extends Component
 {
     use WithPagination;
+
     protected $paginationTheme = 'bootstrap';
 
     public $totalProducts;
+
     public $initialQty = 12;
+
     public $qty = 12;
+
     public $keyword = '';
 
     public function mount($keyword)
@@ -22,8 +25,8 @@ class Result extends Component
         $this->keyword = $keyword;
         $this->totalProducts = Product::where('privacy', 1)
             ->where(function ($query) {
-                $query->where('title', 'like', '%' . $this->keyword . '%')
-                    ->orWhere('description', 'like', '%' . $this->keyword . '%');
+                $query->where('title', 'like', '%'.$this->keyword.'%')
+                    ->orWhere('description', 'like', '%'.$this->keyword.'%');
             })
             ->count();
     }
@@ -37,8 +40,8 @@ class Result extends Component
     {
         $products = Product::where('privacy', 1)
             ->where(function ($query) {
-                $query->where('title', 'like', '%' . $this->keyword . '%')
-                    ->orWhere('description', 'like', '%' . $this->keyword . '%');
+                $query->where('title', 'like', '%'.$this->keyword.'%')
+                    ->orWhere('description', 'like', '%'.$this->keyword.'%');
             })
             ->select('id', 'image', 'title', 'url', 'price', 'brand_id', 'category_id', 'sub_category_id')
             ->paginate($this->qty);

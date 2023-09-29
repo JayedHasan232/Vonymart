@@ -2,13 +2,14 @@
 
 namespace App\Http\Livewire\Admin\Page\UiPages;
 
-use Livewire\Component;
 use App\Models\UiPage;
+use Livewire\Component;
 use Str;
 
 class Create extends Component
 {
     public $slug;
+
     public $article;
 
     public function store()

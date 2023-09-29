@@ -17,7 +17,7 @@ class CreateProductCategoriesTable extends Migration
             $table->id();
             $table->boolean('privacy')->default(true);
             $table->smallInteger('isFeatured')->default(0);
-            
+
             $table->string('title');
             $table->string('url');
             $table->text('description')->nullable();
@@ -25,11 +25,11 @@ class CreateProductCategoriesTable extends Migration
             $table->string('meta_title')->nullable();
             $table->text('meta_description')->nullable();
             $table->text('meta_keywords')->nullable();
-            
+
             $table->text('image')->nullable();
             $table->text('image_medium')->nullable();
             $table->text('image_small')->nullable();
-            
+
             $table->foreignId('created_by');
             $table->foreignId('updated_by')->nullable();
             $table->timestamps();

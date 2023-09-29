@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\ProductSubCategory as SubCategory;
+use Illuminate\Http\Request;
 
 class ProductSubCategoryController extends Controller
 {
@@ -27,6 +27,7 @@ class ProductSubCategoryController extends Controller
         $sub_category = SubCategory::where('url', $subcategory)
             ->where('privacy', 1)
             ->firstOrFail();
+
         return view('app.sub_category.show', compact('sub_category'));
     }
 

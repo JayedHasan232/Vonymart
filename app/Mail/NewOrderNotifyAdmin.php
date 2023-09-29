@@ -3,7 +3,6 @@
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
@@ -19,12 +18,13 @@ class NewOrderNotifyAdmin extends Mailable
      * @return void
      */
     public $order;
+
     public $orderUrl;
 
     public function __construct($order)
     {
         $this->order = $order;
-        $this->orderUrl = env('APP_URL') . '/admin/orders/' . $order->id;
+        $this->orderUrl = env('APP_URL').'/admin/orders/'.$order->id;
     }
 
     /**

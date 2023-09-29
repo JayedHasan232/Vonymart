@@ -2,17 +2,14 @@
 
 namespace App\Http\Livewire\Admin\Page\Product\Brand;
 
+use App\Helpers\ImageResize as Image;
+use App\Models\ProductBrand as Brand;
 use Livewire\Component;
 use Livewire\WithFileUploads;
-
-use Str;
-use Storage;
-
 // Helpers
-use App\Helpers\ImageResize as Image;
-
+use Storage;
 // Models
-use App\Models\ProductBrand as Brand;
+use Str;
 
 class Edit extends Component
 {
@@ -21,12 +18,19 @@ class Edit extends Component
     public $brand;
 
     public $privacy;
+
     public $title;
+
     public $url;
+
     public $description;
+
     public $meta_title;
+
     public $meta_description;
+
     public $meta_keywords;
+
     public $image;
 
     public function mount($id)
@@ -94,16 +98,16 @@ class Edit extends Component
                 'small' => (object) [
                     'width' => 75,
                     'height' => 40,
-                ]
+                ],
             ];
-            $path = "products/brands";
+            $path = 'products/brands';
 
             $result = Image::store($image, $dimension, $path);
 
             $this->brand->update([
-                "image" => $result->image,
-                "image_medium" => $result->image_medium,
-                "image_small" => $result->image_small,
+                'image' => $result->image,
+                'image_medium' => $result->image_medium,
+                'image_small' => $result->image_small,
 
                 'updated_by' => auth()->id(),
                 'updated_at' => now(),

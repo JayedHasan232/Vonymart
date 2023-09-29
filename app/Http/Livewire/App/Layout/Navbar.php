@@ -2,14 +2,14 @@
 
 namespace App\Http\Livewire\App\Layout;
 
-use Livewire\Component;
 use App\Models\Wishlist;
-use App\Models\SiteInfo;
 use Illuminate\Support\Facades\Session;
+use Livewire\Component;
 
 class Navbar extends Component
 {
     public $productsInWishlist = 0;
+
     public $productsInCart = 0;
 
     protected $listeners = ['wishlistUpdated', 'cartUpdated'];
@@ -27,7 +27,7 @@ class Navbar extends Component
 
     public function cartUpdated()
     {
-        $this->productsInCart = Session::has('cart') ? Session::get('cart')->totalQty : NULL;
+        $this->productsInCart = Session::has('cart') ? Session::get('cart')->totalQty : null;
     }
 
     public function render()

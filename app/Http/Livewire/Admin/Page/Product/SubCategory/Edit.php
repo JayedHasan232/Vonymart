@@ -2,34 +2,40 @@
 
 namespace App\Http\Livewire\Admin\Page\Product\SubCategory;
 
-use Livewire\Component;
-use Livewire\WithFileUploads;
-
-use Str;
-use Storage;
-
-// Helpers
 use App\Helpers\ImageResize as Image;
-
-// Models
 use App\Models\ProductCategory as Category;
 use App\Models\ProductSubCategory as SubCategory;
+use Livewire\Component;
+// Helpers
+use Livewire\WithFileUploads;
+// Models
+use Storage;
+use Str;
 
 class Edit extends Component
 {
     use WithFileUploads;
-    
+
     public $categories;
+
     public $subcategory;
 
     public $privacy;
+
     public $category;
+
     public $title;
+
     public $url;
+
     public $description;
+
     public $meta_title;
+
     public $meta_description;
+
     public $meta_keywords;
+
     public $image;
 
     public function mount($id)
@@ -62,12 +68,12 @@ class Edit extends Component
             'url' => 'required|string',
         ]);
 
-        if($this->url != $this->subcategory->url){
+        if ($this->url != $this->subcategory->url) {
             $this->validate([
                 'url' => 'unique:product_sub_categories',
             ]);
         }
-        
+
         $this->subcategory->update([
             'privacy' => $this->privacy,
             'category_id' => $this->category,
@@ -81,8 +87,8 @@ class Edit extends Component
             'updated_at' => now(),
         ]);
 
-        if($this->image){
-            
+        if ($this->image) {
+
             Storage::delete($this->subcategory->image);
             Storage::delete($this->subcategory->image_medium);
             Storage::delete($this->subcategory->image_small);
@@ -96,16 +102,16 @@ class Edit extends Component
                 'small' => (object) [
                     'width' => 75,
                     'height' => 75,
-                ]
+                ],
             ];
-            $path = "products/subcategories";
+            $path = 'products/subcategories';
 
             $result = Image::store($image, $dimension, $path);
 
             $this->subcategory->update([
-                "image" => $result->image,
-                "image_medium" => $result->image_medium,
-                "image_small" => $result->image_small,
+                'image' => $result->image,
+                'image_medium' => $result->image_medium,
+                'image_small' => $result->image_small,
 
                 'updated_by' => auth()->id(),
                 'updated_at' => now(),

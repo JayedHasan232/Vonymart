@@ -2,10 +2,9 @@
 
 namespace App\Http\Livewire\Admin\Page\Product\Brand;
 
-use Livewire\Component;
-
-// Models
 use App\Models\ProductBrand as Brand;
+// Models
+use Livewire\Component;
 
 class Index extends Component
 {
@@ -21,12 +20,12 @@ class Index extends Component
     {
         // Finding brand
         $brand = Brand::findOrFail($id);
-        
+
         // Soft deleting products
-        foreach($brand->products as $product){
+        foreach ($brand->products as $product) {
             $product->delete();
         }
-        
+
         // Deleting brand
         $brand->delete();
 
@@ -43,10 +42,10 @@ class Index extends Component
 
         // Permanently deleting products
         $products = $brand->products()->withTrashed()->get();
-        foreach($products as $product){
+        foreach ($products as $product) {
             $product->forceDelete();
         }
-        
+
         // Permanently deleting brand
         $brand->forceDelete();
 
@@ -66,10 +65,10 @@ class Index extends Component
 
         // Restoring products
         $products = $brand->products()->withTrashed()->get();
-        foreach($products as $product){
+        foreach ($products as $product) {
             $product->restore();
         }
-        
+
         // Reloading data
         $this->brandWithTrashed();
 

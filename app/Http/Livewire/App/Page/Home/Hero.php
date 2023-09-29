@@ -2,8 +2,8 @@
 
 namespace App\Http\Livewire\App\Page\Home;
 
-use Livewire\Component;
 use App\Models\Slider;
+use Livewire\Component;
 
 class Hero extends Component
 {

@@ -2,28 +2,32 @@
 
 namespace App\Http\Livewire\Admin\Page\Product\Brand;
 
-use Livewire\Component;
-use Livewire\WithFileUploads;
-
-use Str;
-
-// Helpers
 use App\Helpers\ImageResize as Image;
-
-// Models
 use App\Models\ProductBrand as Brand;
+use Livewire\Component;
+// Helpers
+use Livewire\WithFileUploads;
+// Models
+use Str;
 
 class Create extends Component
 {
     use WithFileUploads;
 
     public $privacy = 1;
+
     public $title;
+
     public $url;
+
     public $description;
+
     public $meta_title;
+
     public $meta_description;
+
     public $meta_keywords;
+
     public $image;
 
     public function updatedTitle()
@@ -38,7 +42,7 @@ class Create extends Component
     }
 
     public function store()
-    {        
+    {
         $this->validate([
             'privacy' => 'required',
             'title' => 'required|string',
@@ -57,7 +61,7 @@ class Create extends Component
             'created_at' => now(),
         ]);
 
-        if($brand && $this->image){
+        if ($brand && $this->image) {
 
             $image = $this->image;
             $dimension = (object) [
@@ -68,16 +72,16 @@ class Create extends Component
                 'small' => (object) [
                     'width' => 75,
                     'height' => 75,
-                ]
+                ],
             ];
-            $path = "products/brands";
+            $path = 'products/brands';
 
             $result = Image::store($image, $dimension, $path);
 
             $brand->update([
-                "image" => $result->image,
-                "image_medium" => $result->image_medium,
-                "image_small" => $result->image_small,
+                'image' => $result->image,
+                'image_medium' => $result->image_medium,
+                'image_small' => $result->image_small,
 
                 'updated_by' => auth()->id(),
                 'updated_at' => now(),

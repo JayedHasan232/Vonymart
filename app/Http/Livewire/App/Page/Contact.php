@@ -10,29 +10,35 @@ use Livewire\Component;
 
 class Contact extends Component
 {
-    public $name, $email, $message;
+    public $name;
+
+    public $email;
+
+    public $message;
 
     public function send()
     {
         $this->validate([
-            'email'     => 'required',
-            'name'      => 'required',
-            'message'   => 'required',
+            'email' => 'required',
+            'name' => 'required',
+            'message' => 'required',
         ]);
 
         try {
             $data = [
                 'name' => $this->name,
                 'email' => $this->email,
-                'message' => $this->message
+                'message' => $this->message,
             ];
 
             Mail::to(env('ADMIN_MAIL', 'info@amidmart.com'))->send(new ContactMail($data));
 
             $this->reset();
+
             return back()->with('success', __('Your query has been sent.'));
         } catch (Exception $e) {
             Log::debug('Contact Store', [$e]);
+
             return back()->with('danger', __('Server error'));
         }
     }

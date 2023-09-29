@@ -10,7 +10,7 @@ class ProductBrand extends Model
 {
     use HasFactory;
     use SoftDeletes;
-    
+
     protected $guarded = [];
 
     public function products()

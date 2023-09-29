@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 class UserController extends Controller
 {
     public function __construct()
@@ -24,14 +22,14 @@ class UserController extends Controller
     public function orders()
     {
         return view('user.orders', [
-            'orders' => auth()->user()->orders
+            'orders' => auth()->user()->orders,
         ]);
     }
 
     public function wishlist()
     {
         return view('user.wishlist', [
-            'wishlist' => auth()->user()->wishlist
+            'wishlist' => auth()->user()->wishlist,
         ]);
     }
 }

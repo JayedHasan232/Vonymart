@@ -2,10 +2,9 @@
 
 namespace App\Http\Livewire\Admin\Page\Product\SubCategory;
 
-use Livewire\Component;
-
-// Models
 use App\Models\ProductSubCategory as SubCategory;
+// Models
+use Livewire\Component;
 
 class Index extends Component
 {
@@ -21,12 +20,12 @@ class Index extends Component
     {
         // Finding subcategory
         $subcategories = SubCategory::findOrFail($id);
-        
+
         // Soft deleting products
-        foreach($subcategories->products as $product){
+        foreach ($subcategories->products as $product) {
             $product->delete();
         }
-        
+
         // Deleting subcategory
         $subcategories->delete();
 
@@ -43,10 +42,10 @@ class Index extends Component
 
         // Permanently deleting products
         $products = $subcategories->products()->withTrashed()->get();
-        foreach($products as $product){
+        foreach ($products as $product) {
             $product->forceDelete();
         }
-        
+
         // Permanently deleting subcategory
         $subcategories->forceDelete();
 
@@ -66,10 +65,10 @@ class Index extends Component
 
         // Restoring products
         $products = $subcategories->products()->withTrashed()->get();
-        foreach($products as $product){
+        foreach ($products as $product) {
             $product->restore();
         }
-        
+
         // Reloading data
         $this->subcategoryWithTrashed();
 

@@ -3,10 +3,9 @@
 namespace Database\Factories;
 
 use App\Models\User;
+use Hash;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
-
-use Hash;
 
 class UserFactory extends Factory
 {

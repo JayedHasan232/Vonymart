@@ -2,13 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
-// Helpers
 use App\Helpers\ImageResize as Image;
-
-// Models
+// Helpers
 use App\Models\Product;
+// Models
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
@@ -69,16 +67,16 @@ class ProductController extends Controller
                 'small' => (object) [
                     'width' => 102,
                     'height' => 102,
-                ]
+                ],
             ];
-            $path = "products";
+            $path = 'products';
 
             $result = Image::store($image, $dimension, $path);
 
             $product->update([
-                "image" => $result->image,
-                "image_medium" => $result->image_medium,
-                "image_small" => $result->image_small,
+                'image' => $result->image,
+                'image_medium' => $result->image_medium,
+                'image_small' => $result->image_small,
 
                 'updated_by' => auth()->id(),
                 'updated_at' => now(),
@@ -153,16 +151,16 @@ class ProductController extends Controller
                 'small' => (object) [
                     'width' => 75,
                     'height' => 40,
-                ]
+                ],
             ];
-            $path = "products";
+            $path = 'products';
 
             $result = Image::store($image, $dimension, $path);
 
             $product->update([
-                "image" => $result->image,
-                "image_medium" => $result->image_medium,
-                "image_small" => $result->image_small,
+                'image' => $result->image,
+                'image_medium' => $result->image_medium,
+                'image_small' => $result->image_small,
 
                 'updated_by' => auth()->id(),
                 'updated_at' => now(),

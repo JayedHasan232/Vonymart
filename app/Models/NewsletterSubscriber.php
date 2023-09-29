@@ -10,6 +10,6 @@ class NewsletterSubscriber extends Model
 {
     use HasFactory;
     use SoftDeletes;
-    
+
     protected $guarded = [];
 }

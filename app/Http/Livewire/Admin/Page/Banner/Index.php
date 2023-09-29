@@ -2,18 +2,20 @@
 
 namespace App\Http\Livewire\Admin\Page\Banner;
 
+use App\Models\Banner;
 use Livewire\Component;
 use Livewire\WithPagination;
-
-use App\Models\Banner;
 
 class Index extends Component
 {
     use WithPagination;
+
     protected $paginationTheme = 'bootstrap';
 
     public $qty = 12;
+
     public $keyword;
+
     public $totalBanners;
 
     public function mount()
@@ -39,7 +41,7 @@ class Index extends Component
     public function render()
     {
         return view('livewire.admin.page.banner.index', [
-            'banners' => Banner::where('title', 'like', "%$this->keyword%")->paginate($this->qty)
+            'banners' => Banner::where('title', 'like', "%$this->keyword%")->paginate($this->qty),
         ])->extends('layouts.admin');
     }
 }

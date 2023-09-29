@@ -2,18 +2,20 @@
 
 namespace App\Http\Livewire\Admin\Page\Order;
 
+use App\Models\Order;
 use Livewire\Component;
 use Livewire\WithPagination;
-
-use App\Models\Order;
 
 class Index extends Component
 {
     use WithPagination;
+
     protected $paginationTheme = 'bootstrap';
 
     public $qty = 12;
+
     public $keyword;
+
     public $totalOrders;
 
     public function mount()
@@ -29,7 +31,7 @@ class Index extends Component
     public function render()
     {
         return view('livewire.admin.page.order.index', [
-            'orders' => Order::paginate($this->qty)
+            'orders' => Order::latest()->paginate($this->qty),
         ])->extends('layouts.admin');
     }
 }

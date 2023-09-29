@@ -2,17 +2,38 @@
 
 namespace App\Http\Livewire\Admin\Page;
 
-use Livewire\Component;
-use Livewire\WithFileUploads;
-
 use App\Models\SiteInfo as Info;
 use Illuminate\Support\Facades\Storage;
+use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class SiteInfo extends Component
 {
     use WithFileUploads;
 
-    public $name, $mobile, $email, $google_map, $address, $facebook_page, $facebook_group, $twitter, $linkedin, $youtube, $logo, $favicon;
+    public $name;
+
+    public $mobile;
+
+    public $email;
+
+    public $google_map;
+
+    public $address;
+
+    public $facebook_page;
+
+    public $facebook_group;
+
+    public $twitter;
+
+    public $linkedin;
+
+    public $youtube;
+
+    public $logo;
+
+    public $favicon;
 
     public function mount()
     {
@@ -34,7 +55,7 @@ class SiteInfo extends Component
     {
         $info = Info::find(1);
 
-        if (!Info::find(1)) {
+        if (! Info::find(1)) {
             Info::create([
                 'name' => $this->name,
                 'mobile' => $this->mobile,
@@ -65,7 +86,6 @@ class SiteInfo extends Component
                 'updated_at' => now(),
             ]);
         }
-
 
         if ($info) {
             if ($this->logo) {

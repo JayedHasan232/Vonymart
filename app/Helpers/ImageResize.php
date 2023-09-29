@@ -3,51 +3,49 @@
 namespace App\Helpers;
 
 use App\Http\Controllers\Controller;
-
 // Packages
 use Image;
 
 class ImageResize extends Controller
 {
+    public static function store($image, $dimension, $path)
+    {
+        //get filename with extension
+        $fileNameWithExtension = $image->getClientOriginalName();
 
-  static function store($image, $dimension, $path)
-  {
-      //get filename with extension
-      $fileNameWithExtension = $image->getClientOriginalName();
-      
-      //get filename without extension
-      $fileName = pathinfo($fileNameWithExtension, PATHINFO_FILENAME);
+        //get filename without extension
+        $fileName = pathinfo($fileNameWithExtension, PATHINFO_FILENAME);
 
-      //get file extension
-      $extension = $image->getClientOriginalExtension();
-      
-      //filename to store
-      $fileNameToStore = str_replace(' ', '-', $fileName).'-'.time().'.'.$extension;
+        //get file extension
+        $extension = $image->getClientOriginalExtension();
 
-      //Upload File
-      $imagePath = $image->storeAs("images/$path", $fileNameToStore);
-      $thumbnailPathMedium = $image->storeAs("images/$path/medium", $fileNameToStore);
-      $thumbnailPathSmall = $image->storeAs("images/$path/small", $fileNameToStore);
+        //filename to store
+        $fileNameToStore = str_replace(' ', '-', $fileName).'-'.time().'.'.$extension;
 
-      //Resize image here
-      //Thumbnail Medium
-      $thubmnailRealPathMedium = public_path("/storage/$thumbnailPathMedium");
-      $thumbnailMedium = Image::make($thubmnailRealPathMedium)->resize($dimension->medium->width, $dimension->medium->height, function($constraint) {
-          $constraint->aspectRatio();
-      });
-      $thumbnailMedium->save($thubmnailRealPathMedium);
+        //Upload File
+        $imagePath = $image->storeAs("images/$path", $fileNameToStore);
+        $thumbnailPathMedium = $image->storeAs("images/$path/medium", $fileNameToStore);
+        $thumbnailPathSmall = $image->storeAs("images/$path/small", $fileNameToStore);
 
-      // Thumbnail Small
-      $thubmnailRealPathSmall = public_path("/storage/$thumbnailPathSmall");
-      $thumbnailSmall = Image::make($thubmnailRealPathSmall)->resize($dimension->small->width, $dimension->small->height, function($constraint) {
-          $constraint->aspectRatio();
-      });
-      $thumbnailSmall->save($thubmnailRealPathSmall);
+        //Resize image here
+        //Thumbnail Medium
+        $thubmnailRealPathMedium = public_path("/storage/$thumbnailPathMedium");
+        $thumbnailMedium = Image::make($thubmnailRealPathMedium)->resize($dimension->medium->width, $dimension->medium->height, function ($constraint) {
+            $constraint->aspectRatio();
+        });
+        $thumbnailMedium->save($thubmnailRealPathMedium);
 
-      return (object) [
-        'image' => $imagePath,
-        'image_medium' => $thumbnailPathMedium,
-        'image_small' => $thumbnailPathSmall,
-      ];
-  }
+        // Thumbnail Small
+        $thubmnailRealPathSmall = public_path("/storage/$thumbnailPathSmall");
+        $thumbnailSmall = Image::make($thubmnailRealPathSmall)->resize($dimension->small->width, $dimension->small->height, function ($constraint) {
+            $constraint->aspectRatio();
+        });
+        $thumbnailSmall->save($thubmnailRealPathSmall);
+
+        return (object) [
+            'image' => $imagePath,
+            'image_medium' => $thumbnailPathMedium,
+            'image_small' => $thumbnailPathSmall,
+        ];
+    }
 }

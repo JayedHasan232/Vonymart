@@ -2,9 +2,8 @@
 
 namespace App\Http\Livewire\App\Layout;
 
-use Livewire\Component;
-
 use App\Models\SiteInfo as Info;
+use Livewire\Component;
 
 class Menubar extends Component
 {

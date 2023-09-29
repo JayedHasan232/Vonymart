@@ -3,7 +3,6 @@
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
@@ -19,6 +18,7 @@ class AccountCreated extends Mailable
      * @return void
      */
     public $user;
+
     public $password;
 
     public function __construct($user, $password)

@@ -29,7 +29,6 @@ Route::namespace('\App\Http\Controllers')->group(function () {
     });
 });
 
-
 // Livewire
 Route::namespace('App\Http\Livewire')->group(function () {
 

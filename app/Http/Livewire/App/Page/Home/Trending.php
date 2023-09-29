@@ -2,15 +2,17 @@
 
 namespace App\Http\Livewire\App\Page\Home;
 
-use Livewire\Component;
-
 use App\Models\Product;
+use Livewire\Component;
 
 class Trending extends Component
 {
     public $qty;
+
     public $link;
+
     public $classNames;
+
     public $products;
 
     public function mount($qty, $link = '', $classNames = '')

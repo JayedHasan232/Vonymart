@@ -2,45 +2,57 @@
 
 namespace App\Http\Livewire\Admin\Page\Product;
 
-use Livewire\Component;
-use Livewire\WithFileUploads;
-
-use Str;
-
-// Helpers
-use App\Helpers\ImageResize as Image;
-
-// Models
 use App\Models\Product;
 use App\Models\ProductBrand as Brand;
 use App\Models\ProductCategory as Category;
+// Helpers
+
+// Models
 use App\Models\ProductSubCategory as SubCategory;
+use Livewire\Component;
+use Livewire\WithFileUploads;
+use Str;
 
 class Edit extends Component
 {
     use WithFileUploads;
 
     public $brands;
+
     public $categories;
+
     public $sub_categories = [];
+
     public $product;
 
     public $title;
+
     public $url;
+
     public $description;
+
     public $specification;
+
     public $privacy;
+
     public $price;
+
     public $sku;
+
     public $stock_count;
+
     public $image;
 
     public $brand;
+
     public $category;
+
     public $sub_category;
 
     public $meta_title;
+
     public $meta_description;
+
     public $meta_keywords;
 
     public function mount($id)
@@ -87,8 +99,8 @@ class Edit extends Component
 
     public function updatedTitle()
     {
-        $this->meta_title   = $this->title;
-        $this->url          = Str::slug($this->title);
+        $this->meta_title = $this->title;
+        $this->url = Str::slug($this->title);
     }
 
     public function updatedCategory()

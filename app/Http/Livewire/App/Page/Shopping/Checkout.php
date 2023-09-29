@@ -2,20 +2,24 @@
 
 namespace App\Http\Livewire\App\Page\Shopping;
 
-use Livewire\Component;
-use Session;
 use App\Helpers\CartManagementHelper as CMH;
+use Livewire\Component;
 
 class Checkout extends Component
 {
     public $items;
+
     public $totalQty;
+
     public $totalPrice;
+
     public $totalDiscount;
 
     public function mount()
     {
-        if (!session()->has('cart')) return redirect('/');
+        if (! session()->has('cart')) {
+            return redirect('/');
+        }
 
         $cart = new CMH(session()->get('cart'));
         $this->items = $cart->items;

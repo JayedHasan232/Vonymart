@@ -2,24 +2,28 @@
 
 namespace App\Http\Livewire\App\Page\Products\SubCategory;
 
-use Livewire\Component;
-
-use Livewire\WithPagination;
 use App\Models\Product;
-use App\Models\ProductBrand as Brand;
+use Livewire\Component;
+use Livewire\WithPagination;
 
 class Index extends Component
 {
     use WithPagination;
+
     protected $paginationTheme = 'bootstrap';
 
     public $sub_category;
+
     public $brands;
 
     public $totalProducts;
+
     public $initialQty = 12;
+
     public $qty = 12;
+
     public $brand = '';
+
     public $category;
 
     public function mount($sub_category)

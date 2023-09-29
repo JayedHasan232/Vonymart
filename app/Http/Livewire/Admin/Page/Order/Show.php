@@ -2,10 +2,9 @@
 
 namespace App\Http\Livewire\Admin\Page\Order;
 
-use Livewire\Component;
-
-// Models
 use App\Models\Order;
+// Models
+use Livewire\Component;
 
 class Show extends Component
 {

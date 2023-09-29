@@ -2,21 +2,25 @@
 
 namespace App\Http\Livewire\Admin\Page\Slider;
 
-use Livewire\Component;
-use Livewire\WithFileUploads;
-
 use App\Helpers\ImageResize as Image;
 use App\Models\Slider;
+use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class Create extends Component
 {
     use WithFileUploads;
 
     public $privacy = 1;
+
     public $title;
+
     public $overview;
+
     public $link;
+
     public $link_title;
+
     public $image;
 
     public function store()
@@ -38,7 +42,7 @@ class Create extends Component
             'created_at' => now(),
         ]);
 
-        if($slider && $this->image){
+        if ($slider && $this->image) {
             $image = $this->image;
             $dimension = (object) [
                 'medium' => (object) [
@@ -48,16 +52,16 @@ class Create extends Component
                 'small' => (object) [
                     'width' => 414,
                     'height' => 125.93,
-                ]
+                ],
             ];
-            $path = "slider";
+            $path = 'slider';
 
             $result = Image::store($image, $dimension, $path);
 
             $slider->update([
-                "image" => $result->image,
-                "image_medium" => $result->image_medium,
-                "image_small" => $result->image_small,
+                'image' => $result->image,
+                'image_medium' => $result->image_medium,
+                'image_small' => $result->image_small,
             ]);
         }
 

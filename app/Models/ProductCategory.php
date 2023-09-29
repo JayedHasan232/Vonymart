@@ -10,7 +10,7 @@ class ProductCategory extends Model
 {
     use HasFactory;
     use SoftDeletes;
-    
+
     protected $guarded = [];
 
     public function sub_categories()

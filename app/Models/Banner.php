@@ -10,6 +10,6 @@ class Banner extends Model
 {
     use HasFactory;
     use SoftDeletes;
-    
+
     protected $guarded = [];
 }

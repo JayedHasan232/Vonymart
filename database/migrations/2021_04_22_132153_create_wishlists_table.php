@@ -15,7 +15,7 @@ class CreateWishlistsTable extends Migration
     {
         Schema::create('wishlists', function (Blueprint $table) {
             $table->id();
-            
+
             $table->foreignId('product_id');
 
             $table->foreignId('created_by');

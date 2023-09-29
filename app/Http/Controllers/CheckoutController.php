@@ -9,9 +9,9 @@ use App\Models\OrderProduct;
 use App\Models\Product;
 use Exception;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Str;
 
 class CheckoutController extends Controller
 {
@@ -30,10 +30,10 @@ class CheckoutController extends Controller
                     $product = Product::find($key);
 
                     $order_products = $order_products->push([
-                        "product_id" => $product->id,
-                        "quantity" => $item['qty'],
-                        "unit_price" => $product->price,
-                        "total_price" => $product->price * $item['qty'],
+                        'product_id' => $product->id,
+                        'quantity' => $item['qty'],
+                        'unit_price' => $product->price,
+                        'total_price' => $product->price * $item['qty'],
                     ]);
 
                     $discount += ($product->price / 100 * $product->discount_rate) * $item['qty'];
@@ -43,7 +43,7 @@ class CheckoutController extends Controller
             DB::beginTransaction();
             $order = Order::create([
                 'user_id' => auth()->id(),
-                'tracking_id' => Str::lower(Str::random(2)) . rand(1, 9999),
+                'tracking_id' => Str::lower(Str::random(2)).rand(1, 9999),
                 'total_quantity' => $order_products->sum('quantity'),
                 'discount' => $discount,
                 'total_price' => $order_products->sum('total_price') - $discount,
@@ -70,14 +70,16 @@ class CheckoutController extends Controller
             }
 
             DB::commit();
-            Mail::to(auth()->user()->email)->send(new OrderPlaced($order));
-            Mail::to('admin@amidmart.com')->send(new NewOrder($order));
+            // Mail::to(auth()->user()->email)->send(new OrderPlaced($order));
+            // Mail::to('admin@amidmart.com')->send(new NewOrder($order));
 
             session()->forget('cart');
+
             return redirect()->route('thanks', $order);
         } catch (Exception $exception) {
             DB::rollBack();
             dd($exception->getMessage());
+
             return abort(500);
         }
     }
@@ -85,6 +87,7 @@ class CheckoutController extends Controller
     public function thanks($order)
     {
         $order = Order::latest()->first();
+
         return view('livewire.app.page.shopping.thanks', compact('order'));
     }
 }

@@ -8,6 +8,7 @@ use Livewire\Component;
 class SubscriberForm extends Component
 {
     public $email;
+
     public function subscribe()
     {
         $subscriber = NewsletterSubscriber::where('email', $this->email)->first();
@@ -17,8 +18,8 @@ class SubscriberForm extends Component
         }
 
         NewsletterSubscriber::create([
-            "email" => $this->email,
-            "ipAddress" => request()->ip(),
+            'email' => $this->email,
+            'ipAddress' => request()->ip(),
         ]);
 
         return back()->with('success', __('Congrats! From now you will receive updates from us.'));

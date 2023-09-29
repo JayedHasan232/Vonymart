@@ -2,14 +2,15 @@
 
 namespace App\Helpers;
 
-use Session;
-
 class CartManagementHelper
 {
     // Initializing
-    public $items = NULL;
+    public $items = null;
+
     public $totalQty = 0;
+
     public $totalPrice = 0;
+
     public $totalDiscount = 0;
 
     // Receiving passed data from the cart Controller

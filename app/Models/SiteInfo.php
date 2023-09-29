@@ -10,6 +10,6 @@ class SiteInfo extends Model
 {
     use HasFactory;
     use SoftDeletes;
-    
+
     protected $guarded = [];
 }

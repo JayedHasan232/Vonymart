@@ -19,10 +19,10 @@ class CreateSlidersTable extends Migration
             $table->smallInteger('position')->nullable();
             $table->string('title');
             $table->text('overview');
-            
+
             $table->text('link')->nullable();
             $table->string('link_title')->nullable();
-            
+
             $table->text('image')->nullable();
             $table->text('image_medium')->nullable();
             $table->text('image_small')->nullable();

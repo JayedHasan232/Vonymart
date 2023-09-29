@@ -2,20 +2,23 @@
 
 namespace App\Http\Livewire\App\Page\Shopping;
 
-use Livewire\Component;
-use Illuminate\Support\Facades\Session;
 use App\Helpers\CartManagementHelper as CMH;
+use Illuminate\Support\Facades\Session;
+use Livewire\Component;
 
 class Cart extends Component
 {
     public $items;
+
     public $totalQty;
+
     public $totalPrice;
+
     public $totalDiscount;
 
     public function mount()
     {
-        $currentCart = Session::has('cart') ? Session::get('cart') : NULL;
+        $currentCart = Session::has('cart') ? Session::get('cart') : null;
         $cart = new CMH($currentCart);
         $this->items = $cart->items;
         $this->totalQty = $cart->totalQty;
@@ -25,7 +28,7 @@ class Cart extends Component
 
     public function plus($id)
     {
-        $currentCart = Session::has('cart') ? Session::get('cart') : NULL;
+        $currentCart = Session::has('cart') ? Session::get('cart') : null;
         $cart = new CMH($currentCart);
         $cart->cartPlus($id);
         Session::put('cart', $cart);
@@ -40,7 +43,7 @@ class Cart extends Component
 
     public function minus($id)
     {
-        $currentCart = Session::has('cart') ? Session::get('cart') : NULL;
+        $currentCart = Session::has('cart') ? Session::get('cart') : null;
         $cart = new CMH($currentCart);
         $cart->cartMinus($id);
         Session::put('cart', $cart);
@@ -56,7 +59,7 @@ class Cart extends Component
     public function removeItem($id)
     {
         // Check Cart Availablity
-        $currentCart = Session::has('cart') ? Session::get('cart') : NULL;
+        $currentCart = Session::has('cart') ? Session::get('cart') : null;
 
         // Send Data to Cart Model
         $cart = new CMH($currentCart);
@@ -64,7 +67,7 @@ class Cart extends Component
         Session::put('cart', $cart);
 
         // Destroy cart if empty
-        if ($cart->items == NULL) {
+        if ($cart->items == null) {
             Session::forget('cart', $cart);
             $this->totalQty = 0;
         } else {

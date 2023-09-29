@@ -2,10 +2,9 @@
 
 namespace App\Http\Livewire\Admin\Page\Product\Category;
 
-use Livewire\Component;
-
-// Models
 use App\Models\ProductCategory as Category;
+// Models
+use Livewire\Component;
 
 class Index extends Component
 {
@@ -21,12 +20,12 @@ class Index extends Component
     {
         // Finding category
         $categories = Category::findOrFail($id);
-        
+
         // Soft deleting products
-        foreach($categories->products as $product){
+        foreach ($categories->products as $product) {
             $product->delete();
         }
-        
+
         // Deleting category
         $categories->delete();
 
@@ -43,10 +42,10 @@ class Index extends Component
 
         // Permanently deleting products
         $products = $categories->products()->withTrashed()->get();
-        foreach($products as $product){
+        foreach ($products as $product) {
             $product->forceDelete();
         }
-        
+
         // Permanently deleting category
         $categories->forceDelete();
 
@@ -66,10 +65,10 @@ class Index extends Component
 
         // Restoring products
         $products = $categories->products()->withTrashed()->get();
-        foreach($products as $product){
+        foreach ($products as $product) {
             $product->restore();
         }
-        
+
         // Reloading data
         $this->categoryWithTrashed();
 

@@ -2,16 +2,17 @@
 
 namespace App\Http\Livewire\App\Page\Products;
 
-use Livewire\Component;
-use Session;
 use App\Helpers\CartManagementHelper as CMH;
 use App\Models\Wishlist;
+use Livewire\Component;
+use Session;
 
 class Show extends Component
 {
-
     public $product;
+
     public $alreadyExists;
+
     public $qty = 1;
 
     public function mount($product)
@@ -26,7 +27,7 @@ class Show extends Component
     {
         if (auth()->check()) {
 
-            if (!$this->alreadyExists) {
+            if (! $this->alreadyExists) {
                 Wishlist::create([
                     'product_id' => $this->product->id,
                     'created_by' => auth()->id(),
@@ -46,7 +47,7 @@ class Show extends Component
 
     public function addToCart()
     {
-        $currentCart = Session::has('cart') ? Session::get('cart') : NULL;
+        $currentCart = Session::has('cart') ? Session::get('cart') : null;
         $cart = new CMH($currentCart);
         $cart->add($this->product, $this->qty);
 

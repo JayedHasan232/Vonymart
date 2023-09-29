@@ -2,30 +2,34 @@
 
 namespace App\Http\Livewire\Admin\Page\Product\Category;
 
-use Livewire\Component;
-use Livewire\WithFileUploads;
-
-use Str;
-use Storage;
-
-// Helpers
 use App\Helpers\ImageResize as Image;
-
-// Models
 use App\Models\ProductCategory as Category;
+use Livewire\Component;
+// Helpers
+use Livewire\WithFileUploads;
+// Models
+use Str;
 
 class Create extends Component
 {
     use WithFileUploads;
-    
+
     public $privacy = 1;
+
     public $isFeatured = 0;
+
     public $title;
+
     public $url;
+
     public $description;
+
     public $meta_title;
+
     public $meta_description;
+
     public $meta_keywords;
+
     public $image;
 
     public function updatedTitle()
@@ -60,7 +64,7 @@ class Create extends Component
             'created_at' => now(),
         ]);
 
-        if($category && $this->image){
+        if ($category && $this->image) {
 
             $image = $this->image;
             $dimension = (object) [
@@ -71,16 +75,16 @@ class Create extends Component
                 'small' => (object) [
                     'width' => 75,
                     'height' => 75,
-                ]
+                ],
             ];
-            $path = "products/categories";
+            $path = 'products/categories';
 
             $result = Image::store($image, $dimension, $path);
 
             $category->update([
-                "image" => $result->image,
-                "image_medium" => $result->image_medium,
-                "image_small" => $result->image_small,
+                'image' => $result->image,
+                'image_medium' => $result->image_medium,
+                'image_small' => $result->image_small,
 
                 'updated_by' => auth()->id(),
                 'updated_at' => now(),

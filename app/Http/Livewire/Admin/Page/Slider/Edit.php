@@ -2,12 +2,11 @@
 
 namespace App\Http\Livewire\Admin\Page\Slider;
 
-use Livewire\Component;
-use Livewire\WithFileUploads;
-
 use App\Helpers\ImageResize as Image;
 use App\Models\Slider;
 use Illuminate\Support\Facades\Storage;
+use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class Edit extends Component
 {
@@ -16,10 +15,15 @@ class Edit extends Component
     public $slider;
 
     public $privacy;
+
     public $title;
+
     public $overview;
+
     public $link;
+
     public $link_title;
+
     public $image;
 
     public function mount(Slider $slider)
@@ -66,16 +70,16 @@ class Edit extends Component
                 'small' => (object) [
                     'width' => 360,
                     'height' => 160,
-                ]
+                ],
             ];
-            $path = "slider";
+            $path = 'slider';
 
             $result = Image::store($image, $dimension, $path);
 
             $this->slider->update([
-                "image" => $result->image,
-                "image_medium" => $result->image_medium,
-                "image_small" => $result->image_small,
+                'image' => $result->image,
+                'image_medium' => $result->image_medium,
+                'image_small' => $result->image_small,
             ]);
         }
 

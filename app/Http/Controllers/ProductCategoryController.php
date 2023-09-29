@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\ProductCategory as Category;
+use Illuminate\Http\Request;
 
 class ProductCategoryController extends Controller
 {
@@ -12,6 +12,7 @@ class ProductCategoryController extends Controller
         $categories = Category::where('privacy', 1)
             ->select('id', 'title', 'url', 'image')
             ->get();
+
         return view('app.category.index', ['categories' => $categories]);
     }
 
@@ -30,6 +31,7 @@ class ProductCategoryController extends Controller
         $category = Category::where('url', $category)
             ->where('privacy', 1)
             ->firstOrFail();
+
         return view('app.category.show', ['category' => $category]);
     }
 

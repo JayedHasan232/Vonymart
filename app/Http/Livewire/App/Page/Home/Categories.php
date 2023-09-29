@@ -2,9 +2,8 @@
 
 namespace App\Http\Livewire\App\Page\Home;
 
-use Livewire\Component;
-
 use App\Models\ProductCategory as Category;
+use Livewire\Component;
 
 class Categories extends Component
 {

@@ -2,32 +2,37 @@
 
 namespace App\Http\Livewire\Admin\Page\Product\Category;
 
+use App\Helpers\ImageResize as Image;
+use App\Models\ProductCategory as Category;
 use Livewire\Component;
 use Livewire\WithFileUploads;
-
-use Str;
-use Storage;
-
 // Helpers
-use App\Helpers\ImageResize as Image;
-
+use Storage;
 // Models
-use App\Models\ProductCategory as Category;
+use Str;
 
 class Edit extends Component
 {
     use WithFileUploads;
-    
+
     public $category;
 
     public $privacy;
+
     public $isFeatured;
+
     public $title;
+
     public $url;
+
     public $meta_title;
+
     public $description;
+
     public $meta_description;
+
     public $meta_keywords;
+
     public $image;
 
     public function mount($id)
@@ -58,7 +63,7 @@ class Edit extends Component
             'url' => 'required|string',
         ]);
 
-        if($this->url != $this->category->url){
+        if ($this->url != $this->category->url) {
             $this->validate([
                 'url' => 'unique:product_categories',
             ]);
@@ -77,8 +82,8 @@ class Edit extends Component
             'updated_at' => now(),
         ]);
 
-        if($this->image){
-            
+        if ($this->image) {
+
             Storage::delete($this->category->image);
             Storage::delete($this->category->image_medium);
             Storage::delete($this->category->image_small);
@@ -92,16 +97,16 @@ class Edit extends Component
                 'small' => (object) [
                     'width' => 75,
                     'height' => 75,
-                ]
+                ],
             ];
-            $path = "products/categories";
+            $path = 'products/categories';
 
             $result = Image::store($image, $dimension, $path);
 
             $this->category->update([
-                "image" => $result->image,
-                "image_medium" => $result->image_medium,
-                "image_small" => $result->image_small,
+                'image' => $result->image,
+                'image_medium' => $result->image_medium,
+                'image_small' => $result->image_small,
 
                 'updated_by' => auth()->id(),
                 'updated_at' => now(),

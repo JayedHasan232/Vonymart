@@ -2,12 +2,13 @@
 
 namespace App\Http\Livewire\App\Page\Shopping;
 
-use Livewire\Component;
 use App\Models\Order;
+use Livewire\Component;
 
 class OrderTracker extends Component
 {
     public $order_id = 'zw726';
+
     public $order = null;
 
     public function mount()

@@ -2,14 +2,15 @@
 
 namespace App\Http\Livewire\App\Page\Home;
 
-use Livewire\Component;
-
 use App\Models\Product;
+use Livewire\Component;
 
 class AllProducts extends Component
 {
     public $qty;
+
     public $link;
+
     public $products;
 
     public function mount($qty, $link = '')

@@ -2,8 +2,8 @@
 
 namespace App\Http\Livewire\App\Layout;
 
-use Livewire\Component;
 use App\Models\ProductCategory;
+use Livewire\Component;
 
 class Topbar extends Component
 {

@@ -2,12 +2,13 @@
 
 namespace App\Http\Livewire\User;
 
-use App\Models\User;
 use Livewire\Component;
 
 class Profile extends Component
 {
-    public $name, $phone;
+    public $name;
+
+    public $phone;
 
     public function mount()
     {
@@ -22,7 +23,7 @@ class Profile extends Component
     {
         auth()->user()->update([
             'name' => $this->name,
-            'phone' => $this->phone
+            'phone' => $this->phone,
         ]);
 
         return back()->with('success', 'Success!');

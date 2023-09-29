@@ -2,33 +2,37 @@
 
 namespace App\Http\Livewire\Admin\Page\Product\SubCategory;
 
-use Livewire\Component;
-use Livewire\WithFileUploads;
-
-use Str;
-use Storage;
-
-// Helpers
 use App\Helpers\ImageResize as Image;
-
-// Models
 use App\Models\ProductCategory as Category;
 use App\Models\ProductSubCategory as SubCategory;
+// Helpers
+use Livewire\Component;
+// Models
+use Livewire\WithFileUploads;
+use Str;
 
 class Create extends Component
 {
     use WithFileUploads;
-    
+
     public $categories;
 
     public $privacy = 1;
+
     public $category;
+
     public $title;
+
     public $url;
+
     public $description;
+
     public $meta_title;
+
     public $meta_description;
+
     public $meta_keywords;
+
     public $image;
 
     public function mount()
@@ -69,7 +73,7 @@ class Create extends Component
             'created_at' => now(),
         ]);
 
-        if($subcategory && $this->image){
+        if ($subcategory && $this->image) {
 
             $image = $this->image;
             $dimension = (object) [
@@ -80,22 +84,22 @@ class Create extends Component
                 'small' => (object) [
                     'width' => 75,
                     'height' => 75,
-                ]
+                ],
             ];
-            $path = "products/subcategories";
+            $path = 'products/subcategories';
 
             $result = Image::store($image, $dimension, $path);
 
             $subcategory->update([
-                "image" => $result->image,
-                "image_medium" => $result->image_medium,
-                "image_small" => $result->image_small,
+                'image' => $result->image,
+                'image_medium' => $result->image_medium,
+                'image_small' => $result->image_small,
 
                 'updated_by' => auth()->id(),
                 'updated_at' => now(),
             ]);
         }
-            
+
         $this->reset();
         $this->categories = Category::where('privacy', 1)->get();
 

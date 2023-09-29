@@ -8,12 +8,12 @@
       @endif
     </div>
 
-    <div class="row g-4">
+    <div class="row g-2">
 
       @foreach($products as $product)
 
-      <div class="col-6 col-md-3">
-        <livewire:app.component.products.product :product="$product" />
+      <div class="col-6 col-md-2">
+        <livewire:app.component.products.product :product="$product" :cartTitle="0" />
       </div>
 
       @endforeach

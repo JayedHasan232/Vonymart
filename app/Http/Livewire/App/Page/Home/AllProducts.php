@@ -18,7 +18,7 @@ class AllProducts extends Component
         $this->link = $link == 'visible' ? 1 : 0;
         $this->products = Product::where('privacy', 1)
             ->select('id', 'title', 'url', 'price', 'category_id', 'image')
-            ->latest()
+            ->inRandomOrder()
             ->get()
             ->take($this->qty);
     }

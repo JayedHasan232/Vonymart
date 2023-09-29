@@ -30,7 +30,7 @@
 @endif
 @endforeach
 
-<livewire:app.page.home.trending qty="8" link="visible" />
+<livewire:app.page.home.trending qty="6" link="visible" />
 
 @foreach($banners as $banner)
 @if($banner->position == 2)
@@ -38,7 +38,7 @@
 @endif
 @endforeach
 
-<livewire:app.page.home.recent qty="8" link="visible" />
+<livewire:app.page.home.recent qty="6" link="visible" />
 
 @foreach($banners as $banner)
 @if($banner->position == 3)

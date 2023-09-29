@@ -1,4 +1,4 @@
-<section class="tw-h-[40px] tw-bg-[#be1e2d] tw-text-white tw-text-sm">
+<section class="tw-hidden md:tw-block tw-h-[40px] tw-bg-[#be1e2d] tw-text-white tw-text-sm">
     <div class="tw-max-w-[1410px] tw-mx-auto tw-h-full tw-flex tw-items-center tw-justify-between">
         <div class="tw-flex tw-items-center tw-gap-2">
             <a href="{{route('about')}}" class="tw-flex tw-items-center tw-gap-1">
@@ -42,7 +42,7 @@
         </div>
 
         <div class="tw-flex tw-items-center tw-gap-2">
-            <a href="{{route('contact')}}" class="tw-flex tw-items-center tw-gap-1">
+            <a href="#" class="tw-flex tw-items-center tw-gap-1">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" class="tw-w-6 tw-h-6">
                     <path stroke-linecap="round" stroke-linejoin="round"

@@ -23,7 +23,13 @@ a {
 }
 
 .bg-accent {
-  background-color: #be1e2d;
+  color: white !important;
+  background-color: #be1e2d !important;
+}
+.bg-accent:hover {
+  color: #be1e2d !important;
+  background-color: white !important;
+  border: 1px solid #be1e2d !important;
 }
 
 .bg-great {
@@ -48,15 +54,12 @@ a {
   width: 100%;
 }
 .auth .box {
-  width: 20em;
+  width: 35em;
   padding: 1em;
   border-radius: 1em;
   border: 1px solid #ededed;
   overflow: hidden;
   transition: 0.125s;
-}
-.auth .box:hover {
-  border-color: #af0a0f;
 }
 .auth .box .header {
   margin: 0;

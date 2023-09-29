@@ -35,7 +35,7 @@
                     </svg>
                 </a>
             </div>
-            <h2 class="sec-title">Categories</h2>
+            <h2 class="sec-title">Departments</h2>
         </div>
 
         <div class="row g-2 g-md-4">

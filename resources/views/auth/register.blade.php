@@ -20,8 +20,7 @@
 
                     <div class="">
                         <input id="name" type="text" class="form-control @error('name') is-invalid @enderror"
-                            name="name" value="{{ old('name') }}" required autocomplete="name"
-                            placeholder="ex: Jams Smith" autofocus>
+                            name="name" value="{{ old('name') }}" required autocomplete="name" placeholder="" autofocus>
 
                         @error('name')
                         <span class="invalid-feedback" role="alert">
@@ -36,10 +35,24 @@
 
                     <div class="">
                         <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
-                            name="email" value="{{ old('email') }}" required autocomplete="email"
-                            placeholder="ex: email@gmail.com">
+                            name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="">
 
                         @error('email')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">{{ __('Phone Number') }}</label>
+
+                    <div class="">
+                        <input id="phone" type="text" class="form-control @error('phone') is-invalid @enderror"
+                            name="phone" value="{{ old('phone') }}" required autocomplete="phone" placeholder="">
+
+                        @error('phone')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
@@ -51,7 +64,7 @@
                     <label for="password">{{ __('Password') }}</label>
 
                     <input id="password" type="password" class="form-control @error('password') is-invalid @enderror"
-                        name="password" required autocomplete="new-password" placeholder="ex: @#@abc123@#@">
+                        name="password" required autocomplete="new-password" placeholder="">
 
                     @error('password')
                     <span class="invalid-feedback" role="alert">
@@ -60,14 +73,8 @@
                     @enderror
                 </div>
 
-                <div class="form-group">
-                    <label for="password-confirm">{{ __('Confirm Password') }}</label>
-                    <input id="pa ssword-confirm" type="password" class="form-control" name="password_confirmation"
-                        required autocomplete="new-password" placeholder="enter same password">
-                </div>
-
-                <div class="form-group d-flex align-items-center gap-3">
-                    <button type="submit" class="btn bg-accent text-white rounded-pill px-5">
+                <div class="form-group d-flex justify-content-center align-items-center gap-3">
+                    <button type="submit" class="btn bg-accent rounded-pill px-5">
                         {{ __('Register') }}
                     </button>
 

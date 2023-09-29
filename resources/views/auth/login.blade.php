@@ -20,8 +20,7 @@
 
                     <div class="">
                         <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
-                            name="email" value="{{ old('email') }}" required autocomplete="email"
-                            placeholder="ex: email@gmail.com">
+                            name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="">
 
                         @error('email')
                         <span class="invalid-feedback" role="alert">
@@ -49,7 +48,7 @@
                     <div class="">
                         <input id="password" type="password"
                             class="form-control @error('password') is-invalid @enderror" name="password" required
-                            autocomplete="new-password" placeholder="ex: @#@abc123@#@">
+                            autocomplete="new-password" placeholder="">
 
                         @error('password')
                         <span class="invalid-feedback" role="alert">
@@ -70,8 +69,8 @@
                     </div>
                 </div>
 
-                <div class="form-group d-flex align-items-center gap-3">
-                    <button type="submit" class="btn bg-accent text-white rounded-pill px-5">
+                <div class="form-group d-flex justify-content-center align-items-center gap-3">
+                    <button type="submit" class="btn bg-accent rounded-pill px-5">
                         {{ __('Login') }}
                     </button>
 

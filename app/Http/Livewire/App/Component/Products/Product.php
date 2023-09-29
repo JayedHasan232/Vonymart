@@ -10,23 +10,25 @@ use App\Models\Wishlist;
 class Product extends Component
 {
     public $product;
+    public $cartTitle;
     public $qty = 1;
 
     public $alreadyExists;
 
-    public function mount( $product )
+    public function mount($product, $cartTitle = 1)
     {
         $this->product = $product;
-        $this->alreadyExists = Wishlist::where('product_id', $this->product->id )
-                                        ->where('created_by', auth()->id() )
-                                        ->exists();
+        $this->cartTitle = $cartTitle;
+        $this->alreadyExists = Wishlist::where('product_id', $this->product->id)
+            ->where('created_by', auth()->id())
+            ->exists();
     }
 
     public function addToWishlist()
     {
-        if( auth()->check() ){
+        if (auth()->check()) {
 
-            if(!$this->alreadyExists){
+            if (!$this->alreadyExists) {
                 Wishlist::create([
                     'product_id' => $this->product->id,
                     'created_by' => auth()->id(),
@@ -34,13 +36,13 @@ class Product extends Component
                 ]);
             }
 
-            $this->alreadyExists = Wishlist::where('product_id', $this->product->id )
-                                        ->where('created_by', auth()->id() )
-                                        ->exists();
-    
+            $this->alreadyExists = Wishlist::where('product_id', $this->product->id)
+                ->where('created_by', auth()->id())
+                ->exists();
+
             $this->emit('wishlistUpdated');
-        }else{
-            return redirect( route('login') );
+        } else {
+            return redirect(route('login'));
         }
     }
 
@@ -54,7 +56,7 @@ class Product extends Component
 
         $this->emit('cartUpdated');
     }
-    
+
     public function render()
     {
         return view('livewire.app.component.products.product');

@@ -31,7 +31,14 @@ a {
 
 // Background colors
 .bg-accent {
-    background-color: $color;
+    color: white !important;
+    background-color: $color !important;
+
+    &:hover {
+        color: $color !important;
+        background-color: white !important;
+        border: 1px solid $color !important;
+    }
 }
 .bg-great {
     background-color: $color;
@@ -59,16 +66,12 @@ a {
     }
 
     .box {
-        width: 20em;
+        width: 35em;
         padding: 1em;
         border-radius: 1em;
         border: 1px solid #ededed;
         overflow: hidden;
         transition: $transition;
-
-        &:hover {
-            border-color: $colorGreat;
-        }
 
         .header {
             margin: 0;

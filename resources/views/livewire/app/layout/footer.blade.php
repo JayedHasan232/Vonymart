@@ -1,4 +1,4 @@
-<section>
+<section class="tw-mb-12 md:tw-mb-0">
     <footer class="footer">
         <div class="{{ env('BS_CONTAINER') }}">
             <div class="row">
@@ -19,7 +19,7 @@
                 <div class="col-md-3">
                     <h3 class="title">Menu</h3>
                     <ul class="foo-list">
-                        <li class="foo-item"><a class="foo-link" href="{{route('policy')}}">Privacy Policy</a></li>
+                        <li class="foo-item"><a class="foo-link" href="{{route('policy')}}">Policy</a></li>
                         <li class="foo-item"><a class="foo-link" href="{{route('terms')}}">Terms & Conditions</a>
                         </li>
                     </ul>

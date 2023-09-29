@@ -38,7 +38,8 @@
                 @foreach($items as $product)
                 <tr :key="$loop->index">
                     <td class="align-middle">
-                        <a class="media" href="{{ route('products.show', $product['item']->url) }}" target="_blank">
+                        <a class="media" href="{{ route('short-url-dynamic-data-show', $product['item']->url) }}"
+                            target="_blank">
                             @php
                             $image = $product['item']->image;
                             @endphp

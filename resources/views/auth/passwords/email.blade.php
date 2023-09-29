@@ -32,7 +32,7 @@
                 </div>
 
                 <div class="form-group d-flex justify-content-center">
-                    <button type="submit" class="btn bg-accent text-white rounded-pill px-5">
+                    <button type="submit" class="btn bg-accent rounded-pill px-5">
                         {{ __('Send Password Reset Link') }}
                     </button>
                 </div>

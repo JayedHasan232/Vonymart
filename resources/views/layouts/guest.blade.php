@@ -29,13 +29,13 @@
     <meta name="msvalidate.01" content="100D1B07279F130294AF9219A645BFFF" />
 
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YWDDHGK6BR"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1XW704GL2D"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
 
-        gtag('config', 'G-YWDDHGK6BR');
+        gtag('config', 'G-1XW704GL2D');
     </script>
 
     @stack('schema')

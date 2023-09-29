@@ -46,7 +46,7 @@
 @endif
 @endforeach
 
-<livewire:app.page.home.all-products qty="4" link="visible" />
+<livewire:app.page.home.all-products qty="6" link="visible" />
 
 @foreach($banners as $banner)
 @if($banner->position == 4)

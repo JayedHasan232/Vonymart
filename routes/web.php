@@ -68,9 +68,9 @@ Route::namespace('\App\Http\Controllers')
 
         Route::controller(ProductCategoryController::class)
             ->group(function () {
-                Route::name('categories.')
+                Route::name('departments.')
                     ->group(function () {
-                        Route::get('categories', 'index')->name('index');
+                        Route::get('departments', 'index')->name('index');
                     });
             });
 

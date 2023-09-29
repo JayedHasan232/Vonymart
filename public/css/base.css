@@ -39,7 +39,6 @@ a {
 
 .navbar {
   padding: 0;
-  height: 4.5em;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -507,6 +506,7 @@ a {
   font-size: 18px;
   padding: 0;
   cursor: pointer;
+  -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
 
@@ -561,4 +561,4 @@ a {
   color: #9ca9be;
   background-color: #444444;
   border-top: 1px solid #2c3542;
-}
+}/*# sourceMappingURL=base.css.map */
